@@ -1,14 +1,9 @@
-import { ThemeProvider } from 'styled-components';
-import Hello from 'components/Hello';
-import { GlobalStyle, theme } from 'styles';
+import AppProvider from 'providers/app';
 
 export default function App() {
   return (
-    <>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Hello />
-      </ThemeProvider>
-    </>
+    <AppProvider>
+      <div>ds</div>
+    </AppProvider>
   );
 }
