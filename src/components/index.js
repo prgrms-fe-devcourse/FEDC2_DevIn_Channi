@@ -1,5 +1,5 @@
 // PageA
-export { PageA } from 'components/PageA/PageA';
+export { Home } from 'components/Home/Home';
 
 // PageB
-export { PageB } from 'components/PageB/PageB';
+export { Event } from 'components/Event/Event';

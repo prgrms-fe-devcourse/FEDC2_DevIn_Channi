@@ -1,9 +1,9 @@
 import * as S from './style';
 
-export function PageB() {
+export function Event() {
   return (
     <S.Container>
-      <h1>Page B</h1>
+      <h1>Event</h1>
     </S.Container>
   );
 }

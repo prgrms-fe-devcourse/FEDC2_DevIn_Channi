@@ -1,9 +1,10 @@
-import AppProvider from 'providers/app';
+import AppProvider from 'providers/AppProvider';
+import Router from 'router/Router';
 
 export default function App() {
   return (
     <AppProvider>
-      <div>ds</div>
+      <Router />
     </AppProvider>
   );
 }
