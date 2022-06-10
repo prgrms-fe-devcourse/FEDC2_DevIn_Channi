@@ -18,6 +18,7 @@ module.exports = {
     'no-console': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': 'off',
+    'consistent-return': 'off',
   },
   settings: {
     'import/resolver': {
