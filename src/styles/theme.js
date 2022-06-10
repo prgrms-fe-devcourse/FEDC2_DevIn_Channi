@@ -10,4 +10,23 @@ export const theme = {
     textPrime: '#191919',
     textSecond: '#757575',
   },
+
+  fontSize: {
+    large: `
+      font-size: 1.5rem;
+      line-height: 2.25rem;
+    `,
+    regular: `
+      font-size: 1rem;
+      line-height: 1.5rem;
+    `,
+    small: `
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    `,
+    tiny: `
+      font-size: 0.75rem;
+      line-height: 1rem;
+    `,
+  },
 };
