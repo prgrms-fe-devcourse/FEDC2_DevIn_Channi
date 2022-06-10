@@ -1,1 +1,1 @@
-export { api } from './api';
+export { auth } from 'api/auth';
