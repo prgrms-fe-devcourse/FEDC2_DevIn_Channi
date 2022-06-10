@@ -1,19 +1,43 @@
-import api from 'api/api';
+import axios from 'axios';
 
 export const auth = {
   signin: async ({ email, password }) => {
-    return await api.post({ path: '/login', payload: { email, password } });
+    try {
+      const response = await axios.post('/login', { email, password });
+      return response.data;
+    } catch (e) {
+      console.error(e);
+    }
   },
+
   signup: async ({ email, fullName, password }) => {
-    return await api.post({
-      path: '/signup',
-      payload: { email, fullName, password },
-    });
+    try {
+      const response = await axios.post('/signup', {
+        email,
+        fullName,
+        password,
+      });
+      return response.data;
+    } catch (e) {
+      console.error(e);
+    }
   },
+
   signout: async () => {
-    return await api.post({ path: '/logout' });
+    try {
+      const response = await axios.post('/logout');
+      return response.data;
+    } catch (e) {
+      console.error(e);
+    }
   },
+
   isUserSignin: async () => {
-    return await api.get({ path: '/auth-user' });
+    try {
+      const response = await axios.get('/auth-user');
+      return response.data;
+    } catch (e) {
+      console.error(e);
+    }
   },
 };

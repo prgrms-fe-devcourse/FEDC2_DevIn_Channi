@@ -3,10 +3,12 @@ import { auth } from 'api';
 import * as S from './style';
 
 export function Home() {
+  const temp = async () => {
+    const user = await auth.isUserSignin();
+    console.log(user);
+  };
   useEffect(() => {
-    auth.isUserSignin().then(data => {
-      console.log(data);
-    });
+    temp();
   }, []);
   return (
     <S.Container>
