@@ -1,7 +1,6 @@
 // atoms
 export { Icon } from 'components/atoms/Icon/Icon';
 export { Logo } from 'components/atoms/Logo';
-export { ClickableIcon } from 'components/atoms/ClickableIcon';
 export { Label } from 'components/atoms/Label';
 export { Divider } from 'components/atoms/Divider';
 
