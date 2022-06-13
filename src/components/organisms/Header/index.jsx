@@ -1,4 +1,4 @@
-import { HeaderButtons, Logo } from 'components';
+import { Divider, HeaderButtons, Logo } from 'components';
 import * as S from './style';
 
 export function Header() {
@@ -6,6 +6,7 @@ export function Header() {
     <S.Header>
       <Logo />
       <HeaderButtons />
+      <Divider />
     </S.Header>
   );
 }

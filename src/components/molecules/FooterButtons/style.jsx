@@ -4,8 +4,15 @@ export const FooterButtons = styled.div`
   display: flex;
   justify-content: space-around;
   position: fixed;
-  width: 100%;
-  height: 100px;
-  left: 0;
+  width: inherit;
+  flex-wrap: wrap;
+
   bottom: 0;
+  padding-top: 8px;
+  padding-bottom: 16px;
+  color: ${({ theme }) => theme.color.textSecond};
+
+  fr {
+    margin-top: -8px;
+  }
 `;

@@ -1,12 +1,11 @@
-import { Header, FooterButtons, Divider } from 'components';
+import { Header, FooterButtons } from 'components';
 import * as S from './style';
 
 export function HomePage() {
   return (
     <S.HomePage>
       <Header />
-      <Divider />
-
+      <div style={{ height: 1000 }} />
       <FooterButtons />
     </S.HomePage>
   );
