@@ -1,12 +1,12 @@
-import { ClickableIcon } from 'components';
+import { Icon } from 'components';
 import * as S from './style';
 
 export function FooterButtons() {
   return (
     <S.FooterButtons>
-      <ClickableIcon />
-      <ClickableIcon />
-      <ClickableIcon />
+      <Icon icon="house" />
+      <Icon icon="calendar" />
+      <Icon icon="search" />
     </S.FooterButtons>
   );
 }
