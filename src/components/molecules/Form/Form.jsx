@@ -21,7 +21,7 @@ export function Form({ info }) {
           placeholder={input.placeholder}
         />
       ))}
-      <FormBtn onClick={onClick} text="로그인" />
+      <FormBtn onClick={onClick} text={title} />
       {isAuth && (
         <FormLink
           introText={introText}
