@@ -1,4 +1,4 @@
-import { SubmitBtn } from 'components';
+import { FormBtn } from 'components';
 import * as S from './style';
 
 export function SignIn() {
@@ -8,7 +8,7 @@ export function SignIn() {
       <div>dsds</div>
       <div>dsds</div>
       <div>dsds</div>
-      <SubmitBtn onClick={onClick} text="Submit" />
+      <FormBtn onClick={onClick} text="Submit" />
     </S.Container>
   );
 }

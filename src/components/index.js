@@ -1,3 +1,3 @@
 // atoms
 export { Icon } from 'components/atoms/Icon/Icon';
-export { SubmitBtn } from 'components/atoms/SubmitBtn/SubmitBtn';
+export { FormBtn } from 'components/atoms/FormBtn/FromBtn';
