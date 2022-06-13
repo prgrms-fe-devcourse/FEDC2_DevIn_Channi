@@ -10,3 +10,4 @@ export { Hyperlink } from 'assets/images/icons/Hyperlink';
 export { Menus } from 'assets/images/icons/Menus';
 export { Search } from 'assets/images/icons/Search';
 export { User } from 'assets/images/icons/User';
+export { Spinner } from 'assets/images/icons/Spinner';
