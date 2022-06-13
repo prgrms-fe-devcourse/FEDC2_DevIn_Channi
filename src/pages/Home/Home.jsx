@@ -17,7 +17,3 @@ export function Home() {
     </S.Container>
   );
 }
-
-// Todo
-// Header 작업 -> 로그인 상태 여부를 받아야 한다.
-// Footer 작업 -> 일괄적으로 사용될 Home, Event, Search Icons을 정렬한다.

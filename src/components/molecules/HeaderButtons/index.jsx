@@ -1,11 +1,11 @@
-import { ClickableIcon, Label } from 'components';
+import { Icon } from 'components';
 import * as S from './style';
 
 export function HeaderButtons() {
   return (
     <S.HeaderButtons>
-      <ClickableIcon />
-      <Label />
+      <Icon icon="bell" />
+      <Icon icon="bars" />
     </S.HeaderButtons>
   );
 }
