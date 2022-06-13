@@ -12,7 +12,7 @@ import {
   Menus,
   Search,
   User,
-} from 'assets/images/icons';
+} from 'assets';
 import * as S from './style';
 
 export function Icon({ className, icon }) {
