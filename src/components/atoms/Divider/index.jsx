@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import * as S from './style';
 
-export function Divider({ type = 'horizontal', size }) {
+export function Divider({ type, size }) {
   const dividerStyle = {
     margin: type === 'vertical' ? `0 ${size}px` : `${size}px 0`,
   };
@@ -9,10 +9,11 @@ export function Divider({ type = 'horizontal', size }) {
 }
 
 Divider.defaultProps = {
+  type: 'horizontal',
   size: 8,
 };
 
 Divider.propTypes = {
-  type: PropTypes.oneOf(['horizontal', 'vertical']).isRequired,
+  type: PropTypes.oneOf(['horizontal', 'vertical']),
   size: PropTypes.number,
 };
