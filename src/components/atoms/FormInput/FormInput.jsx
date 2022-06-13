@@ -12,7 +12,6 @@ export function FormInput({ type, name, placeholder }) {
         name={name}
         autoComplete="off"
         placeholder={placeholder}
-        required
       />
     </S.Container>
   );

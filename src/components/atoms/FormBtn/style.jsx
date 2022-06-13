@@ -13,4 +13,6 @@ export const Button = styled.button`
   color: #fff;
 
   text-align: center;
+
+  margin-top: 2rem;
 `;

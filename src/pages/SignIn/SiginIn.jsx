@@ -1,15 +1,34 @@
-import { FormBtn, FormInput } from 'components';
+import { Form } from 'components';
 import * as S from './style';
 
+const info = {
+  title: '로그인',
+  inputs: [
+    {
+      id: 1,
+      type: 'email',
+      name: '이메일',
+      placeholder: '이메일을 입력해주세요',
+    },
+    {
+      id: 2,
+      type: 'password',
+      name: '비밀번호',
+      placeholder: '비밀번호를 입력해주세요',
+    },
+  ],
+  isAuth: true,
+  link: {
+    introText: '아직 회원이 아니신가요?',
+    linkText: '가입하기',
+    linkPath: '/signup',
+  },
+};
+
 export function SignIn() {
-  const onClick = () => console.log('hello');
   return (
     <S.Container>
-      <div>dsds</div>
-      <div>dsds</div>
-      <div>dsds</div>
-      <FormInput type="email" name="이메일" />
-      <FormBtn onClick={onClick} text="Submit" />
+      <Form info={info} />
     </S.Container>
   );
 }
