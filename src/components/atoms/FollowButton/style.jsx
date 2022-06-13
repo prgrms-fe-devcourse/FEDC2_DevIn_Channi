@@ -9,7 +9,7 @@ export const FollowButton = styled.button`
   color: ${({ theme }) => theme.color.textPrime};
   background-color: ${({ theme }) => theme.color.line};
   &:hover {
-    color: ${({ theme }) => theme.color.blackMain};
+    color: ${({ theme }) => theme.color.backMain};
     background-color: ${({ theme }) => theme.color.highlight};
   }
 `;
