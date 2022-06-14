@@ -6,18 +6,16 @@ import * as S from './style';
 export function Profile({getCount, idx, userImage, userName}) {
     const profileRef = useRef();
 
-    const observer = new IntersectionObserver((entries, io) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting) {
-            io.unobserve(entry.target);
-            getCount(idx);
-            observer.disconnect();
-          }
-        })
-      }, {threshold: 0.1})
-
       useEffect(() => {
         if(profileRef.current && idx % 10 === 0) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if(entry.isIntersecting) {
+                getCount(idx);
+                observer.disconnect();
+              }
+            })
+          }, {threshold: 0.1})
           observer.observe(profileRef.current);
         }
       }, [])
