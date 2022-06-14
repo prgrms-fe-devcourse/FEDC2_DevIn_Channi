@@ -3,6 +3,8 @@ import { Profile, Loading } from 'components';
 import { users } from 'api';
 import * as S from './style';
 
+// 검색 결과 가져올 때도 생각해야함
+// 검색 결과는 offset, limit 값 지정 못 함
 export function ProfileList() {
   const [loading, setLoading] = useState(false);
   const [User, setUser] = useState([]);
@@ -23,9 +25,9 @@ export function ProfileList() {
       getUsers();
   }, [getUsers]);
 
-  console.log(loading);
   const profileList =
     !loading && User.length === 0 ? (
+      // SearchNone 컴포넌트 연결 예정
       <div>검색결과없음</div>
     ) : (
       User.map((user, idx) => (
