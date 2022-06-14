@@ -1,25 +1,19 @@
 module.exports = {
-  ignorePatterns: ['.eslintrc.js'],
-  plugins: ['react-hooks'],
-  env: {
-    browser: true,
-  },
+  ignorePatterns: ['.env'],
   extends: [
     'airbnb',
-    'plugin:react/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
+    'airbnb/hook',
     'plugin:prettier/recommended',
   ],
   rules: {
-    'prettier/prettier': 0,
+    'prettier/prettier': 'off',
     'import/prefer-default-export': 'off',
     'no-console': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': 'off',
     'consistent-return': 'off',
     'no-return-await': 'off',
+    'no-underscore-dangle': 'off',
   },
   settings: {
     'import/resolver': {
