@@ -18,7 +18,7 @@ export function Profile({getCount, idx, userImage, userName}) {
           }, {threshold: 0.1})
           observer.observe(profileRef.current);
         }
-      }, [])
+      }, [getCount, idx])
     
     return <S.Profile ref={profileRef}>
         <ProfileUserImage userImage={userImage}/>

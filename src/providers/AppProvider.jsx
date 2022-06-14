@@ -5,9 +5,9 @@ import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, theme } from 'styles';
 
-const ErrorFallback = () => {
+function ErrorFallback() {
   return <div>Somthing Went Wrong..</div>;
-};
+}
 
 export default function AppProvider({ children }) {
   return (
