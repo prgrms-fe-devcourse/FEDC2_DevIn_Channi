@@ -1,9 +1,12 @@
-import * as S from './style';
+// import * as S from './style';
+
+import { SearchBar, SearchResultTab } from "components";
 
 export function Search() {
   return (
-    <S.Container>
-      <h1>Search</h1>
-    </S.Container>
+    <>
+      <SearchBar/>
+      <SearchResultTab/>
+    </>
   );
 }
