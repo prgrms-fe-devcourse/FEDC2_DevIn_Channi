@@ -1,9 +1,9 @@
 import { useRef, useEffect } from "react";
+import PropTypes from 'prop-types';
 import { ProfileUserImage, ProfileUserName, FollowButton } from "components";
 import * as S from './style'; 
 
-export function Profile(user) {
-    const {getCount, idx, userImage, userName} = user;
+export function Profile({getCount, idx, userImage, userName}) {
     const profileRef = useRef();
 
     const observer = new IntersectionObserver((entries, io) => {
@@ -27,4 +27,11 @@ export function Profile(user) {
         <ProfileUserName userName={userName}/>
         <FollowButton/>
     </S.Profile>
+}
+
+Profile.propTypes = {
+  getCount: PropTypes.func.isRequired,
+  idx: PropTypes.number.isRequired,
+  userImage: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
 }
