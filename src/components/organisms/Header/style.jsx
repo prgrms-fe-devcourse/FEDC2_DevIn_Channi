@@ -8,9 +8,10 @@ export const Header = styled.header`
   padding-top: 19px;
   padding-bottom: 11px;
   top: 0;
-  left: 0;
   width: 100%;
+  max-width: 40rem;
   color: ${({ theme }) => theme.color.textSecond};
+  background-color: ${({ theme }) => theme.color.backMain};
 `;
 
 export const LogoImage = styled.div`
