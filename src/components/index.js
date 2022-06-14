@@ -15,6 +15,10 @@ export { SamplePost } from 'components/atoms/SamplePost';
 // molecules
 export { Form } from 'components/molecules/Form/Form';
 export { Profile } from 'components/molecules/Profile/Profile';
+export { HeaderButtons } from 'components/molecules/HeaderButtons';
+export { HeaderTexts } from 'components/molecules/HeaderTexts';
+export { FooterButtons } from 'components/molecules/FooterButtons';
+export { SamplePostList } from 'components/molecules/SamplePostList';
 
 // organisms
 export { ProfileList } from 'components/organisms/ProfileList/ProfileList';
