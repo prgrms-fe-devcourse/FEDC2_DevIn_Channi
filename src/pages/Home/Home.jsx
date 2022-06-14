@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { auth } from 'api';
+import { HomePage } from 'components';
 import * as S from './style';
 
 export function Home() {
@@ -7,12 +8,14 @@ export function Home() {
     const user = await auth.isUserSignin();
     console.log(user);
   };
+
   useEffect(() => {
     temp();
   }, []);
+
   return (
     <S.Container>
-      <h1>Home</h1>
+      <HomePage />
     </S.Container>
   );
 }

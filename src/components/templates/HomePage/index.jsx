@@ -1,17 +1,12 @@
 import { Header, Footer, SamplePostList } from 'components';
-import PropTypes from 'prop-types';
 import * as S from './style';
 
-export function HomePage({ isSignIn }) {
+export function HomePage() {
   return (
     <S.HomePage>
-      <Header isSignIn={isSignIn} />
+      <Header />
       <SamplePostList />
       <Footer />
     </S.HomePage>
   );
 }
-
-HomePage.propTypes = {
-  isSignIn: PropTypes.bool.isRequired,
-};
