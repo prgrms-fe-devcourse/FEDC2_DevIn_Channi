@@ -6,8 +6,8 @@ export const FollowButton = styled.button`
   margin-left: 2.5rem;
   border: none;
   border-radius: 2rem;
-  color: ${({ theme }) => theme.color.textPrime};
-  background-color: ${({ theme }) => theme.color.line};
+  color: ${({ theme }) => theme.color.textSecond};
+  background-color: ${({ theme }) => theme.color.backSub};
   &:hover {
     color: ${({ theme }) => theme.color.backMain};
     background-color: ${({ theme }) => theme.color.highlight};
