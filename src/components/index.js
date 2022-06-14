@@ -22,5 +22,8 @@ export { SamplePostList } from 'components/molecules/SamplePostList';
 
 // organisms
 export { ProfileList } from 'components/organisms/ProfileList/ProfileList';
+export { Header } from 'components/organisms/Header';
+export { Footer } from 'components/organisms/Footer';
 
 // templates
+export { HomePage } from 'components/templates/HomePage';
