@@ -8,7 +8,6 @@ export { FormBtn } from 'components/atoms/FormBtn/FromBtn';
 export { FormInput } from 'components/atoms/FormInput/FormInput';
 export { FormLink } from 'components/atoms/FormLink/FormLink';
 export { Logo } from 'components/atoms/Logo/Logo';
-export { Label } from 'components/atoms/Label/Label';
 export { Divider } from 'components/atoms/Divider/Divider';
 export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
 

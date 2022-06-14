@@ -1,11 +1,11 @@
-import { Label } from 'components';
+import { Link } from 'react-router-dom';
 import * as S from './style';
 
 export function HeaderTexts() {
   return (
     <S.HeaderTexts>
-      <Label content="로그인" width={39} height={21} />
-      <Label content="회원가입" width={52} height={21} />
+      <Link to="/signin">로그인</Link>
+      <Link to="/signup">회원가입</Link>
     </S.HeaderTexts>
   );
 }
