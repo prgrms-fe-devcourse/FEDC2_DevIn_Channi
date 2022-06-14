@@ -1,9 +1,12 @@
 import axios from 'axios';
 
+// const API = process.env.REACT_APP_API_ENDPOINT;
+
 export const auth = {
   signin: async ({ email, password }) => {
     try {
-      const response = await axios.post('/login', { email, password });
+      const response = await axios.post(`/login`, { email, password });
+      console.log('res', response);
       return response.data;
     } catch (e) {
       console.error(e);
@@ -34,7 +37,7 @@ export const auth = {
 
   isUserSignin: async () => {
     try {
-      const response = await axios.get('/auth-user');
+      const response = await axios.get(`/auth-user`);
       return response.data;
     } catch (e) {
       console.error(e);
