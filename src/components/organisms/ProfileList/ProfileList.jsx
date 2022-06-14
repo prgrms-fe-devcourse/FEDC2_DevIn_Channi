@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { nanoid } from 'nanoid';
 import { Profile, Loading } from 'components';
 import { users } from 'api';
 import * as S from './style';
@@ -35,7 +34,7 @@ export function ProfileList() {
           <Profile
             getCount={getCount}
             idx={idx + 1}
-            key={nanoid()}
+            key={userInfo._id}
             userImage={userInfo.image || ''}
             userName={userInfo.fullName}
           />
