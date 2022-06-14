@@ -7,5 +7,5 @@ export const SearchBar= styled.div`
   display: flex;
   align-items: center;
   border-radius: 2rem;
-  background-color: ${({ theme }) => theme.color.blackSub};
+  background-color: ${({ theme }) => theme.color.backSub};
 `;
