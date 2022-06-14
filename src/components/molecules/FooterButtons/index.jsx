@@ -1,13 +1,18 @@
-import { Divider, Icon } from 'components';
+import { Icon } from 'components';
 import * as S from './style';
 
 export function FooterButtons() {
   return (
     <S.FooterButtons>
-      <Divider />
-      <Icon icon="house" />
-      <Icon icon="calendar" />
-      <Icon icon="search" />
+      <div className="icons">
+        <Icon icon="house" />
+      </div>
+      <div className="icons">
+        <Icon icon="calendar" />
+      </div>
+      <div className="icons">
+        <Icon icon="search" />
+      </div>
     </S.FooterButtons>
   );
 }

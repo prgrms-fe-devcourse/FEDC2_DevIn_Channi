@@ -3,19 +3,16 @@ import styled from 'styled-components';
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
-  position: fixed;
   flex-wrap: wrap;
-  width: inherit;
-
-  top: 0;
-  padding-left: 16px;
+  position: fixed;
   padding-top: 19px;
   padding-bottom: 11px;
-
+  top: 0;
+  left: 0;
+  width: 100%;
   color: ${({ theme }) => theme.color.textSecond};
+`;
 
-  hr {
-    width: inherit;
-    margin-left: -8px;
-  }
+export const LogoImage = styled.div`
+  padding-left: 16px;
 `;

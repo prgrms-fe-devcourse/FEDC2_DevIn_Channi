@@ -1,15 +1,15 @@
-import { Divider, HeaderButtons, Logo } from 'components';
+import { Divider, HeaderTexts, Logo } from 'components';
 import * as S from './style';
 
 export function Header() {
   return (
     <S.Header>
-      <Logo />
-      <HeaderButtons />
+      <S.LogoImage>
+        <Logo />
+      </S.LogoImage>
+      {/* <HeaderButtons /> */}
+      <HeaderTexts />
       <Divider />
     </S.Header>
   );
 }
-
-// prop drilling
-//
