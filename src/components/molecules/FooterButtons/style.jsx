@@ -5,7 +5,7 @@ export const FooterButtons = styled.div`
   grid-template-rows: 1fr;
   grid-template-columns: repeat(3, 1fr);
   padding-bottom: 16px;
-  .icons {
+  i {
     justify-self: center;
   }
 `;
