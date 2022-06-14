@@ -1,4 +1,4 @@
-import { SearchResultItem, ProfileList } from 'components';
+import { SearchResultItem } from 'components';
 import { useState } from 'react';
 import * as S from './style';
 
@@ -10,8 +10,8 @@ export function SearchResultTab() {
   }
 
   const selectContent = {
-    profile: <ProfileList/>,
-    post: <div>hello</div>
+    profile: <div>ProfileList</div>,
+    post: <div>Post</div>
   }
   return (
     <>
