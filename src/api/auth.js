@@ -40,4 +40,13 @@ export const auth = {
       console.error(e);
     }
   },
+
+  getUsers: async () => {
+    try {
+      const users = await axios.get('/users/get-users');
+      console.log(users);
+    } catch (e) {
+      console.error(e);
+    }
+  },
 };

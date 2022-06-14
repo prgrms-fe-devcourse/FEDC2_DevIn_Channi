@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Divider = styled.hr`
   border: none;
   background-color: #aaa;
+  margin: ${props =>
+    props.type === 'vertical' ? `0 ${props.size}px` : `${props.size}px 0`};
 
   &.vertical {
     position: relative;

@@ -7,6 +7,7 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Event />} />
+        
       </Routes>
     </BrowserRouter>
   );

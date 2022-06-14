@@ -2,10 +2,7 @@ import PropTypes from 'prop-types';
 import * as S from './style';
 
 export function Divider({ type, size }) {
-  const dividerStyle = {
-    margin: type === 'vertical' ? `0 ${size}px` : `${size}px 0`,
-  };
-  return <S.Divider className={type} style={{ dividerStyle }} />;
+  return <S.Divider className={type} size={size} />;
 }
 
 Divider.defaultProps = {
