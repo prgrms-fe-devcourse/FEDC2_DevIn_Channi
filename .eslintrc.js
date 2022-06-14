@@ -1,10 +1,6 @@
 module.exports = {
   ignorePatterns: ['.env'],
-  extends: [
-    'airbnb',
-    'airbnb/hook',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['airbnb', 'airbnb/hooks', 'plugin:prettier/recommended'],
   rules: {
     'prettier/prettier': 'off',
     'import/prefer-default-export': 'off',
