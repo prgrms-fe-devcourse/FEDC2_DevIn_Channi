@@ -4,7 +4,7 @@ import * as S from './style';
 export function CreatePost() {
   return (
     <S.CreatePost>
-      <ProfileUserImage />
+      <ProfileUserImage size="2.5" />
       <CreatePostInput />
     </S.CreatePost>
   );
