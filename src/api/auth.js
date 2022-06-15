@@ -6,7 +6,6 @@ export const auth = {
   signin: async ({ email, password }) => {
     try {
       const response = await axios.post(`${API}/login`, { email, password });
-      console.log('res', response);
       return response.data;
     } catch (e) {
       console.error(e);
