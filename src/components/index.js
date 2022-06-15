@@ -1,3 +1,4 @@
+// atoms
 export { Icon } from 'components/atoms/Icon/Icon';
 export { ProfileUserImage } from 'components/atoms/ProfileUserImage/ProfileUserImage';
 export { ProfileUserName } from 'components/atoms/ProfileUserName/ProfileUserName';
@@ -11,15 +12,27 @@ export { SearchInput } from 'components/atoms/SearchInput/SearchInput';
 export { SearchNone } from 'components/atoms/SearchNone/SearchNone';
 export { SearchNumber } from 'components/atoms/SearchNumber/SearchNumber';
 export { SearchTarget } from 'components/atoms/SearchTarget/SearchTarget';
+export { Logo } from 'components/atoms/Logo/Logo';
+export { Divider } from 'components/atoms/Divider/Divider';
+export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
+
 
 // molecules
 export { Form } from 'components/molecules/Form/Form';
 export { SearchBar } from 'components/molecules/SearchBar/SearchBar';
 export { SearchResultItem } from 'components/molecules/SearchResultItem/SearchResultItem';
 export { Profile } from 'components/molecules/Profile/Profile';
+export { HeaderButtons } from 'components/molecules/HeaderButtons/HeaderButtons';
+export { HeaderTexts } from 'components/molecules/HeaderTexts/HeaderTexts';
+export { FooterButtons } from 'components/molecules/FooterButtons/FooterButtons';
+export { SamplePostList } from 'components/molecules/SamplePostList/SamplePostList';
 
+// organisms
 export { ProfileList } from 'components/organisms/ProfileList/ProfileList';
 export { SearchResultTab } from 'components/organisms/SearchResultTab/SearchResultTab';
+export { Header } from 'components/organisms/Header/Header';
+export { Footer } from 'components/organisms/Footer/Footer';
 
 
-
+// templates
+export { HomePage } from 'components/templates/HomePage/HomePage';

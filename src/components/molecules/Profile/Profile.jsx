@@ -24,7 +24,6 @@ export function Profile({ getCount, idx, userImage, userName, isSearchData }) {
       }
     }
   });
-
   return (
     <S.Profile ref={profileRef}>
       <ProfileUserImage userImage={userImage} />
