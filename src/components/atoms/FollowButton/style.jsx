@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const FollowButton = styled.button`
   width: 4rem;
   height: 2.5rem;
-  margin-left: 2.5rem;
+  margin-left: auto;
   border: none;
   border-radius: 2rem;
   color: ${({ theme }) => theme.color.textSecond};

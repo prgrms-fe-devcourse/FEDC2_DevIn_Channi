@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const UserName = styled.div`
-  width: 12rem;
+  width: 65%;
   height: 3rem;
   overflow: hidden;
   color: ${({ theme }) => theme.color.textPrime};
