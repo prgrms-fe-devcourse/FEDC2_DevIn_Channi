@@ -26,7 +26,7 @@ export function Profile({ getCount, idx, userImage, userName, isSearchData }) {
   });
   return (
     <S.Profile ref={profileRef}>
-      <ProfileUserImage userImage={userImage} />
+      <ProfileUserImage userImage={userImage} size={3} />
       <ProfileUserName userName={userName} />
       <FollowButton />
     </S.Profile>
