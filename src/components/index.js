@@ -16,7 +16,6 @@ export { Logo } from 'components/atoms/Logo/Logo';
 export { Divider } from 'components/atoms/Divider/Divider';
 export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
 
-
 // molecules
 export { Form } from 'components/molecules/Form/Form';
 export { SearchBar } from 'components/molecules/SearchBar/SearchBar';
@@ -30,9 +29,10 @@ export { SamplePostList } from 'components/molecules/SamplePostList/SamplePostLi
 // organisms
 export { ProfileList } from 'components/organisms/ProfileList/ProfileList';
 export { SearchResultTab } from 'components/organisms/SearchResultTab/SearchResultTab';
+export { SearchArea } from 'components/organisms/SearchArea/SearchArea';
 export { Header } from 'components/organisms/Header/Header';
 export { Footer } from 'components/organisms/Footer/Footer';
 
-
 // templates
 export { HomePage } from 'components/templates/HomePage/HomePage';
+export { SearchPage } from 'components/templates/SearchPage/SearchPage';
