@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import { Form } from 'components';
 import { useForm } from 'hooks';
 import { auth } from 'api';
 import * as S from './style';
 
 export function SignUp() {
+  const navigate = useNavigate();
   const { onChange, onSubmit } = useForm({
     initialState: {
       fullName: '',
@@ -12,6 +14,7 @@ export function SignUp() {
     },
     authCallback: async ({ formData }) => {
       const response = await auth.signup({ ...formData });
+      navigate('/signin');
       return response;
     },
   });
