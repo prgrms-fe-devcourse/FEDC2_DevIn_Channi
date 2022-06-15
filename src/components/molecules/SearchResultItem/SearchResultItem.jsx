@@ -1,8 +1,8 @@
+import PropTypes from "prop-types"
 import { SearchTarget, SearchNumber } from 'components';
 import * as S from './style';
 
-export function SearchResultItem(item) {
-  const { getItem, name, itemName, itemNum } = item;
+export function SearchResultItem({ getItem, name, itemName, itemNum }) {
   const onTabClick = () => {
     getItem(name);
   };
@@ -13,3 +13,11 @@ export function SearchResultItem(item) {
     </S.SearchResultItem>
   );
 }
+
+SearchResultItem.propTypes = {
+  getItem: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  itemName: PropTypes.string.isRequired,
+  itemNum: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+}
+
