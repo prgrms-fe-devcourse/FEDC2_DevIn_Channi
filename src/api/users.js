@@ -9,7 +9,7 @@ function wait(ms) {
 export const users = {
   getUsers: async ({ offset, limit }) => {
     try {
-      const response = await axios.get('/users/get-users', {
+      const response = await axios.get(`${API_ENDPOINT}/users/get-users`, {
         params: { offset, limit },
       });
       await wait(1000);
