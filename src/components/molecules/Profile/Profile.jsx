@@ -9,7 +9,7 @@ export function Profile({ getCount, idx, userImage, userName, isSearchData }) {
   useEffect(() => {
     if (profileRef.current && idx % 10 === 0) {
       const observer = new IntersectionObserver(
-        entries => {
+        (entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               getCount(idx);
@@ -17,7 +17,7 @@ export function Profile({ getCount, idx, userImage, userName, isSearchData }) {
             }
           });
         },
-        { threshold: 0.1 },
+        { threshold: 1 },
       );
       if (!isSearchData) {
         observer.observe(profileRef.current);
