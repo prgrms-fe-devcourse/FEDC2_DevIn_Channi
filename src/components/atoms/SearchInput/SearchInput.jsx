@@ -1,39 +1,44 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { search } from 'api';
-import { userInfo } from 'stores/search';
+import { userInfo } from 'stores/searchUsers';
+import { postInfo } from 'stores/searchPosts';
 import * as S from './style';
 
 export function SearchInput() {
   const [text, setText] = useState(''); // input안 value
-  const [keyword, setKeyword] = useState(''); // enter 눌렀을 때 text값
-  const [data, setData] = useState(''); // 서버에서 불러온 검색 결과
+  const [usersResult, setUsersResult] = useState(''); // 서버에서 불러온 유저 검색 결과
+  const [postsResult, setPostsResult] = useState(''); // 서버에서 불러온 모든 검색 결과
+
   const dispatch = useDispatch();
 
-  const onKeyPress = e => {
-    if (e.key === 'Enter') {
-      setKeyword(text);
-    }
-  };
+  useEffect(() => {
+    // 현재 모든 입력에 동작하고있음
+    // 연속적으로 입력할 때 동작안해야 함
+    setTimeout(() => {
+      if (text) {
+        const getData = async () => {
+          const searchUsersApi = await search.searchUser(text);
+          setUsersResult(searchUsersApi);
+  
+          const searchAllApi = await search.searchAll(text);
+          setPostsResult(searchAllApi.slice(searchUsersApi.length))
+        };
+        getData();
+      } else {
+        // input에 아무것도 안넣었을 때 전체 사용자 목록 불러오도록 함
+        // userInfo 값이 null 검색결과 없어서 사용자 목록 불러옴
+        dispatch(userInfo(null));
+        setUsersResult('');
+        setPostsResult('');
+      }
+    }, 2000)
+  }, [text, dispatch]);
 
   useEffect(() => {
-    if (keyword) {
-      const getData = async () => {
-        const searchApi = await search.searchUser(keyword);
-        setData(searchApi);
-      };
-      getData();
-    }
-  }, [keyword]);
-
-  useEffect(() => {
-    if (data) dispatch(userInfo(data));
-    if (!text) {
-      dispatch(userInfo(null));
-      setKeyword('');
-      setData('');
-    }
-  }, [data, dispatch, text]);
+    if (usersResult) dispatch(userInfo(usersResult));
+    if (postsResult) dispatch(postInfo(postsResult));
+  }, [usersResult, postsResult, dispatch]);
 
   const onChange = e => {
     setText(e.target.value);
@@ -44,7 +49,6 @@ export function SearchInput() {
       type="text"
       value={text}
       onChange={onChange}
-      onKeyPress={onKeyPress}
     />
   );
 }
