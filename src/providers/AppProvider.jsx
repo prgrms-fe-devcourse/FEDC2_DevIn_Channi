@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { ErrorBoundary } from 'react-error-boundary';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
+import { store } from 'store';
 import { GlobalStyle, theme } from 'styles';
 
 function ErrorFallback() {
@@ -15,7 +17,9 @@ export default function AppProvider({ children }) {
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <HelmetProvider>
           <GlobalStyle />
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          <ThemeProvider theme={theme}>
+            <Provider store={store}>{children}</Provider>
+          </ThemeProvider>
         </HelmetProvider>
       </ErrorBoundary>
     </React.Suspense>
