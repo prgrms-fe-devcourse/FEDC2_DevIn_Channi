@@ -9,6 +9,9 @@ export { FormInput } from 'components/atoms/FormInput/FormInput';
 export { FormLink } from 'components/atoms/FormLink/FormLink';
 export { Logo } from 'components/atoms/Logo/Logo';
 export { Divider } from 'components/atoms/Divider/Divider';
+export { CreatePostInput } from 'components/atoms/CreatePostInput/CreatePostInput';
+
+export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
 
 // molecules
 export { Form } from 'components/molecules/Form/Form';
@@ -16,6 +19,9 @@ export { Profile } from 'components/molecules/Profile/Profile';
 export { HeaderButtons } from 'components/molecules/HeaderButtons/HeaderButtons';
 export { HeaderTexts } from 'components/molecules/HeaderTexts/HeaderTexts';
 export { FooterButtons } from 'components/molecules/FooterButtons/FooterButtons';
+export { CreatePost } from 'components/molecules/CreatePost/CreatePost';
+
+export { SamplePostList } from 'components/molecules/SamplePostList/SamplePostList';
 
 // organisms
 export { ProfileList } from 'components/organisms/ProfileList/ProfileList';
