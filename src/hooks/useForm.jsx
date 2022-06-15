@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { auth } from 'api';
 
-export function useForm({ initialState, authType }) {
+export function useForm({ initialState, authCallback }) {
   const [formData, setFormData] = useState(initialState);
 
   const onChange = ({ target }) => {
@@ -15,8 +14,8 @@ export function useForm({ initialState, authType }) {
   const onSubmit = async e => {
     e.preventDefault();
     try {
-      const response = await auth[authType]({ ...formData });
-      console.log(response);
+      const response = await authCallback({ formData });
+      return response;
     } catch (err) {
       console.error(err);
     }

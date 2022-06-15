@@ -1,4 +1,5 @@
 import { Form } from 'components';
+import { auth } from 'api';
 import { useForm } from 'hooks';
 import * as S from './style';
 
@@ -8,7 +9,10 @@ export function SignIn() {
       email: '',
       password: '',
     },
-    authType: 'signin',
+    authCallback: async ({ formData }) => {
+      const response = await auth.signin({ ...formData });
+      return response;
+    },
   });
 
   const info = {
