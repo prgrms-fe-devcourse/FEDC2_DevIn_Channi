@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Profile, Loading, SearchNone } from 'components';
 import { users } from 'api';
+import { allusers } from 'stores/allUsers';
 import * as S from './style';
 
 export function ProfileList() {
@@ -11,32 +12,42 @@ export function ProfileList() {
   const [isSearchData, setIsSearchData] = useState(false);
   const [count, setCount] = useState(10);
 
-  const searchResult = useSelector(state => state.search.value);
+  const dispatch = useDispatch();
+
+  const searchUsersResult = useSelector(state => state.searchUsers.value);
+
   const getCount = setcount => {
-    setCount(setcount + 10);
+    if(count <= setcount) {
+      setCount(setcount + 10);
+    }
   };
 
   useEffect(() => {
-    if (searchResult) {
-      setIsUserExsist(searchResult.length > 0);
-      setUser(searchResult);
+    if (searchUsersResult) {
+      setIsUserExsist(searchUsersResult.length > 0);
+      setUser(searchUsersResult);
       setIsSearchData(true);
     } else {
+      // searchData가 있는 상태에서 input을 비우면
+      // searchData를 담고있는 user를 비워줌
+      if(isSearchData) setUser([]);
       const getUsers = async () => {
         setLoading(true);
         const usersInfo = await users.getUsers({ offset: 0, limit: count });
-        setIsSearchData(false);
-        if(!isSearchData) setUser(usersInfo);
-        setIsUserExsist(true);
-        setLoading(false);
+        setIsSearchData(false); // SearchData가 아니라는 뜻
+        setUser(usersInfo); // 전체 사용자 목록으로 user 변경
+        dispatch(allusers(usersInfo)) // 전체 사용자 목록 redux에 저장
+        setIsUserExsist(true); // 유저 존재함
+        setLoading(false); 
       };
       getUsers();
     }
-  }, [searchResult, isSearchData, count]);
+  }, [searchUsersResult, dispatch, count, isSearchData, isUserExsist]);
+
 
   return (
     <S.ProfileList>
-      {!isUserExsist && <SearchNone />}
+      {!loading && !isUserExsist && <SearchNone />}
       {isUserExsist &&
         user.map((userInfo, idx) => (
           <Profile
