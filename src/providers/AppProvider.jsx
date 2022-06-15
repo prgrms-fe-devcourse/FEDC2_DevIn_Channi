@@ -4,6 +4,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
+import { CookiesProvider } from 'react-cookie';
 import { store } from 'store';
 import { GlobalStyle, theme } from 'styles';
 
@@ -18,7 +19,9 @@ export default function AppProvider({ children }) {
         <HelmetProvider>
           <GlobalStyle />
           <ThemeProvider theme={theme}>
-            <Provider store={store}>{children}</Provider>
+            <CookiesProvider>
+              <Provider store={store}>{children}</Provider>
+            </CookiesProvider>
           </ThemeProvider>
         </HelmetProvider>
       </ErrorBoundary>

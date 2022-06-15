@@ -1,9 +1,15 @@
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setIsLoggedIn } from 'store/userSlice';
 import { Form } from 'components';
 import { auth } from 'api';
-import { useForm } from 'hooks';
+import { useForm, useCookie } from 'hooks';
 import * as S from './style';
 
 export function SignIn() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { setCookie } = useCookie();
   const { onChange, onSubmit } = useForm({
     initialState: {
       email: '',
@@ -11,6 +17,13 @@ export function SignIn() {
     },
     authCallback: async ({ formData }) => {
       const response = await auth.signin({ ...formData });
+
+      if (response.status === 200) {
+        setCookie({ value: response.token });
+        dispatch(setIsLoggedIn(true));
+        navigate('/');
+      }
+
       return response;
     },
   });

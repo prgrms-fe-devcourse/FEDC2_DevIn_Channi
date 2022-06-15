@@ -8,7 +8,6 @@ export function useCookie() {
     path: '/',
     secure: true,
     maxAge: new Date(Date.now() + 24 * 60 * 60 * 1000), // 하루
-    httpOnly: true,
   };
 
   const setCookie = ({ value }) => {

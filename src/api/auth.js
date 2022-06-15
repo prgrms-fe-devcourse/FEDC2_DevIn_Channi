@@ -6,9 +6,13 @@ export const auth = {
   signin: async ({ email, password }) => {
     try {
       const response = await axios.post(`${API}/login`, { email, password });
-      return response.data;
+      return { ...response.data, status: 200 };
     } catch (e) {
-      console.error(e);
+      console.error(e.response.data);
+      return {
+        status: e.response.status,
+        message: e.response.data,
+      };
     }
   },
 
@@ -19,9 +23,13 @@ export const auth = {
         fullName,
         password,
       });
-      return response.data;
+      return { ...response.data, status: 200 };
     } catch (e) {
-      console.error(e);
+      console.error(e.response.data);
+      return {
+        status: e.response.status,
+        message: e.response.data,
+      };
     }
   },
 
