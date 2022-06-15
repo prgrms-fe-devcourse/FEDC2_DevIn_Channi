@@ -1,11 +1,10 @@
-import React from 'react';
 import { SearchTarget, SearchNumber } from 'components';
 import * as S from './style';
 
 export function SearchResultItem(item) {
-  const { getData, name, itemName, itemNum } = item;
+  const { getItem, name, itemName, itemNum } = item;
   const onTabClick = () => {
-    getData(name);
+    getItem(name);
   };
   return (
     <S.SearchResultItem onClick={onTabClick}>
