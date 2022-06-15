@@ -1,11 +1,14 @@
 import { ProfileUserImage, CreatePostInput } from 'components';
+import { Link } from 'react-router-dom';
 import * as S from './style';
 
 export function CreatePost() {
   return (
-    <S.CreatePost>
-      <ProfileUserImage size="2.5" />
-      <CreatePostInput />
-    </S.CreatePost>
+    <Link to="/create-post">
+      <S.CreatePost>
+        <ProfileUserImage size="2.5" />
+        <CreatePostInput />
+      </S.CreatePost>
+    </Link>
   );
 }
