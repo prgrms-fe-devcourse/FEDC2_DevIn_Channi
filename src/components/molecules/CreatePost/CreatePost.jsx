@@ -4,9 +4,9 @@ import * as S from './style';
 
 export function CreatePost() {
   return (
-    <Link to="/create-post">
+    <Link to="/posts/create">
       <S.CreatePost>
-        <ProfileUserImage size="2.5" />
+        <ProfileUserImage size={2.5} />
         <CreatePostInput />
       </S.CreatePost>
     </Link>

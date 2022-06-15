@@ -4,4 +4,7 @@ export const HeaderButtons = styled.div`
   display: flex;
   gap: 0.5rem;
   padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  height: 3.5rem;
 `;

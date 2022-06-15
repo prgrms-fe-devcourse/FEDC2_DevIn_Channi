@@ -6,6 +6,7 @@ export const CreatePostInput = styled.div`
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 1rem;
+  line-height: 1.5rem;
 
   background-color: ${({ theme }) => theme.color.backSub};
   color: ${({ theme }) => theme.color.textPrime};

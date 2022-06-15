@@ -6,7 +6,6 @@ export const Header = styled.header`
   flex-wrap: wrap;
   position: fixed;
   top: 0;
-  text-align: center;
   height: 3.5rem;
   width: 100%;
   max-width: calc(40rem - 2px);
@@ -17,4 +16,5 @@ export const Header = styled.header`
 export const LogoImage = styled.div`
   padding-left: 1rem;
   padding-top: 1rem;
+  padding-bottom: 1rem;
 `;
