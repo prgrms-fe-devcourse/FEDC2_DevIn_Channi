@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
 export const SamplePostList = styled.div`
-  padding-top: 8rem;
+  // 3.5 or 8.5
+  padding-top: ${props => (props.isLogin ? 8.5 : 3.5)}rem;
 `;

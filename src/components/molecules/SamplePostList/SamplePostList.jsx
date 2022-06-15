@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
 import { SamplePost } from 'components';
 import * as S from './style';
 
-export function SamplePostList() {
+export function SamplePostList({ isLogin }) {
   return (
-    <S.SamplePostList>
+    <S.SamplePostList isLogin={isLogin}>
       <SamplePost />
       <SamplePost />
       <SamplePost />
@@ -24,3 +25,7 @@ export function SamplePostList() {
     </S.SamplePostList>
   );
 }
+
+SamplePostList.propTypes = {
+  isLogin: PropTypes.bool.isRequired,
+};

@@ -1,12 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { auth } from 'api';
 import { HomePage } from 'components';
 import * as S from './style';
 
 export function Home() {
+  const [isLogin, setIsLogin] = useState(false);
+
   const temp = async () => {
     const user = await auth.isUserSignin();
     console.log(user);
+    user === '' ? setIsLogin(true) : setIsLogin(true);
   };
 
   useEffect(() => {
@@ -15,7 +18,7 @@ export function Home() {
 
   return (
     <S.Container>
-      <HomePage />
+      <HomePage isLogin={isLogin} />
     </S.Container>
   );
 }
