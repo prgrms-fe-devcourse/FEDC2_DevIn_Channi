@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import searchReducer from './search';
+import allUsersReducer from './allUsers'
+import searchUsersReducer from './searchUsers';
+import searchPostsReducer from './searchPosts'
 
 export default configureStore({
   reducer: {
-    search: searchReducer,
+    allUsers: allUsersReducer,
+    searchUsers: searchUsersReducer,
+    searchPosts: searchPostsReducer,
   },
 });
