@@ -1,34 +1,42 @@
 import { useEffect, useState } from 'react';
-import { Profile, Loading } from 'components';
+import { useSelector } from 'react-redux';
+import { Profile, Loading, SearchNone } from 'components';
 import { users } from 'api';
 import * as S from './style';
 
-// 검색 결과 가져올 때도 생각해야함
-// 검색 결과는 offset, limit 값 지정 못 함
 export function ProfileList() {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState([]);
   const [isUserExsist, setIsUserExsist] = useState(true);
+  const [isSearchData, setIsSearchData] = useState(false);
   const [count, setCount] = useState(10);
 
+  const searchResult = useSelector(state => state.search.value);
   const getCount = setcount => {
     setCount(setcount + 10);
   };
 
   useEffect(() => {
-    const getUsers = async () => {
-      setLoading(true);
-      const usersInfo = await users.getUsers({ offset: 0, limit: count });
-      setUser(usersInfo);
-      setIsUserExsist(usersInfo.length > 0);
-      setLoading(false);
+    if (searchResult) {
+      setIsUserExsist(searchResult.length > 0);
+      setUser(searchResult);
+      setIsSearchData(true);
+    } else {
+      const getUsers = async () => {
+        setLoading(true);
+        const usersInfo = await users.getUsers({ offset: 0, limit: count });
+        setIsSearchData(false);
+        if(!isSearchData) setUser(usersInfo);
+        setIsUserExsist(true);
+        setLoading(false);
+      };
+      getUsers();
     }
-    getUsers();
-  }, [count]);
+  }, [searchResult, isSearchData, count]);
 
   return (
     <S.ProfileList>
-      {!isUserExsist && <div>검색 결과가 없습니다.</div>}
+      {!isUserExsist && <SearchNone />}
       {isUserExsist &&
         user.map((userInfo, idx) => (
           <Profile
@@ -37,6 +45,7 @@ export function ProfileList() {
             key={userInfo._id}
             userImage={userInfo.image || ''}
             userName={userInfo.fullName}
+            isSearchData={isSearchData}
           />
         ))}
       {loading && <Loading />}
