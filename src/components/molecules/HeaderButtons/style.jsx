@@ -2,6 +2,6 @@ import styled from 'styled-components';
 
 export const HeaderButtons = styled.div`
   display: flex;
-  gap: 8px;
-  padding-right: 16px;
+  gap: 0.5rem;
+  padding-right: 1rem;
 `;

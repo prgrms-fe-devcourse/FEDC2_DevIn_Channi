@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Footer = styled.footer`
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
   width: 100%;
-  max-width: 40rem;
-  z-index: 1;
+  height: 3.5rem;
+  max-width: calc(40rem - 2px);
   color: ${({ theme }) => theme.color.textSecond};
   background-color: ${({ theme }) => theme.color.backMain};
 `;

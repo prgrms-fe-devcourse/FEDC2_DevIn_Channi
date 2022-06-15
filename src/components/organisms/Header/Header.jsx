@@ -1,4 +1,4 @@
-import { Divider, HeaderTexts, Logo } from 'components';
+import { HeaderTexts, Logo, Divider } from 'components';
 import * as S from './style';
 
 export function Header() {

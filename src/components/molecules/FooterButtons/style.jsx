@@ -2,11 +2,14 @@ import styled from 'styled-components';
 
 export const FooterButtons = styled.div`
   display: grid;
-  grid-template-rows: 1fr;
   grid-template-columns: repeat(3, 1fr);
-  padding-bottom: 16px;
+  align-items: center;
+  justify-items: center;
+  padding: 1rem 0;
+
   a {
     justify-self: center;
+    display: block;
     color: ${({ theme }) => theme.color.textSecond};
   }
 `;

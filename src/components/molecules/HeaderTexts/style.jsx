@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 export const HeaderTexts = styled.div`
   display: flex;
-  gap: 16px;
-  padding-right: 16px;
+  gap: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   a {
     text-decoration: none;
     color: ${({ theme }) => theme.color.textSecond};

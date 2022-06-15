@@ -1,11 +1,12 @@
 import axios from 'axios';
 
-// const API = process.env.REACT_APP_API_ENDPOINT;
+const API = process.env.REACT_APP_API_BASEURL;
+console.log('API', API);
 
 export const auth = {
   signin: async ({ email, password }) => {
     try {
-      const response = await axios.post(`/login`, { email, password });
+      const response = await axios.post(`${API}/login`, { email, password });
       console.log('res', response);
       return response.data;
     } catch (e) {
@@ -15,7 +16,7 @@ export const auth = {
 
   signup: async ({ email, fullName, password }) => {
     try {
-      const response = await axios.post('/signup', {
+      const response = await axios.post(`${API}/signup`, {
         email,
         fullName,
         password,
@@ -28,7 +29,7 @@ export const auth = {
 
   signout: async () => {
     try {
-      const response = await axios.post('/logout');
+      const response = await axios.post(`${API}/logout`);
       return response.data;
     } catch (e) {
       console.error(e);
@@ -37,7 +38,7 @@ export const auth = {
 
   isUserSignin: async () => {
     try {
-      const response = await axios.get(`/auth-user`);
+      const response = await axios.get(`${API}/auth-user`);
       return response.data;
     } catch (e) {
       console.error(e);
