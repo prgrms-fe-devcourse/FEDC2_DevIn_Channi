@@ -1,12 +1,7 @@
-// import * as S from './style';
-
-import { SearchBar, SearchResultTab } from "components";
+import { SearchPage } from "components";
 
 export function Search() {
   return (
-    <>
-      <SearchBar/>
-      <SearchResultTab/>
-    </>
+    <SearchPage/>
   );
 }
