@@ -42,9 +42,14 @@ export const auth = {
     }
   },
 
-  isUserSignin: async () => {
+  getUser: async ({ token }) => {
     try {
-      const response = await axios.get(`${API}/auth-user`);
+      const response = await axios.get(`${API}/auth-user`, {
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
+      });
+
       return response.data;
     } catch (e) {
       console.error(e);

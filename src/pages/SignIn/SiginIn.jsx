@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setIsLoggedIn } from 'store/userSlice';
+import { setIsLoggedIn } from 'store';
 import { Form } from 'components';
 import { auth } from 'api';
 import { useForm, useCookie } from 'hooks';

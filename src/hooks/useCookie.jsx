@@ -14,6 +14,10 @@ export function useCookie() {
     cookies.set(DEVIN_TOKEN, value, options);
   };
 
+  const getCookie = () => {
+    return cookies.get(DEVIN_TOKEN);
+  };
+
   const checkCookie = () => {
     const cookie = cookies.get(DEVIN_TOKEN);
     return !!cookie;
@@ -23,5 +27,5 @@ export function useCookie() {
     cookies.remove(DEVIN_TOKEN, options);
   };
 
-  return { setCookie, checkCookie, removeCookie };
+  return { setCookie, getCookie, checkCookie, removeCookie };
 }
