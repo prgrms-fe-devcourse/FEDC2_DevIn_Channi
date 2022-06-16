@@ -3,7 +3,7 @@ import allUsersReducer from './allUsers'
 import searchUsersReducer from './searchUsers';
 import searchPostsReducer from './searchPosts'
 
-export default configureStore({
+export const store = configureStore({
   reducer: {
     allUsers: allUsersReducer,
     searchUsers: searchUsersReducer,

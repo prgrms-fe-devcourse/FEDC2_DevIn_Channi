@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { search } from 'api';
-import { userInfo } from 'stores/searchUsers';
-import { postInfo } from 'stores/searchPosts';
+import { userInfo } from 'store/searchUsers';
+import { postInfo } from 'store/searchPosts';
 import * as S from './style';
 
 export function SearchInput() {

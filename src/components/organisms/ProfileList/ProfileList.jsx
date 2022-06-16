@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Profile, Loading, SearchNone } from 'components';
 import { users } from 'api';
-import { allusers } from 'stores/allUsers';
+import { allusers } from 'store/allUsers';
 import * as S from './style';
 
 export function ProfileList() {
