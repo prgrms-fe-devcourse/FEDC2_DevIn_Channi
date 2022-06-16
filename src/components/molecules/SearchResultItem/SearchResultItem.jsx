@@ -1,15 +1,22 @@
 import PropTypes from "prop-types"
-import { ItemText, SearchNumber } from 'components';
+import { ItemText, ItemNumber } from 'components';
 import * as S from './style';
 
 export function SearchResultItem({ getItem, name, itemName, itemNum }) {
+
   const onTabClick = () => {
     getItem(name);
   };
+  
+  const style = {
+    fontSize: 0.875,
+    backgroundColor: ({ theme }) => theme.color.line,
+  }
+
   return (
     <S.SearchResultItem onClick={onTabClick}>
       <ItemText itemName={itemName} />
-      <SearchNumber itemNum={itemNum} />
+      <ItemNumber itemNum={itemNum} style={style}/>
     </S.SearchResultItem>
   );
 }

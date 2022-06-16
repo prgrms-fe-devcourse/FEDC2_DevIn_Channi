@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const SearchNumber = styled.div`
+export const ItemNumber = styled.div`
   width: 2.5rem;
   padding: 0.3rem;
   border-radius: 2rem;
-  background-color: ${({ theme }) => theme.color.backSub};
+  background-color: ${props => props.style.backgroundColor};
   color: ${({ theme }) => theme.color.textSecond};
-  font-size: 0.875rem;
+  font-size: ${props => props.style.fontSize};
   text-align: center;
 `;

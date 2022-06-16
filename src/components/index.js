@@ -10,7 +10,7 @@ export { FormLink } from 'components/atoms/FormLink/FormLink';
 export { SearchIcon } from 'components/atoms/SearchIcon/SearchIcon';
 export { SearchInput } from 'components/atoms/SearchInput/SearchInput';
 export { SearchNone } from 'components/atoms/SearchNone/SearchNone';
-export { SearchNumber } from 'components/atoms/SearchNumber/SearchNumber';
+export { ItemNumber } from 'components/atoms/ItemNumber/ItemNumber';
 export { ItemText } from 'components/atoms/ItemText/ItemText';
 export { Logo } from 'components/atoms/Logo/Logo';
 export { Divider } from 'components/atoms/Divider/Divider';
