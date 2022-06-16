@@ -11,6 +11,7 @@ module.exports = {
     'no-undef': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
+    'no-param-reassign': 'off'
   },
   settings: {
     'import/resolver': {
