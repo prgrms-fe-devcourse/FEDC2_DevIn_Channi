@@ -6,6 +6,6 @@ export const ItemNumber = styled.div`
   border-radius: 2rem;
   background-color: ${props => props.style.backgroundColor};
   color: ${({ theme }) => theme.color.textSecond};
-  font-size: ${props => props.style.fontSize};
+  font-size: ${props => props.style.fontSize}rem;
   text-align: center;
 `;

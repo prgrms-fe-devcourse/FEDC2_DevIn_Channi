@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import { ItemText, ItemNumber } from 'components';
+import { theme } from "styles";
 import * as S from './style';
 
 export function SearchResultItem({ getItem, name, itemName, itemNum }) {
@@ -10,7 +11,7 @@ export function SearchResultItem({ getItem, name, itemName, itemNum }) {
   
   const style = {
     fontSize: 0.875,
-    backgroundColor: ({ theme }) => theme.color.line,
+    backgroundColor: theme.color.line,
   }
 
   return (
