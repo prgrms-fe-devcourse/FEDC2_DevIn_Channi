@@ -15,6 +15,11 @@ export function useForm({ initialState, authCallback }) {
     e.preventDefault();
     try {
       const response = await authCallback({ formData });
+
+      if (response.status !== 200) {
+        throw new Error(response.message);
+      }
+
       return response;
     } catch (err) {
       console.error(err);

@@ -1,10 +1,13 @@
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setValidation } from 'store';
 import { Form } from 'components';
 import { useForm } from 'hooks';
 import { auth } from 'api';
 import * as S from './style';
 
 export function SignUp() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { onChange, onSubmit } = useForm({
     initialState: {
@@ -14,7 +17,15 @@ export function SignUp() {
     },
     authCallback: async ({ formData }) => {
       const response = await auth.signup({ ...formData });
-      navigate('/signin');
+
+      if (response.status === 200) {
+        navigate('/signin');
+        dispatch(setValidation(''));
+      } else {
+        console.log('ds');
+        dispatch(setValidation(response.message));
+      }
+
       return response;
     },
   });

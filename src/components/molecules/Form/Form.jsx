@@ -1,8 +1,20 @@
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FormInput, FormBtn, FormLink } from 'components';
 import * as S from './style';
 
 export function Form({ info, onChange, onSubmit }) {
+  const dispatch = useDispatch();
+  const text = useSelector(state => state.validation.text);
+
+  const [error, setError] = useState(text);
+
+  useEffect(() => {
+    setError(text);
+    console.log(text);
+  }, [text, setError, dispatch]);
+
   const {
     title,
     inputs,
@@ -15,6 +27,8 @@ export function Form({ info, onChange, onSubmit }) {
       {inputs.map(input => (
         <FormInput key={input.id} input={input} onChange={onChange} />
       ))}
+
+      <p>{error}</p>
       <FormBtn text={title} />
       {isAuth && (
         <FormLink

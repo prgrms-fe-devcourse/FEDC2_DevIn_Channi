@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setIsLoggedIn } from 'store';
+import { setIsLoggedIn, setValidation } from 'store';
 import { Form } from 'components';
 import { auth } from 'api';
 import { useForm, useCookie } from 'hooks';
@@ -22,6 +22,8 @@ export function SignIn() {
         setCookie({ value: response.token });
         dispatch(setIsLoggedIn(true));
         navigate('/');
+      } else {
+        dispatch(setValidation(response.message));
       }
 
       return response;
