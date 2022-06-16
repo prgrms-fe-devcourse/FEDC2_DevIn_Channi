@@ -8,4 +8,6 @@ export const Footer = styled.footer`
   max-width: calc(40rem - 2px);
   color: ${({ theme }) => theme.color.textSecond};
   background-color: ${({ theme }) => theme.color.backMain};
+  border-top: 1px solid ${({ theme }) => theme.color.line};
+  z-index: 999;
 `;

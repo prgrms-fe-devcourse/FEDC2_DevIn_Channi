@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Divider = styled.hr`
   border: none;
   background-color: ${({ theme }) => theme.color.backSub}; // 컬러 변경
-  background-color: black;
   margin: 0;
 
   &.vertical {
@@ -11,7 +10,7 @@ export const Divider = styled.hr`
     top: -0.063rem;
     display: inline-block;
     width: 0.063rem;
-    height: 0.813rem;
+    height: 0.875rem;
     vertical-align: middle;
   }
 

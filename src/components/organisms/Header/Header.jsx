@@ -1,4 +1,4 @@
-import { Logo, Divider, HeaderTexts } from 'components';
+import { Logo, HeaderButtons } from 'components';
 import { Link } from 'react-router-dom';
 import * as S from './style';
 
@@ -10,9 +10,8 @@ export function Header() {
           <Logo />
         </Link>
       </S.LogoImage>
-      {/* <HeaderButtons /> */}
-      <HeaderTexts />
-      <Divider />
+      <HeaderButtons />
+      {/* <HeaderTexts /> */}
     </S.Header>
   );
 }
