@@ -11,6 +11,7 @@ export { Logo } from 'components/atoms/Logo/Logo';
 export { Divider } from 'components/atoms/Divider/Divider';
 export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
 export { UserImgUpdateIcon } from 'components/atoms/UserImgUpdateIcon/UserImgUpdateIcon';
+export { ProfileUpdateBtn } from 'components/atoms/ProfileUpdateBtn/ProfileUpdateBtn';
 
 // molecules
 export { Form } from 'components/molecules/Form/Form';
