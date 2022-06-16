@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FollowButton = styled.button`
+export const FollowBtn = styled.button`
   width: 4rem;
   height: 2.5rem;
   margin-left: auto;

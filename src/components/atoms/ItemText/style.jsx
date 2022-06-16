@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SearchTarget= styled.div`
+export const ItemText= styled.div`
   width: 3.0rem;
   color: ${({ theme }) => theme.color.textPrime};
   font-size: 0.875rem;

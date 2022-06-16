@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ProfileUserImage, ProfileUserName, FollowButton } from 'components';
+import { ProfileUserImage, ProfileUserName, FollowBtn } from 'components';
 import * as S from './style';
 
 export function Profile({ getCount, idx, userImage, userName, isSearchData }) {
@@ -28,7 +28,7 @@ export function Profile({ getCount, idx, userImage, userName, isSearchData }) {
     <S.Profile ref={profileRef}>
       <ProfileUserImage userImage={userImage} size={3} />
       <ProfileUserName userName={userName} />
-      <FollowButton />
+      <FollowBtn />
     </S.Profile>
   );
 }

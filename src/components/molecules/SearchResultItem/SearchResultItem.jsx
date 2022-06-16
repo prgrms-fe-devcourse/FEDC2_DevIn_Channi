@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import { SearchTarget, SearchNumber } from 'components';
+import { ItemText, SearchNumber } from 'components';
 import * as S from './style';
 
 export function SearchResultItem({ getItem, name, itemName, itemNum }) {
@@ -8,7 +8,7 @@ export function SearchResultItem({ getItem, name, itemName, itemNum }) {
   };
   return (
     <S.SearchResultItem onClick={onTabClick}>
-      <SearchTarget itemName={itemName} />
+      <ItemText itemName={itemName} />
       <SearchNumber itemNum={itemNum} />
     </S.SearchResultItem>
   );

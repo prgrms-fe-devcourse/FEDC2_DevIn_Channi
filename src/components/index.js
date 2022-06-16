@@ -2,7 +2,7 @@
 export { Icon } from 'components/atoms/Icon/Icon';
 export { ProfileUserImage } from 'components/atoms/ProfileUserImage/ProfileUserImage';
 export { ProfileUserName } from 'components/atoms/ProfileUserName/ProfileUserName';
-export { FollowButton } from 'components/atoms/FollowButton/FollowButton';
+export { FollowBtn } from 'components/atoms/FollowBtn/FollowBtn';
 export { Loading } from 'components/atoms/Loading/Loading';
 export { FormBtn } from 'components/atoms/FormBtn/FromBtn';
 export { FormInput } from 'components/atoms/FormInput/FormInput';
@@ -11,7 +11,7 @@ export { SearchIcon } from 'components/atoms/SearchIcon/SearchIcon';
 export { SearchInput } from 'components/atoms/SearchInput/SearchInput';
 export { SearchNone } from 'components/atoms/SearchNone/SearchNone';
 export { SearchNumber } from 'components/atoms/SearchNumber/SearchNumber';
-export { SearchTarget } from 'components/atoms/SearchTarget/SearchTarget';
+export { ItemText } from 'components/atoms/ItemText/ItemText';
 export { Logo } from 'components/atoms/Logo/Logo';
 export { Divider } from 'components/atoms/Divider/Divider';
 export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
