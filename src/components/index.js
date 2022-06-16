@@ -20,7 +20,7 @@ export { HeaderTexts } from 'components/molecules/HeaderTexts/HeaderTexts';
 export { FooterButtons } from 'components/molecules/FooterButtons/FooterButtons';
 export { SamplePostList } from 'components/molecules/SamplePostList/SamplePostList';
 export { ProfileImgUpdate } from 'components/molecules/ProfileImgUpdate/ProfileImgUpdate';
-export { ThreeForm } from 'components/molecules/ThreeForm/ThreeForm';
+export { ProfileForm } from 'components/molecules/ProfileForm/ProfileForm';
 
 // organisms
 export { ProfileList } from 'components/organisms/ProfileList/ProfileList';

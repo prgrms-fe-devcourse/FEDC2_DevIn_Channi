@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { FormInput, FormBtn } from 'components';
 import * as S from './style';
 
-export function ThreeForm({ info }) {
+export function ProfileForm({ info }) {
   const { title, inputs, isAuth } = info;
   const onClick = () => console.log('클릭');
   return (
@@ -20,7 +20,7 @@ export function ThreeForm({ info }) {
   );
 }
 
-ThreeForm.propTypes = {
+ProfileForm.propTypes = {
   info: PropTypes.shape({
     title: PropTypes.string.isRequired,
     inputs: PropTypes.arrayOf(

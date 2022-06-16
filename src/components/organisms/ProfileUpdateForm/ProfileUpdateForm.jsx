@@ -1,4 +1,4 @@
-import { ProfileImgUpdate, ThreeForm } from 'components';
+import { ProfileImgUpdate, ProfileForm } from 'components';
 import * as S from './style';
 
 export function ProfileUpdateForm() {
@@ -30,7 +30,7 @@ export function ProfileUpdateForm() {
   return (
     <S.ProfileUpdateForm>
       <ProfileImgUpdate />
-      <ThreeForm info={info}/>
+      <ProfileForm info={info}/>
     </S.ProfileUpdateForm>
   );
 }
