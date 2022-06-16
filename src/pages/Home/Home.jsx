@@ -9,7 +9,7 @@ export function Home() {
   const temp = async () => {
     const user = await auth.isUserSignin();
     console.log(user);
-    user === '' ? setIsLogin(true) : setIsLogin(true);
+    user === '' ? setIsLogin(false) : setIsLogin(true);
   };
 
   useEffect(() => {
