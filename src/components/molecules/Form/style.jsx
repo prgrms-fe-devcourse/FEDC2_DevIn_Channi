@@ -8,6 +8,10 @@ export const Container = styled.form`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  p {
+    color: ${({ theme }) => theme.color.red};
+  }
 `;
 
 export const Title = styled.h1`

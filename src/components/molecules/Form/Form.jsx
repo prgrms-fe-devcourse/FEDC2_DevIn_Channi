@@ -1,19 +1,17 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FormInput, FormBtn, FormLink } from 'components';
 import * as S from './style';
 
 export function Form({ info, onChange, onSubmit }) {
-  const dispatch = useDispatch();
   const text = useSelector(state => state.validation.text);
 
   const [error, setError] = useState(text);
 
   useEffect(() => {
     setError(text);
-    console.log(text);
-  }, [text, setError, dispatch]);
+  }, [text, setError]);
 
   const {
     title,

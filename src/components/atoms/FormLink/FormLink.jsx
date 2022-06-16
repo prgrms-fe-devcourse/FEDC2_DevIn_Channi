@@ -1,12 +1,22 @@
+import { useDispatch } from 'react-redux';
+import { setValidation } from 'store';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as S from './style';
 
 export function FormLink({ introText, linkText, linkPath }) {
+  const dispatch = useDispatch();
+
+  const onClick = () => {
+    dispatch(setValidation(''));
+  };
+
   return (
     <S.Container>
       {introText}
-      <Link to={linkPath}>{linkText}</Link>
+      <Link to={linkPath} onClick={onClick}>
+        {linkText}
+      </Link>
     </S.Container>
   );
 }
