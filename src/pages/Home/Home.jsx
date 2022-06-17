@@ -4,7 +4,7 @@ import * as S from './style';
 export function Home() {
   return (
     <S.Container>
-      <HomePage isLogin={isLogin} />
+      <HomePage />
     </S.Container>
   );
 }

@@ -5,5 +5,5 @@ export const SamplePostList = styled.div`
   overflow: scroll;
   flex-grow: 1;
   width: 100%;
-  height: calc(100vh - 7rem);
+  height: calc(100vh - ${props => (props.isLoggedIn ? 11.5 : 7)}rem);
 `;

@@ -4,7 +4,7 @@ import * as S from './style';
 
 export function CreatePost() {
   return (
-    <Link to="/posts/create">
+    <Link to="/posts/create" style={{ textDecoration: 'none' }}>
       <S.CreatePost>
         <ProfileUserImage size={2.5} />
         <CreatePostInput />

@@ -15,6 +15,7 @@ export { ItemText } from 'components/atoms/ItemText/ItemText';
 export { Logo } from 'components/atoms/Logo/Logo';
 export { Divider } from 'components/atoms/Divider/Divider';
 export { CreatePostInput } from 'components/atoms/CreatePostInput/CreatePostInput';
+export { HamburgerButton } from 'components/atoms/HamburgerButton/HamburgerButton';
 
 export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
 

@@ -1,18 +1,15 @@
-import { Header, Footer, CreatePost, SamplePostList } from 'components';
-import PropTypes from 'prop-types';
+import { Header, Footer, SamplePostList, CreatePost } from 'components';
+import { useSelector } from 'react-redux';
 import * as S from './style';
 
-export function HomePage({ isLogin }) {
+export function HomePage() {
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
   return (
     <S.HomePage>
-      <Header isLogin={isLogin} />
-      {isLogin && <CreatePost />}
-      <SamplePostList isLogin={isLogin} />
+      <Header />
+      {isLoggedIn && <CreatePost />}
+      <SamplePostList isLoggedIn={isLoggedIn} />
       <Footer />
     </S.HomePage>
   );
 }
-
-HomePage.propTypes = {
-  isLogin: PropTypes.bool.isRequired,
-};

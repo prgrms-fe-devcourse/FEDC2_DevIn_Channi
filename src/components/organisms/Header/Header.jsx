@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { Logo, HeaderButtons, HeaderTexts } from 'components';
+import { useSelector } from 'react-redux';
+import { Logo, HeaderTexts, HeaderButtons } from 'components';
 import * as S from './style';
 
-export function Header({ isLogin }) {
+export function Header() {
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
+  console.log('Header created!', isLoggedIn);
+
   return (
     <S.Header>
       <S.LogoImage>
@@ -11,11 +14,7 @@ export function Header({ isLogin }) {
           <Logo />
         </Link>
       </S.LogoImage>
-      {isLogin ? <HeaderButtons /> : <HeaderTexts />}
+      {isLoggedIn ? <HeaderButtons /> : <HeaderTexts />}
     </S.Header>
   );
 }
-
-Header.propTypes = {
-  isLogin: PropTypes.bool.isRequired,
-};
