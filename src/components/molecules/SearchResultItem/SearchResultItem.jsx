@@ -3,10 +3,10 @@ import { ItemText, ItemNumber } from 'components';
 import { theme } from "styles";
 import * as S from './style';
 
-export function SearchResultItem({ getItem, name, itemName, itemNum }) {
+export function SearchResultItem({ getTabItem, name, itemName, itemNum }) {
 
   const onTabClick = () => {
-    getItem(name);
+    getTabItem(name);
   };
   
   const style = {
@@ -23,7 +23,7 @@ export function SearchResultItem({ getItem, name, itemName, itemNum }) {
 }
 
 SearchResultItem.propTypes = {
-  getItem: PropTypes.func.isRequired,
+  getTabItem: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   itemName: PropTypes.string.isRequired,
   itemNum: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,

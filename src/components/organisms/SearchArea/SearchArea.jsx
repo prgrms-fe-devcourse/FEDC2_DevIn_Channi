@@ -6,7 +6,7 @@ import * as S from './style';
 export function SearchArea() {
   const [content, setContent] = useState('profile');
 
-  const searchPostsResult = useSelector(state => state.searchPosts.value);
+  const searchPostsResult = useSelector(state => state.search.post);
 
   const getTabContent = tabname => {
     setContent(tabname);

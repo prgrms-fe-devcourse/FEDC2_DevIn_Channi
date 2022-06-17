@@ -1,25 +1,24 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { search } from 'api';
-import { userInfo } from 'store/searchUsers';
-import { postInfo } from 'store/searchPosts';
+import { setUsersInfo, setPostsInfo } from 'store/searchSlice';
 import * as S from './style';
 
 export function SearchInput() {
-  const [text, setText] = useState(''); // input안 value
-  const [keyword, setKeyword] = useState(''); // 검색할 keyword
-  const [usersResult, setUsersResult] = useState(''); // 서버에서 불러온 유저 검색 결과
-  const [postsResult, setPostsResult] = useState(''); // 서버에서 불러온 모든 검색 결과
+  const [text, setText] = useState(''); 
+  const [keyword, setKeyword] = useState(''); 
+  const [usersResult, setUsersResult] = useState(null); 
+  const [postsResult, setPostsResult] = useState(null); 
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setKeyword(text)
-    }, 1000)
+      setKeyword(text);
+    }, 1000);
     return () => {
       clearTimeout(timer);
-    }
+    };
   }, [text]);
 
   useEffect(() => {
@@ -29,21 +28,19 @@ export function SearchInput() {
         setUsersResult(searchUsersApi);
 
         const searchAllApi = await search.searchAll(keyword);
-        setPostsResult(searchAllApi.slice(searchUsersApi.length))
+        setPostsResult(searchAllApi.slice(searchUsersApi.length));
       };
       getData();
     } else {
-      // input에 아무것도 안넣었을 때 전체 사용자 목록 불러오도록 함
-      // userInfo 값이 null 검색결과 없어서 사용자 목록 불러옴
-      dispatch(userInfo(null));
+      dispatch(setUsersInfo(null));
       setUsersResult('');
       setPostsResult('');
     }
-  }, [keyword, dispatch])
+  }, [keyword, dispatch]);
 
   useEffect(() => {
-    if (usersResult) dispatch(userInfo(usersResult));
-    if (postsResult) dispatch(postInfo(postsResult));
+    if (usersResult) dispatch(setUsersInfo(usersResult));
+    if (postsResult) dispatch(setPostsInfo(postsResult));
   }, [usersResult, postsResult, dispatch]);
 
   const onChange = e => {
@@ -55,6 +52,7 @@ export function SearchInput() {
       type="text"
       value={text}
       onChange={onChange}
+      placeholder="검색어를 입력해주세요..."
     />
   );
 }

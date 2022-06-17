@@ -7,11 +7,11 @@ import * as S from './style';
 export function SearchResultTab({ getTabContent }) {
   const [content, setContent] = useState('profile');
 
-  const allUsers = useSelector(state => state.allUsers.value);
-  const searchUsersResult = useSelector(state => state.searchUsers.value);
-  const searchPostsResult = useSelector(state => state.searchPosts.value);
+  const allUsers = useSelector(state => state.search.alluser) || [];
+  const searchUsersResult = useSelector(state => state.search.user) || [];
+  const searchPostsResult = useSelector(state => state.search.post) || [];
 
-  const getItem = itemname => {
+  const getTabItem = itemname => {
     setContent(itemname);
   };
 
@@ -21,7 +21,7 @@ export function SearchResultTab({ getTabContent }) {
   return (
     <S.SearchResultTab>
       <SearchResultItem
-        getItem={getItem}
+        getTabItem={getTabItem}
         name="profile"
         itemName="프로필"
         itemNum={
@@ -29,7 +29,7 @@ export function SearchResultTab({ getTabContent }) {
         }
       />
       <SearchResultItem
-        getItem={getItem}
+        getTabItem={getTabItem}
         name="post"
         itemName="게시물"
         itemNum={
