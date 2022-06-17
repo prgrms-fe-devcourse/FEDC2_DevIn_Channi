@@ -3,13 +3,20 @@ import PropTypes from 'prop-types';
 import { ProfileUserImage, ProfileUserName, FollowBtn } from 'components';
 import * as S from './style';
 
-export function Profile({ getCount, idx, userId, userImage, userName, isSearchData }) {
+export function Profile({
+  getCount,
+  idx,
+  userId,
+  userImage,
+  userName,
+  isSearchData,
+}) {
   const profileRef = useRef();
 
   useEffect(() => {
     if (profileRef.current && idx % 10 === 0) {
       const observer = new IntersectionObserver(
-        (entries) => {
+        entries => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               getCount(idx);
@@ -28,7 +35,7 @@ export function Profile({ getCount, idx, userId, userImage, userName, isSearchDa
     <S.Profile ref={profileRef}>
       <ProfileUserImage userImage={userImage} size={3} />
       <ProfileUserName userName={userName} />
-      <FollowBtn userId={userId}/>
+      <FollowBtn userId={userId} />
     </S.Profile>
   );
 }
