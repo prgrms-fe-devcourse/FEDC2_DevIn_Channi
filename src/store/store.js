@@ -8,4 +8,5 @@ export const store = configureStore({
     user,
     authValidation,
     search: searchReducer,
+  }
 });
