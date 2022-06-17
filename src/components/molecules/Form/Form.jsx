@@ -5,7 +5,7 @@ import { FormInput, FormBtn, FormLink } from 'components';
 import * as S from './style';
 
 export function Form({ info, onChange, onSubmit }) {
-  const text = useSelector(state => state.validation.text);
+  const text = useSelector(state => state.authValidation.text);
 
   const [error, setError] = useState(text);
 

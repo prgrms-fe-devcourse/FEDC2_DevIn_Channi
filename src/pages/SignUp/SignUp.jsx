@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setValidation } from 'store';
+import { setAuthValidation } from 'store';
 import { Form } from 'components';
 import { useForm } from 'hooks';
 import { auth } from 'api';
@@ -20,10 +20,10 @@ export function SignUp() {
 
       if (response.status === 200) {
         navigate('/signin');
-        dispatch(setValidation(''));
+        dispatch(setAuthValidation(''));
       } else {
         console.log('ds');
-        dispatch(setValidation(response.message));
+        dispatch(setAuthValidation(response.message));
       }
 
       return response;

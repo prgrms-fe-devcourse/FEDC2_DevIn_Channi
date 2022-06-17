@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setValidation } from 'store';
+import { setAuthValidation } from 'store';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as S from './style';
@@ -8,7 +8,7 @@ export function FormLink({ introText, linkText, linkPath }) {
   const dispatch = useDispatch();
 
   const onClick = () => {
-    dispatch(setValidation(''));
+    dispatch(setAuthValidation(''));
   };
 
   return (
