@@ -1,15 +1,15 @@
 import { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ProfileUserImage, ProfileUserName, FollowButton } from 'components';
+import { ProfileUserImage, ProfileUserName, FollowBtn } from 'components';
 import * as S from './style';
 
-export function Profile({ getCount, idx, userImage, userName }) {
+export function Profile({ getCount, idx, userId, userImage, userName, isSearchData }) {
   const profileRef = useRef();
 
   useEffect(() => {
     if (profileRef.current && idx % 10 === 0) {
       const observer = new IntersectionObserver(
-        entries => {
+        (entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               getCount(idx);
@@ -17,24 +17,35 @@ export function Profile({ getCount, idx, userImage, userName }) {
             }
           });
         },
-        { threshold: 0.1 },
+        { threshold: 1 },
       );
-      observer.observe(profileRef.current);
+      if (!isSearchData) {
+        observer.observe(profileRef.current);
+      }
     }
-  }, [getCount, idx]);
-
+  });
   return (
     <S.Profile ref={profileRef}>
-      <ProfileUserImage userImage={userImage} />
+      <ProfileUserImage userImage={userImage} size={3} />
       <ProfileUserName userName={userName} />
-      <FollowButton />
+      <FollowBtn userId={userId}/>
     </S.Profile>
   );
 }
 
 Profile.propTypes = {
-  getCount: PropTypes.func.isRequired,
-  idx: PropTypes.number.isRequired,
-  userImage: PropTypes.string.isRequired,
+  getCount: PropTypes.func,
+  idx: PropTypes.number,
+  userId: PropTypes.string,
+  userImage: PropTypes.string,
   userName: PropTypes.string.isRequired,
+  isSearchData: PropTypes.bool,
+};
+
+Profile.defaultProps = {
+  getCount: {},
+  idx: 0,
+  userId: null,
+  userImage: '',
+  isSearchData: false,
 };

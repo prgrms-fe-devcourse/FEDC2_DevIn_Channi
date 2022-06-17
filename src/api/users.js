@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const API = process.env.REACT_APP_API_BASEURL;
+
 function wait(ms) {
   return new Promise(resolve => {
     setTimeout(resolve, ms);
@@ -9,7 +11,7 @@ function wait(ms) {
 export const users = {
   getUsers: async ({ offset, limit }) => {
     try {
-      const response = await axios.get('/users/get-users', {
+      const response = await axios.get(`${API}/users/get-users`, {
         params: { offset, limit },
       });
       await wait(1000);
