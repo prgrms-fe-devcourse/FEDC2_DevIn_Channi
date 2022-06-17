@@ -8,8 +8,8 @@ export function SearchResultTab({ getTabContent }) {
   const [content, setContent] = useState('profile');
 
   const allUsers = useSelector(state => state.search.alluser) || [];
-  const searchUsersResult = useSelector(state => state.search.user) || [];
-  const searchPostsResult = useSelector(state => state.search.post) || [];
+  const searchUsersResult = useSelector(state => state.search.user);
+  const searchPostsResult = useSelector(state => state.search.post);
 
   const getTabItem = itemname => {
     setContent(itemname);

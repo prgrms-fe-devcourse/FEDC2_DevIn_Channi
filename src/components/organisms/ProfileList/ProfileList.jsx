@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Profile, Loading, SearchNone } from 'components';
 import { users } from 'api';
-import { setAllUsers } from 'store/searchSlice';
+import { setAllUsers } from 'store';
 import * as S from './style';
 
 export function ProfileList() {
@@ -28,20 +28,19 @@ export function ProfileList() {
       setUser(searchUsersResult);
       setIsSearchData(true);
     } else {
-      console.log("hi");
       if (isSearchData) setUser([]);
       const getUsers = async () => {
         setLoading(true);
         const usersInfo = await users.getUsers({ offset: 0, limit: count });
-        setIsSearchData(false); // SearchData가 아니라는 뜻
-        setUser(usersInfo); // 전체 사용자 목록으로 user 변경
-        dispatch(setAllUsers(usersInfo)); // 전체 사용자 목록 redux에 저장
-        setIsUserExsist(true); // 유저 존재함
+        setIsSearchData(false);
+        setUser(usersInfo);
+        dispatch(setAllUsers(usersInfo));
+        setIsUserExsist(true);
         setLoading(false);
       };
       getUsers();
     }
-  }, [searchUsersResult, dispatch, count, isSearchData, isUserExsist]);
+  }, [count, dispatch, isSearchData, searchUsersResult]);
 
   return (
     <S.ProfileList>
