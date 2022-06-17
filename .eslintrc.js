@@ -9,7 +9,7 @@ module.exports = {
     'no-return-await': 'off',
     'no-underscore-dangle': 'off',
     'no-undef': 'off',
-    // 'no-unused-vars': 'off',
+    'no-unused-vars': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
     'jsx-a11y/label-has-associated-control': [
