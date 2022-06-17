@@ -36,3 +36,4 @@ export { Footer } from 'components/organisms/Footer/Footer';
 // templates
 export { HomePage } from 'components/templates/HomePage/HomePage';
 export { SearchPage } from 'components/templates/SearchPage/SearchPage';
+export { NavTemplate } from 'components/templates/NavTemplate/NavTemplate';
