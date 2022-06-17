@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SamplePost = styled.div`
-  height: 22.5rem;
   border: 1px solid ${({ theme }) => theme.color.line};
+  height: 22.5rem;
   margin-bottom: 2rem;
 `;
