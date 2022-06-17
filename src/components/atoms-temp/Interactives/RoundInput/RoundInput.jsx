@@ -14,7 +14,7 @@ export function RoundInput({ name, label, placeholder, onChange }) {
 
   return (
     <S.Label>
-      <span className="visuallyhidden">{label}</span>
+      <span className="visually-hidden">{label}</span>
       <S.Input
         type="text"
         name={name}
