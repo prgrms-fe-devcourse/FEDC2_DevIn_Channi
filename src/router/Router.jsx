@@ -1,7 +1,7 @@
 import { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home, Event, Search, SignIn, SignUp } from 'pages';
+import { Home, Event, Search, Notification, SignIn, SignUp } from 'pages';
 import { auth } from 'api';
 import { useCookie } from 'hooks';
 import PrivateRoute from 'router/PrivateRoute';
@@ -33,7 +33,8 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Event />} />
-        <Route path="/search" element={<Search/>} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/notification" element={<Notification />} />
         <Route path="/signin" element={<PrivateRoute Children={SignIn} />} />
         <Route path="/signup" element={<PrivateRoute Children={SignUp} />} />
       </Routes>
