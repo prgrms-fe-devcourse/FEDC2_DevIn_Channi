@@ -6,7 +6,7 @@ export function NavTemplate({ children }) {
   return (
     <S.Container>
       <Header />
-      {children}
+      <S.Content>{children}</S.Content>
       <Footer />
     </S.Container>
   );

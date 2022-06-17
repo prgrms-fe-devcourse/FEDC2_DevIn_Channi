@@ -1,5 +1,9 @@
-import { NavTemplate } from 'components';
+import { NavTemplate, NotificationArea } from 'components';
 
 export function Notification() {
-  return <NavTemplate></NavTemplate>;
+  return (
+    <NavTemplate>
+      <NotificationArea />
+    </NavTemplate>
+  );
 }

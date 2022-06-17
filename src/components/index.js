@@ -30,6 +30,7 @@ export { SamplePostList } from 'components/molecules/SamplePostList/SamplePostLi
 export { ProfileList } from 'components/organisms/ProfileList/ProfileList';
 export { SearchResultTab } from 'components/organisms/SearchResultTab/SearchResultTab';
 export { SearchArea } from 'components/organisms/SearchArea/SearchArea';
+export { NotificationArea } from 'components/organisms/NotificationArea/NotificationArea';
 export { Header } from 'components/organisms/Header/Header';
 export { Footer } from 'components/organisms/Footer/Footer';
 
