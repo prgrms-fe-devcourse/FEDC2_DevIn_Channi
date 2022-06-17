@@ -18,4 +18,12 @@ export const GlobalStyle = createGlobalStyle`
     input:-webkit-autofill:active  {
     -webkit-box-shadow: 0 0 0 30px white inset;
     }
+
+    input {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    button {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
 `;
