@@ -9,15 +9,16 @@ export function SearchResultItem({ getTabItem, name, itemName, itemNum }) {
     getTabItem(name);
   };
   
-  const style = {
-    fontSize: 0.875,
+  const fontstyle = {
+    fontSize: 0.7,
+    color: theme.color.textSecond,
     backgroundColor: theme.color.line,
   }
 
   return (
     <S.SearchResultItem onClick={onTabClick}>
       <ItemText itemName={itemName} />
-      <ItemNumber itemNum={itemNum} style={style}/>
+      <ItemNumber itemNum={itemNum} fontstyle={fontstyle}/>
     </S.SearchResultItem>
   );
 }

@@ -29,6 +29,7 @@ export { FooterButtons } from 'components/molecules/FooterButtons/FooterButtons'
 export { SamplePostList } from 'components/molecules/SamplePostList/SamplePostList';
 export { ProfileImgUpdate } from 'components/molecules/ProfileImgUpdate/ProfileImgUpdate';
 export { ProfileForm } from 'components/molecules/ProfileForm/ProfileForm';
+export { ProfileItem } from 'components/molecules/ProfileItem/ProfileItem';
 
 // organisms
 export { ProfileList } from 'components/organisms/ProfileList/ProfileList';
@@ -37,6 +38,8 @@ export { SearchArea } from 'components/organisms/SearchArea/SearchArea';
 export { Header } from 'components/organisms/Header/Header';
 export { Footer } from 'components/organisms/Footer/Footer';
 export { ProfileUpdateForm } from 'components/organisms/ProfileUpdateForm/ProfileUpdateForm';
+export { ProfileInfo } from 'components/organisms/ProfileInfo/ProfileInfo';
+export { ProfileArea } from 'components/organisms/ProfileArea/ProfileArea';
 
 // templates
 export { HomePage } from 'components/templates/HomePage/HomePage';
