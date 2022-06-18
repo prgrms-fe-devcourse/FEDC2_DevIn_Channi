@@ -4,19 +4,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { follow } from 'api';
 import { useCookie } from 'hooks';
-import { setFollowing } from 'store';
+import { addFollowing, removeFollowing } from 'store';
 import * as S from './style';
 
 export function FollowBtn({ userId, isFollow, followId }) {
   const [isFollowing, setIsFollowing] = useState(isFollow);
-  const [followingInfo, setFollowingInfo] = useState([]);
+  const [newFollowId, setNewFollowId] = useState(followId);
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
   const { getCookie } = useCookie();
-
-  // useEffect(() => {
-  //   dispatch(setFollowing(followingInfo));
-  // }, [dispatch, followingInfo]);
 
   useEffect(() => {
     setIsFollowing(isFollow);
@@ -24,11 +20,12 @@ export function FollowBtn({ userId, isFollow, followId }) {
 
   const onFollow = () => {
     if (isLoggedIn && !isFollowing) {
+      setIsFollowing(true);
       const token = getCookie();
       const followApi = async () => {
         const followInfo = await follow.follow({ token, userId });
-        setFollowingInfo(followInfo);
-        setIsFollowing(true);
+        dispatch(addFollowing(followInfo));
+        if (!newFollowId) setNewFollowId(followInfo._id);
         return followInfo;
       };
       followApi();
@@ -38,12 +35,12 @@ export function FollowBtn({ userId, isFollow, followId }) {
   };
 
   const onUnFollow = () => {
-    if (isLoggedIn && isFollowing) {
+    if (isLoggedIn && isFollowing && newFollowId) {
+      setIsFollowing(false);
       const token = getCookie();
       const unfollowApi = async () => {
-        const unFollowInfo = await follow.unfollow({ token, id: followId });
-        setFollowingInfo(unFollowInfo);
-        setIsFollowing(false);
+        const unFollowInfo = await follow.unfollow({ token, id: newFollowId });
+        dispatch(removeFollowing(unFollowInfo._id));
         return unFollowInfo;
       };
       unfollowApi();
