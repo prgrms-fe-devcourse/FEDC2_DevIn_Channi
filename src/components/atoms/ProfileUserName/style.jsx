@@ -4,7 +4,7 @@ export const UserName = styled.div`
   height: 3rem;
   width: fit-content;
 
-  max-width: 20vw;
+  max-width: 19vw;
 
   overflow: hidden;
   color: ${({ theme }) => theme.color.textPrime};
