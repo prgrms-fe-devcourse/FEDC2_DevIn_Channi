@@ -5,7 +5,10 @@ import { Home, Event, Search, SignIn, SignUp } from 'pages';
 import { auth } from 'api';
 import { useCookie } from 'hooks';
 import PrivateRoute from 'router/PrivateRoute';
-import { setIsLoggedIn, setUser } from 'store';
+import { setIsLoggedIn, setUser, setFollowing } from 'store';
+// 임시 추가
+import { Post } from 'components';
+
 
 export default function Router() {
   const dispatch = useDispatch();
@@ -19,6 +22,7 @@ export default function Router() {
 
       dispatch(setUser(user));
       dispatch(setIsLoggedIn(true));
+      dispatch(setFollowing(user.following));
     } else {
       dispatch(setIsLoggedIn(false));
     }
@@ -33,9 +37,10 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Event />} />
-        <Route path="/search" element={<Search/>} />
+        <Route path="/search" element={<Search />} />
         <Route path="/signin" element={<PrivateRoute Children={SignIn} />} />
         <Route path="/signup" element={<PrivateRoute Children={SignUp} />} />
+        <Route path="/posts" element={<Post />} />
       </Routes>
     </BrowserRouter>
   );
