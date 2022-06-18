@@ -5,9 +5,11 @@ import * as S from './style';
 export function NotificationList({ userName }) {
   return (
     <S.Container>
-      <ProfileUserImage size={2.5} />
-      <ProfileUserName userName={userName} />
-      <span>님이 회원님의 게시글에 댓글을 달았어요.</span>
+      <S.Content>
+        <ProfileUserImage size={2.5} />
+        <ProfileUserName userName={userName} />
+        <span>님이 회원님의 게시글에 댓글을 달았어요.</span>
+      </S.Content>
     </S.Container>
   );
 }

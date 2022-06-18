@@ -4,9 +4,8 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
 
-  padding: 0 1rem 0 1rem;
-
   h1 {
+    padding-left: 1rem;
     color: ${({ theme }) => theme.color.textPrime};
     font-weight: 700;
     font-size: 1.4rem;

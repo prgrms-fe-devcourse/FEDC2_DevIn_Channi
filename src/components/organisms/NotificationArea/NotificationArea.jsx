@@ -7,6 +7,9 @@ export function NotificationArea() {
       <h1>알림</h1>
 
       <NotificationList userName="염상권" />
+      <NotificationList userName="염상권" />
+      <NotificationList userName="염상권" />
+      <NotificationList userName="염상권" />
     </S.Container>
   );
 }
