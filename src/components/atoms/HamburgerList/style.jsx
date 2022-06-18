@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const HamburgerList = styled.div`
   position: absolute;
+  left: -50%;
+  top: 90%;
   width: 7.5rem;
   height: 7.5rem;
   border-radius: 1rem;
