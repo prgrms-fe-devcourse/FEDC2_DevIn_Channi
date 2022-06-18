@@ -16,26 +16,18 @@ export { Logo } from 'components/atoms/Logo/Logo';
 export { Divider } from 'components/atoms/Divider/Divider';
 export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
 export { StyledLink } from 'components/atoms/StyledLink/StyledLink';
-
-// interactives
-export { WrapperLink } from 'components/atoms-temp/Interactives/WrapperLink/WrapperLink';
-export { TextLink } from 'components/atoms-temp/Interactives/TextLink/TextLink';
-export { IconBtn } from 'components/atoms-temp/Interactives/IconBtn/IconBtn';
-export { TextBtn } from 'components/atoms-temp/Interactives/TextBtn/TextBtn';
-export { RoundInput } from 'components/atoms-temp/Interactives/RoundInput/RoundInput';
-export { Menu } from 'components/atoms-temp/Interactives/Menu/Menu';
-export { MenuItem } from 'components/atoms-temp/Interactives/MenuItem/MenuItem';
-
-// text
-export { Span } from 'components/atoms-temp/Text/Span/Span';
-export { Paragraph } from 'components/atoms-temp/Text/Paragraph/Paragraph';
-export { Time } from 'components/atoms-temp/Text/Time/Time';
-
-// multimedia
-export { Avatar } from 'components/atoms-temp/multimedia/Avatar/Avatar';
-export { Image } from 'components/atoms-temp/multimedia/Image/Image';
-
-// misc
+export { WrapperLink } from 'components/atoms/WrapperLink/WrapperLink';
+export { TextLink } from 'components/atoms/TextLink/TextLink';
+export { IconBtn } from 'components/atoms/IconBtn/IconBtn';
+export { TextBtn } from 'components/atoms/TextBtn/TextBtn';
+export { RoundInput } from 'components/atoms/RoundInput/RoundInput';
+export { Menu } from 'components/atoms/Menu/Menu';
+export { MenuItem } from 'components/atoms/MenuItem/MenuItem';
+export { Span } from 'components/atoms/Span/Span';
+export { Paragraph } from 'components/atoms/Paragraph/Paragraph';
+export { Time } from 'components/atoms/Time/Time';
+export { Avatar } from 'components/atoms/Avatar/Avatar';
+export { Image } from 'components/atoms/Image/Image';
 
 // molecules
 export { Form } from 'components/molecules/Form/Form';
