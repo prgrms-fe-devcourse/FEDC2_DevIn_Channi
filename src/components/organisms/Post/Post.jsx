@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { PostHeader, PostBody, PostFooter, Comments } from 'components';
+import { PostType } from 'types';
 import { postData, ogData } from './data';
 import * as S from './style';
 
@@ -14,7 +15,13 @@ export function Post({ post }) {
 
   return (
     <S.Article>
-      <PostHeader author={postData.author} postCreatedAt={postData.createdAt} />
+      <PostHeader
+        authorId={postData.author._id}
+        authorAvatarUrl={postData.author.image}
+        authorName={postData.author.fullName}
+        postCreatedAt={postData.createdAt}
+        postId={postData._id}
+      />
       <PostBody postContent={postData.title} og={ogData} />
       <PostFooter
         likesCount={postData.likes.length}
@@ -29,34 +36,9 @@ export function Post({ post }) {
 }
 
 Post.propTypes = {
-  post: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    createdAt: PropTypes.string.isRequired,
+  post: PostType,
+};
 
-    author: PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-      fullName: PropTypes.string.isRequired,
-      image: PropTypes.string,
-    }).isRequired,
-
-    likes: PropTypes.arrayOf(
-      PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-      }),
-    ).isRequired,
-
-    comments: PropTypes.arrayOf(
-      PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        comment: PropTypes.string.isRequired,
-        createdAt: PropTypes.string.isRequired,
-        author: PropTypes.shape({
-          _id: PropTypes.string.isRequired,
-          fullName: PropTypes.string.isRequired,
-          image: PropTypes.string,
-        }).isRequired,
-      }),
-    ).isRequired,
-  }).isRequired,
+Post.defaultProps = {
+  post: {},
 };
