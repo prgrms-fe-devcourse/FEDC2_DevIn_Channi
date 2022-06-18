@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SearchBar = styled.div`
   height: 3rem;
-  margin: 0 1rem 1rem 1rem;
+  margin: 2rem 1rem 1rem 1rem;
   padding: 1rem;
   display: flex;
   align-items: center;
