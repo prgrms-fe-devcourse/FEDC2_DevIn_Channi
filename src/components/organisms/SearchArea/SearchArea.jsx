@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { SearchBar, SearchResultTab, ProfileList } from 'components';
 import * as S from './style';
 
 export function SearchArea() {
   const [content, setContent] = useState('profile');
 
-  const searchPostsResult = useSelector(state => state.search.post);
+  // const searchPostsResult = useSelector(state => state.search.post);
 
   const getTabContent = tabname => {
     setContent(tabname);
@@ -16,7 +16,7 @@ export function SearchArea() {
   const selectContent = {
     profile: <ProfileList />,
     post: <S.Container>
-      {console.log(searchPostsResult)}
+      {/* {console.log(searchPostsResult)} */}
       Post
     </S.Container>,
   };

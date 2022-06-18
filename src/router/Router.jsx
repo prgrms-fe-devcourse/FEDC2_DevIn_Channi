@@ -5,7 +5,7 @@ import { Home, Event, Search, Notification, SignIn, SignUp } from 'pages';
 import { auth } from 'api';
 import { useCookie } from 'hooks';
 import PrivateRoute from 'router/PrivateRoute';
-import { setIsLoggedIn, setUser } from 'store';
+import { setIsLoggedIn, setUser, setFollowing } from 'store';
 
 export default function Router() {
   const dispatch = useDispatch();
@@ -19,6 +19,7 @@ export default function Router() {
 
       dispatch(setUser(user));
       dispatch(setIsLoggedIn(true));
+      dispatch(setFollowing(user.following));
     } else {
       dispatch(setIsLoggedIn(false));
     }
