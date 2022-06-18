@@ -1,4 +1,4 @@
-import { Header, Footer, SamplePostList, CreatePost } from 'components';
+import { Header, Footer, CreatePost } from 'components';
 import { useSelector } from 'react-redux';
 import * as S from './style';
 
@@ -8,7 +8,7 @@ export function HomePage() {
     <S.HomePage>
       <Header />
       {isLoggedIn && <CreatePost />}
-      <SamplePostList isLoggedIn={isLoggedIn} />
+      {/* <SamplePostList isLoggedIn={isLoggedIn} /> */}
       <Footer />
     </S.HomePage>
   );

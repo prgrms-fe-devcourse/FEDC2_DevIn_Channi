@@ -1,21 +1,28 @@
-import { useState } from 'react';
-import { useClickAway } from 'hooks';
 import { Icon, HamburgerList } from 'components';
+import { useClickAway } from 'hooks';
+import { useState, forwardRef } from 'react';
 import * as S from './style';
 
 export function HamburgerButton() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [show, setShow] = useState(false);
   const ref = useClickAway(e => {
     console.log(e.target);
-    if (e.target.tagName !== 'I') {
-      setIsOpen(false);
-    }
+    setShow(false);
   });
-
   return (
-    <S.HamburgerButton>
+    <S.HamburgerButton
+      onClick={() => {
+        setShow(true);
+      }}
+    >
       <Icon icon="bars" />
-      <HamburgerList ref={ref} style={{ display: isOpen ? 'block' : 'none' }} />
+      {show &&
+        forwardRef(
+          <HamburgerList
+            ref={ref}
+            style={{ display: show ? 'block' : 'none' }}
+          />,
+        )}
     </S.HamburgerButton>
   );
 }
