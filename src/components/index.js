@@ -25,6 +25,7 @@ export { HeaderButtons } from 'components/molecules/HeaderButtons/HeaderButtons'
 export { HeaderTexts } from 'components/molecules/HeaderTexts/HeaderTexts';
 export { FooterButtons } from 'components/molecules/FooterButtons/FooterButtons';
 export { SamplePostList } from 'components/molecules/SamplePostList/SamplePostList';
+export { NotificationList } from 'components/molecules/NotificationList/NotificationList';
 
 // organisms
 export { ProfileList } from 'components/organisms/ProfileList/ProfileList';
