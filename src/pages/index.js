@@ -5,3 +5,4 @@ export { Search } from 'pages/Search/Search';
 export { SignIn } from 'pages/SignIn/SiginIn';
 export { SignUp } from 'pages/SignUp/SignUp';
 
+export { PostForm } from 'pages/PostForm/PostForm';
