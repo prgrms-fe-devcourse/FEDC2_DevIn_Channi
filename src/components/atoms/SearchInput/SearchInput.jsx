@@ -33,8 +33,8 @@ export function SearchInput() {
       getData();
     } else {
       dispatch(setUsersInfo(null));
-      setUsersResult('');
-      setPostsResult('');
+      setUsersResult(null);
+      setPostsResult(null);
     }
   }, [keyword, dispatch]);
 

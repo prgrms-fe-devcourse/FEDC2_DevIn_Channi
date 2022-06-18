@@ -54,6 +54,7 @@ export function ProfileList() {
             userId={userInfo._id}
             userImage={userInfo.image || ''}
             userName={userInfo.fullName}
+            userFollowers={userInfo.followers}
             isSearchData={isSearchData}
           />
         ))}

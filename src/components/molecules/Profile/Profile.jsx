@@ -1,4 +1,6 @@
-import { useRef, useEffect } from 'react';
+/* eslint-disable no-unused-vars */
+import { useRef, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { ProfileUserImage, ProfileUserName, FollowBtn } from 'components';
 import * as S from './style';
@@ -9,8 +11,12 @@ export function Profile({
   userId,
   userImage,
   userName,
+  userFollowers,
   isSearchData,
 }) {
+  const [isFollow, setIsFollow] = useState(false);
+  const [followId, setFollowId] = useState('');
+  const following = useSelector(state => state.follow.following);
   const profileRef = useRef();
 
   useEffect(() => {
@@ -31,11 +37,25 @@ export function Profile({
       }
     }
   });
+
+  useEffect(() => {
+    const followCheck = () => {
+        following.map(({ _id }) => {
+          // console.log(_id, userFollowers)
+          return userFollowers.includes(_id)
+            ? (setFollowId(_id), setIsFollow(true))
+            : null;
+        });
+      
+    };
+    followCheck();
+  }, [following, userFollowers]);
+
   return (
     <S.Profile ref={profileRef}>
       <ProfileUserImage userImage={userImage} size={3} />
       <ProfileUserName userName={userName} />
-      <FollowBtn userId={userId} />
+      <FollowBtn userId={userId} isFollow={isFollow} followId={followId} />
     </S.Profile>
   );
 }
@@ -43,16 +63,16 @@ export function Profile({
 Profile.propTypes = {
   getCount: PropTypes.func,
   idx: PropTypes.number,
-  userId: PropTypes.string,
+  userId: PropTypes.string.isRequired,
   userImage: PropTypes.string,
   userName: PropTypes.string.isRequired,
+  userFollowers: PropTypes.arrayOf(PropTypes.string).isRequired,
   isSearchData: PropTypes.bool,
 };
 
 Profile.defaultProps = {
   getCount: {},
   idx: 0,
-  userId: null,
   userImage: '',
   isSearchData: false,
 };
