@@ -1,3 +1,5 @@
+import { css } from 'styled-components';
+
 export const theme = {
   color: {
     highlight: '#00bbff',
@@ -12,19 +14,19 @@ export const theme = {
   },
 
   fontSize: {
-    large: `
+    large: css`
       font-size: 1.5rem;
       line-height: 2.25rem;
     `,
-    regular: `
+    regular: css`
       font-size: 1rem;
       line-height: 1.5rem;
     `,
-    small: `
+    small: css`
       font-size: 0.875rem;
       line-height: 1.25rem;
     `,
-    tiny: `
+    tiny: css`
       font-size: 0.75rem;
       line-height: 1rem;
     `,

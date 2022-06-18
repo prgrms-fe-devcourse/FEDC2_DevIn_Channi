@@ -6,6 +6,8 @@ import { auth } from 'api';
 import { useCookie } from 'hooks';
 import PrivateRoute from 'router/PrivateRoute';
 import { setIsLoggedIn, setUser, setFollowing } from 'store';
+import { Post } from 'components';
+
 
 export default function Router() {
   const dispatch = useDispatch();
@@ -38,6 +40,7 @@ export default function Router() {
         <Route path="/notification" element={<Notification />} />
         <Route path="/signin" element={<PrivateRoute Children={SignIn} />} />
         <Route path="/signup" element={<PrivateRoute Children={SignUp} />} />
+        <Route path="/posts" element={<Post />} />
       </Routes>
     </BrowserRouter>
   );
