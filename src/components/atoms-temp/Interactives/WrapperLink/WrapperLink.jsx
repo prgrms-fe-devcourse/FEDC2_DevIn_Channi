@@ -3,6 +3,7 @@ import * as S from './style';
 
 export function WrapperLink({
   children,
+  className,
   type,
   to,
   href,
@@ -16,12 +17,18 @@ export function WrapperLink({
   return (
     <>
       {type === 'link' && (
-        <S.StyledLink to={to} borderRadius={borderRadius}>
+        <S.Link className={className} to={to} borderRadius={borderRadius}>
           {children}
-        </S.StyledLink>
+        </S.Link>
       )}
       {type === 'anchor' && (
-        <S.A href={href} borderRadius={borderRadius} target={target} rel={rel}>
+        <S.A
+          className={className}
+          href={href}
+          borderRadius={borderRadius}
+          target={target}
+          rel={rel}
+        >
           {children}
         </S.A>
       )}
@@ -31,6 +38,7 @@ export function WrapperLink({
 
 WrapperLink.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   type: PropTypes.oneOf(['link', 'anchor']).isRequired,
   to: PropTypes.string,
   href: PropTypes.string,
@@ -40,6 +48,7 @@ WrapperLink.propTypes = {
 };
 
 WrapperLink.defaultProps = {
+  className: '',
   to: '',
   href: '',
   target: '',

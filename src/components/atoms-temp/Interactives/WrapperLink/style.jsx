@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
+import { StyledLink } from 'components';
 
-export const StyledLink = styled(Link)`
+const style = css`
   display: block;
   border-radius: ${({ borderRadius }) => borderRadius};
   text-decoration: none;
@@ -11,12 +11,10 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const A = styled.a`
-  display: block;
-  border-radius: ${({ borderRadius }) => borderRadius};
-  text-decoration: none;
+export const Link = styled(StyledLink)`
+  ${style}
+`;
 
-  &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.color.highlight};
-  }
+export const A = styled.a`
+  ${style}
 `;

@@ -5,9 +5,9 @@ export function TextLink({ children, className, type, to, href, target, rel }) {
   return (
     <>
       {type === 'link' && (
-        <S.StyledLink className={className} to={to}>
+        <S.Link className={className} to={to}>
           {children}
-        </S.StyledLink>
+        </S.Link>
       )}
       {type === 'anchor' && (
         <S.A className={className} href={href} target={target} rel={rel}>
