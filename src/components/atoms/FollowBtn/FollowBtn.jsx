@@ -10,7 +10,10 @@ import * as S from './style';
 export function FollowBtn({ userId, isFollow, followId }) {
   const [isFollowing, setIsFollowing] = useState(isFollow);
   const [newFollowId, setNewFollowId] = useState(followId);
+  const [isDisable, setIsDisable] = useState(false);
+
   const dispatch = useDispatch();
+
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
   const { getCookie } = useCookie();
 
@@ -19,13 +22,15 @@ export function FollowBtn({ userId, isFollow, followId }) {
   }, [isFollow]);
 
   const onFollow = () => {
+    setIsDisable(true);
     if (isLoggedIn && !isFollowing) {
       setIsFollowing(true);
       const token = getCookie();
       const followApi = async () => {
         const followInfo = await follow.follow({ token, userId });
-        dispatch(addFollowing(followInfo));
+        if (followInfo) dispatch(addFollowing(followInfo));
         if (!newFollowId) setNewFollowId(followInfo._id);
+        setIsDisable(false);
         return followInfo;
       };
       followApi();
@@ -35,30 +40,29 @@ export function FollowBtn({ userId, isFollow, followId }) {
   };
 
   const onUnFollow = () => {
+    setIsDisable(true);
     if (isLoggedIn && isFollowing && newFollowId) {
       setIsFollowing(false);
       const token = getCookie();
       const unfollowApi = async () => {
         const unFollowInfo = await follow.unfollow({ token, id: newFollowId });
-        dispatch(removeFollowing(unFollowInfo._id));
+        if (unFollowInfo) dispatch(removeFollowing(unFollowInfo._id));
+        setIsDisable(false);
         return unFollowInfo;
       };
       unfollowApi();
-    }
+      }
   };
 
   return (
-    <div>
-      {isFollowing ? (
-        <S.unFollowBtn type="button" onClick={onUnFollow}>
-          팔로잉
-        </S.unFollowBtn>
-      ) : (
-        <S.FollowBtn type="button" onClick={onFollow}>
-          팔로우
-        </S.FollowBtn>
-      )}
-    </div>
+    <S.FollowBtn
+      type="button"
+      onClick={isFollowing ? onUnFollow : onFollow}
+      disabled={isDisable}
+      isFollowing={isFollowing}
+    >
+      {isFollowing ? '팔로잉' : '팔로우'}
+    </S.FollowBtn>
   );
 }
 
