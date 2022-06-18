@@ -15,6 +15,7 @@ export { ItemText } from 'components/atoms/ItemText/ItemText';
 export { Logo } from 'components/atoms/Logo/Logo';
 export { Divider } from 'components/atoms/Divider/Divider';
 export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
+export { StyledLink } from 'components/atoms/StyledLink/StyledLink';
 
 // interactives
 export { WrapperLink } from 'components/atoms-temp/Interactives/WrapperLink/WrapperLink';
@@ -22,6 +23,8 @@ export { TextLink } from 'components/atoms-temp/Interactives/TextLink/TextLink';
 export { IconBtn } from 'components/atoms-temp/Interactives/IconBtn/IconBtn';
 export { TextBtn } from 'components/atoms-temp/Interactives/TextBtn/TextBtn';
 export { RoundInput } from 'components/atoms-temp/Interactives/RoundInput/RoundInput';
+export { Menu } from 'components/atoms-temp/Interactives/Menu/Menu';
+export { MenuItem } from 'components/atoms-temp/Interactives/MenuItem/MenuItem';
 
 // text
 export { Span } from 'components/atoms-temp/Text/Span/Span';
