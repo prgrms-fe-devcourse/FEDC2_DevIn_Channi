@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 import { ProfileUserImage, ProfileUserName } from 'components';
 import * as S from './style';
 
-export function NotificationList({ userName }) {
+export function NotificationList({ userName, comment }) {
   return (
     <S.Container>
       <S.Content>
         <ProfileUserImage size={2.5} />
         <ProfileUserName userName={userName} />
-        <span>님이 회원님의 게시글에 댓글을 달았어요.</span>
+        <span>{comment}</span>
       </S.Content>
     </S.Container>
   );
@@ -16,4 +16,5 @@ export function NotificationList({ userName }) {
 
 NotificationList.propTypes = {
   userName: PropTypes.string.isRequired,
+  comment: PropTypes.string.isRequired,
 };
