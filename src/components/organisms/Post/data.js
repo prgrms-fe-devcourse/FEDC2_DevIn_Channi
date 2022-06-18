@@ -72,7 +72,9 @@ export const postData = {
     notifications: [],
     messages: [],
     _id: '62a861a1b9bad678d9c2cb88',
-    fullName: 'posttest',
+    // fullName: 'posttest',
+    fullName:
+      'posttestposttestposttestposttestposttestposttestposttestposttestposttestposttestposttestposttest',
     email: 'posttest',
     createdAt: '2022-06-14T10:23:29.326Z',
     updatedAt: '2022-06-14T11:04:56.969Z',
