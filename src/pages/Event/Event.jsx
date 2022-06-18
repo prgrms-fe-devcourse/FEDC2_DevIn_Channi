@@ -1,9 +1,10 @@
+import { EventPage } from 'components';
 import * as S from './style';
 
 export function Event() {
   return (
     <S.Container>
-      <h1>Event</h1>
+      <EventPage />
     </S.Container>
   );
 }

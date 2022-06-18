@@ -29,7 +29,10 @@ export { HeaderButtons } from 'components/molecules/HeaderButtons/HeaderButtons'
 export { HeaderTexts } from 'components/molecules/HeaderTexts/HeaderTexts';
 export { FooterButtons } from 'components/molecules/FooterButtons/FooterButtons';
 export { CreatePost } from 'components/molecules/CreatePost/CreatePost';
-
+export { EventHeader } from 'components/molecules/EventHeader/EventHeader';
+export { EventHeaderNav } from 'components/molecules/EventHeaderNav/EventHeaderNav';
+export { EventItemList } from 'components/molecules/EventItemList/EventItemList';
+export { EventItem } from 'components/molecules/EventItem/EventItem';
 export { SamplePostList } from 'components/molecules/SamplePostList/SamplePostList';
 
 // organisms
@@ -42,3 +45,4 @@ export { Footer } from 'components/organisms/Footer/Footer';
 // templates
 export { HomePage } from 'components/templates/HomePage/HomePage';
 export { SearchPage } from 'components/templates/SearchPage/SearchPage';
+export { EventPage } from 'components/templates/EventPage/EventPage';
