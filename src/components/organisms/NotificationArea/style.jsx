@@ -9,5 +9,6 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.color.textPrime};
     font-weight: 700;
     font-size: 1.4rem;
+    margin-bottom: 1rem;
   }
 `;
