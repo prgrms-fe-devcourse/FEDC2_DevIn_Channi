@@ -1,23 +1,28 @@
 import { useState } from 'react';
-import { IconBtn, MenuItem, WrapperLink } from 'components';
+import { Icon, IconBtn, MenuItem, WrapperLink } from 'components';
 import * as S from './style';
 
 export function HeaderButtons() {
   const [isOpen, setIsOpen] = useState(false);
-  const onClick = () => {
+  const onClickBarBtn = () => {
     setIsOpen(!isOpen);
   };
-  const onBlur = () => {
+  const onBlurBarBtn = () => {
     setTimeout(() => {
       setIsOpen(false);
     }, 100);
   };
   return (
     <S.HeaderButtons>
-      <WrapperLink to="/notifications" type="link">
-        <IconBtn icon="bell" type="button" />
+      <WrapperLink to="/notification" type="link">
+        <Icon icon="bell" type="button" />
       </WrapperLink>
-      <IconBtn icon="bars" type="button" onClick={onClick} onBlur={onBlur} />
+      <IconBtn
+        icon="bars"
+        type="button"
+        onClick={onClickBarBtn}
+        onBlur={onBlurBarBtn}
+      />
       {isOpen && (
         <S.StyledMenu>
           <MenuItem type="link" to="/profile/:user-id">

@@ -9,6 +9,10 @@ export const HeaderButtons = styled.div`
   padding-bottom: 1rem;
   height: 3.5rem;
   align-items: center;
+
+  a {
+    color: ${({ theme }) => theme.color.textSecond};
+  }
 `;
 
 export const StyledMenu = styled(Menu)`

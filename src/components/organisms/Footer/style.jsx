@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const Footer = styled.footer`
-  flex-shrink: 0;
-  /* position: fixed;
-  bottom: 0px; */
   width: 100%;
   height: calc(3.5rem);
   padding: 1rem 0;

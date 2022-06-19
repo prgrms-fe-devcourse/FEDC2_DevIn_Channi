@@ -4,7 +4,6 @@ import authValidation from 'store/authValidationSlice';
 import searchReducer from 'store/searchSlice';
 import followReducer from 'store/followSlice';
 
-console.log('store.js!');
 export const store = configureStore({
   reducer: {
     user,
