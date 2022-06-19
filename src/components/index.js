@@ -29,6 +29,7 @@ export { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 export { Time } from 'components/atoms/Time/Time';
 export { Avatar } from 'components/atoms/Avatar/Avatar';
 export { Image } from 'components/atoms/Image/Image';
+export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
 
 // molecules
 export { Form } from 'components/molecules/Form/Form';
@@ -49,7 +50,6 @@ export { Og } from 'components/molecules/Og/Og';
 export { PostFooter } from 'components/molecules/PostFooter/PostFooter';
 export { CommentForm } from 'components/molecules/CommentForm/CommentForm';
 export { CommentThread } from 'components/molecules/CommentThread/CommentThread';
-
 
 // organisms
 export { ProfileList } from 'components/organisms/ProfileList/ProfileList';
