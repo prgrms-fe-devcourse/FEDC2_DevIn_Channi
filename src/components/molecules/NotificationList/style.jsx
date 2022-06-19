@@ -31,7 +31,6 @@ export const Content = styled.article`
   }
 
   span {
-    font-size: clamp(0.68rem, 1.6vw, 2rem);
-    white-space: nowrap;
+    font-size: clamp(0.68rem, 1.6vw, 1rem);
   }
 `;
