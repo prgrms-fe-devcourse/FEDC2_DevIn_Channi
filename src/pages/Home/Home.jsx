@@ -6,8 +6,13 @@ export function Home() {
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
   return (
     <NavTemplate>
-      <S.Container>
-        <SamplePostList isLoggedIn={isLoggedIn} />
+      {isLoggedIn && (
+        <S.FixedItem>
+          <CreatePost />
+        </S.FixedItem>
+      )}
+      <S.Container isLoggedIn={isLoggedIn}>
+        <SamplePostList />
       </S.Container>
     </NavTemplate>
   );

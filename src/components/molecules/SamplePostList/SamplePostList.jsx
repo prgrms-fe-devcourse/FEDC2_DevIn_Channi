@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { SamplePost, Loading } from 'components';
 import { posts } from 'api';
 import * as S from './style';
 
-export function SamplePostList({ isLoggedIn }) {
+export function SamplePostList() {
   const [postList, setPostList] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -23,7 +22,7 @@ export function SamplePostList({ isLoggedIn }) {
   }, []);
 
   return (
-    <S.SamplePostList isLoggedIn={isLoggedIn}>
+    <S.SamplePostList>
       {postList.map(post => (
         <SamplePost key={post._id} title={post.title} />
       ))}
@@ -31,7 +30,3 @@ export function SamplePostList({ isLoggedIn }) {
     </S.SamplePostList>
   );
 }
-
-SamplePostList.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
-};
