@@ -1,10 +1,11 @@
 import { Profile, ProfileInfo } from 'components';
+import * as S from './style'
 
 export function ProfileArea() {
   return (
-    <>
-      <Profile />
+    <S.ProfileArea>
+      <Profile userName="Parkinhwa"/>
       <ProfileInfo />
-    </>
+    </S.ProfileArea>
   );
 }
