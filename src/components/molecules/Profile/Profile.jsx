@@ -1,14 +1,7 @@
-/* eslint-disable no-unused-vars */
 import { useRef, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import {
-  ProfileUserImage,
-  ProfileUserName,
-  FollowBtn,
-  Avatar,
-  Paragraph,
-} from 'components';
+import { FollowBtn, Avatar, Paragraph, ProfileUpdateBtn } from 'components';
 import * as S from './style';
 
 export function Profile({
@@ -25,6 +18,8 @@ export function Profile({
   const following = useSelector(state => state.follow.following);
   const profileRef = useRef();
 
+  const authUser = useSelector(state => state.user.user);
+
   useEffect(() => {
     if (profileRef.current && idx % 10 === 0) {
       const observer = new IntersectionObserver(
@@ -38,9 +33,9 @@ export function Profile({
         },
         { threshold: 1 },
       );
-      if (!isSearchData) {
-        observer.observe(profileRef.current);
-      }
+      // if (!isSearchData) {
+      //   observer.observe(profileRef.current);
+      // }
     }
   });
 
@@ -63,7 +58,11 @@ export function Profile({
           {userName}
         </Paragraph>
       </S.Wrapper>
-      <FollowBtn userId={userId} isFollow={isFollow} followId={followId} />
+      {authUser._id === userId ? (
+        <ProfileUpdateBtn />
+      ) : (
+        <FollowBtn userId={userId} isFollow={isFollow} followId={followId} />
+      )}
     </S.Profile>
   );
 }
