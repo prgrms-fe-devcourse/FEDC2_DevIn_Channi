@@ -1,14 +1,14 @@
-import { ProfileUserImage, CreatePostInput } from 'components';
-import { Link } from 'react-router-dom';
+import { ProfileUserImage, CreatePostInput, WrapperLink } from 'components';
+
 import * as S from './style';
 
 export function CreatePost() {
   return (
-    <Link to="/posts/create" style={{ textDecoration: 'none' }}>
+    <WrapperLink to="/posts/create" type="link">
       <S.CreatePost>
         <ProfileUserImage size={2.5} />
         <CreatePostInput />
       </S.CreatePost>
-    </Link>
+    </WrapperLink>
   );
 }
