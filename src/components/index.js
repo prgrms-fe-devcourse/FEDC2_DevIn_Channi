@@ -38,6 +38,7 @@ export { HeaderButtons } from 'components/molecules/HeaderButtons/HeaderButtons'
 export { HeaderTexts } from 'components/molecules/HeaderTexts/HeaderTexts';
 export { FooterButtons } from 'components/molecules/FooterButtons/FooterButtons';
 export { SamplePostList } from 'components/molecules/SamplePostList/SamplePostList';
+export { NotificationList } from 'components/molecules/NotificationList/NotificationList';
 
 export { PostHeader } from 'components/molecules/PostHeader/PostHeader';
 export { PostBody } from 'components/molecules/PostBody/PostBody';
@@ -50,6 +51,7 @@ export { CommentThread } from 'components/molecules/CommentThread/CommentThread'
 export { ProfileList } from 'components/organisms/ProfileList/ProfileList';
 export { SearchResultTab } from 'components/organisms/SearchResultTab/SearchResultTab';
 export { SearchArea } from 'components/organisms/SearchArea/SearchArea';
+export { NotificationArea } from 'components/organisms/NotificationArea/NotificationArea';
 export { Header } from 'components/organisms/Header/Header';
 export { Footer } from 'components/organisms/Footer/Footer';
 
@@ -57,5 +59,4 @@ export { Post } from 'components/organisms/Post/Post';
 export { Comments } from 'components/organisms/Comments/Comments';
 
 // templates
-export { HomePage } from 'components/templates/HomePage/HomePage';
-export { SearchPage } from 'components/templates/SearchPage/SearchPage';
+export { NavTemplate } from 'components/templates/NavTemplate/NavTemplate';
