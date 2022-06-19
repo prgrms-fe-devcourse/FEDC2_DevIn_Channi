@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -11,7 +10,6 @@ export function FollowBtn({ userId, isFollow, followId }) {
   const [isFollowing, setIsFollowing] = useState(isFollow);
   const [newFollowId, setNewFollowId] = useState(followId);
   const [isDisable, setIsDisable] = useState(false);
-
   const dispatch = useDispatch();
 
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
@@ -20,6 +18,10 @@ export function FollowBtn({ userId, isFollow, followId }) {
   useEffect(() => {
     setIsFollowing(isFollow);
   }, [isFollow]);
+
+  useEffect(() => {
+    setNewFollowId(followId);
+  }, [followId]);
 
   const onFollow = () => {
     setIsDisable(true);
