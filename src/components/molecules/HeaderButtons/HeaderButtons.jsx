@@ -20,10 +20,10 @@ export function HeaderButtons() {
       <IconBtn icon="bars" type="button" onClick={onClick} onBlur={onBlur} />
       {isOpen && (
         <S.StyledMenu>
-          <MenuItem type="link" to="/profile">
+          <MenuItem type="link" to="/profile/:user-id">
             내 프로필
           </MenuItem>
-          <MenuItem type="link" to="/settings">
+          <MenuItem type="link" to="/profile/update">
             내 정보 수정
           </MenuItem>
           <MenuItem type="link" to="/logout">
