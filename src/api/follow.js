@@ -18,13 +18,14 @@ export const follow = {
     }
   },
   unfollow: async ({ token, id }) => {
-    console.log('Usertoken=', token, "\n",'삭제할팔로잉Id=', id);
+    console.log('Usertoken=', token, '\n', '삭제할팔로잉Id=', id);
     try {
-      const response = await axios.delete(
-        `${API}/follow/delete`,
-        { id },
-        { headers: { Authorization: `Bearer ${token}` } },
-      );
+      const response = await axios.delete(`${API}/follow/delete`, {
+        headers: { Authorization: `Bearer ${token}` },
+        data: {
+          id,
+        },
+      });
       console.log(response.data);
       return response.data;
     } catch (e) {
