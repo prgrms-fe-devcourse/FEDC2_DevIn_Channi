@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { follow } from 'api';
@@ -10,9 +11,11 @@ export function FollowBtn({ userId, isFollow, followId }) {
   const [isFollowing, setIsFollowing] = useState(isFollow);
   const [newFollowId, setNewFollowId] = useState(followId);
   const [isDisable, setIsDisable] = useState(false);
-  const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
+
   const { getCookie } = useCookie();
 
   useEffect(() => {
@@ -37,7 +40,7 @@ export function FollowBtn({ userId, isFollow, followId }) {
       };
       followApi();
     } else {
-      window.location.href = '/signin';
+      navigate('/signin');
     }
   };
 
@@ -53,7 +56,7 @@ export function FollowBtn({ userId, isFollow, followId }) {
         return unFollowInfo;
       };
       unfollowApi();
-      }
+    }
   };
 
   return (
