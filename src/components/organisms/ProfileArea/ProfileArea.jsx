@@ -1,13 +1,39 @@
+import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Profile, ProfileInfo } from 'components';
-import * as S from './style'
+import { users } from 'api';
 
-export function ProfileArea() {
+export function ProfileArea({ userId }) {
+  const [user, setUser] = useState('');
+
+  useEffect(() => {
+    if (userId) {
+      const getUserApi = async () => {
+        const getUser = await users.getUser({ userId });
+        console.log(getUser);
+        setUser(getUser);
+        return getUser;
+      };
+      getUserApi();
+    }
+  }, [userId]);
+
   return (
-    <S.ProfileArea>
-      <S.ProfileHeader>
-      <Profile userName="Parkinhwa"/>
-      </S.ProfileHeader>
-      <ProfileInfo />
-    </S.ProfileArea>
+    <div>
+      {user && (
+        <>
+          <Profile userName={user.fullName} userId={userId} />
+          <ProfileInfo
+            posts={user.posts.length}
+            followers={user.followers.length}
+            following={user.following.length}
+          />
+        </>
+      )}
+    </div>
   );
 }
+
+ProfileArea.propTypes = {
+  userId: PropTypes.string.isRequired,
+};

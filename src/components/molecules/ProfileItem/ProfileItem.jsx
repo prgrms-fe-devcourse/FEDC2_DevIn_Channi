@@ -20,5 +20,5 @@ export function ProfileItem({ itemName, itemNum }) {
 
 ProfileItem.propTypes = {
   itemName: PropTypes.string.isRequired,
-  itemNum: PropTypes.string.isRequired,
+  itemNum: PropTypes.number.isRequired,
 };
