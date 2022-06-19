@@ -2,6 +2,8 @@ import axios from 'axios';
 
 const API = process.env.REACT_APP_API_BASEURL;
 
+console.log('API=', API);
+
 export const auth = {
   signin: async ({ email, password }) => {
     try {
