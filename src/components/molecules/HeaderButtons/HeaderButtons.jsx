@@ -25,13 +25,13 @@ export function HeaderButtons() {
       />
       {isOpen && (
         <S.StyledMenu>
-          <MenuItem type="link" to="/profile/:user-id">
+          <MenuItem type="link" to="/profile/:user-id" isFirst>
             내 프로필
           </MenuItem>
           <MenuItem type="link" to="/profile/update">
             내 정보 수정
           </MenuItem>
-          <MenuItem type="link" to="/logout">
+          <MenuItem type="link" to="/logout" isLast>
             로그아웃
           </MenuItem>
         </S.StyledMenu>
