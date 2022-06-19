@@ -1,10 +1,13 @@
-import { EventPage } from 'components';
+import { NavTemplate, EventHeader, EventItemList } from 'components';
 import * as S from './style';
 
 export function Event() {
   return (
-    <S.Container>
-      <EventPage />
-    </S.Container>
+    <NavTemplate>
+      <S.Container>
+        <EventHeader />
+        <EventItemList />
+      </S.Container>
+    </NavTemplate>
   );
 }
