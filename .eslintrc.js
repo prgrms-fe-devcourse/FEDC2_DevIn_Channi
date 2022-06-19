@@ -13,6 +13,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
     'no-param-reassign': 'off',
+    'dot-notation': 'off',
     'jsx-a11y/label-has-associated-control': [
       'error',
       {

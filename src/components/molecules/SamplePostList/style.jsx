@@ -6,4 +6,5 @@ export const SamplePostList = styled.div`
   flex-grow: 1;
   width: 100%;
   height: calc(100vh - ${props => (props.isLoggedIn ? 11.5 : 7)}rem);
+  /* padding: 100px 0; */
 `;

@@ -1,10 +1,12 @@
-import { HomePage } from 'components';
-import * as S from './style';
+import { NavTemplate, SamplePostList, CreatePost } from 'components';
+import { useSelector } from 'react-redux';
 
 export function Home() {
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
   return (
-    <S.Container>
-      <HomePage />
-    </S.Container>
+    <NavTemplate>
+      {isLoggedIn && <CreatePost />}
+      <SamplePostList isLoggedIn={isLoggedIn} />
+    </NavTemplate>
   );
 }

@@ -7,6 +7,9 @@ export const Header = styled.header`
   flex-wrap: wrap;
   position: relative;
   height: 3.5rem;
+  // padding-top: 19px;
+  // padding-bottom: 11px;
+  // top: 0;
   width: 100%;
   max-width: calc(40rem - 2px);
   color: ${({ theme }) => theme.color.textSecond};
