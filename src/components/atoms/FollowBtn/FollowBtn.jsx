@@ -28,13 +28,13 @@ export function FollowBtn({ userId, isFollow, followId }) {
 
   const onFollow = () => {
     setIsDisable(true);
-    if (isLoggedIn && !isFollowing) {
+    if (isLoggedIn && !isFollowing && !newFollowId) {
       setIsFollowing(true);
       const token = getCookie();
       const followApi = async () => {
         const followInfo = await follow.follow({ token, userId });
         if (followInfo) dispatch(addFollowing(followInfo));
-        if (!newFollowId) setNewFollowId(followInfo._id);
+        setNewFollowId(followInfo._id);
         setIsDisable(false);
         return followInfo;
       };
