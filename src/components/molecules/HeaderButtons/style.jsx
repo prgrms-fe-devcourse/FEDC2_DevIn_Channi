@@ -1,16 +1,23 @@
+import { Menu } from 'components';
 import styled from 'styled-components';
 
 export const HeaderButtons = styled.div`
-  position: relative;
   display: flex;
-  gap: 1rem; // 0.5rem 에서 1rem으로 변경
+  gap: 0.5rem;
   padding-right: 1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   height: 3.5rem;
+  align-items: center;
 
   a {
-    text-decoration: none;
     color: ${({ theme }) => theme.color.textSecond};
   }
+`;
+
+export const StyledMenu = styled(Menu)`
+  position: absolute;
+  top: 3.5rem;
+  right: 1rem;
+  z-index: 1;
 `;

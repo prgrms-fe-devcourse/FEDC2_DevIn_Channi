@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Footer = styled.footer`
-  flex-shrink: 0;
   width: 100%;
   height: calc(3.5rem);
   padding: 1rem 0;

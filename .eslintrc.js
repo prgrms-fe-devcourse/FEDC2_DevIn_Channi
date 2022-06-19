@@ -9,11 +9,21 @@ module.exports = {
     'no-return-await': 'off',
     'no-underscore-dangle': 'off',
     'no-undef': 'off',
+    'no-unused-vars': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
     'no-param-reassign': 'off',
-    'no-restricted-syntax': 'off',
-    'no-unused-expressions': 'off',
+    'dot-notation': 'off',
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        labelComponents: [],
+        labelAttributes: [],
+        controlComponents: [],
+        assert: 'either',
+        depth: 25,
+      },
+    ],
   },
   settings: {
     'import/resolver': {

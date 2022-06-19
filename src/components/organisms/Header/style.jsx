@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-export const Header = styled.header`
+export const Header = styled.nav`
   display: flex;
   justify-content: space-between;
   flex-shrink: 0;
   flex-wrap: wrap;
+  position: relative;
   height: 3.5rem;
   width: 100%;
   max-width: calc(40rem - 2px);
