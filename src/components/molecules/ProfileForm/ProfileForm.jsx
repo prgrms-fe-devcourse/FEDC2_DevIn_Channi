@@ -7,14 +7,15 @@ export function ProfileForm({ info }) {
   const onClick = () => console.log('클릭');
   return (
     <S.Container>
-      {isAuth && inputs.map(input => (
-        <FormInput
-          key={input.id}
-          type={input.type}
-          name={input.name}
-          placeholder={input.placeholder}
-        />
-      ))}
+      {isAuth &&
+        inputs.map(input => (
+          <FormInput
+            key={input.id}
+            type={input.type}
+            name={input.name}
+            placeholder={input.placeholder}
+          />
+        ))}
       <FormBtn onClick={onClick} text={title} />
     </S.Container>
   );

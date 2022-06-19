@@ -1,7 +1,9 @@
-import { SearchPage } from "components";
+import { NavTemplate, SearchArea } from 'components';
 
 export function Search() {
   return (
-    <SearchPage/>
+    <NavTemplate>
+      <SearchArea />
+    </NavTemplate>
   );
 }

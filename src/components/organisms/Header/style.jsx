@@ -4,7 +4,6 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  position: fixed;
   padding-top: 19px;
   padding-bottom: 11px;
   top: 0;

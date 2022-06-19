@@ -47,20 +47,18 @@ export function ProfileList() {
     <S.ProfileList>
       {!loading && !isUserExsist && <SearchNone />}
       {isUserExsist &&
-        user.map(
-          (userInfo, idx) =>
-            authUser._id !== userInfo._id && (
-              <Profile
-                getCount={getCount}
-                idx={idx + 1}
-                key={userInfo._id}
-                userId={userInfo._id}
-                userImage={userInfo.image || ''}
-                userName={userInfo.fullName}
-                isSearchData={isSearchData}
-              />
-            ),
-        )}
+        user.map((userInfo, idx) => (
+          <Profile
+            getCount={getCount}
+            idx={idx + 1}
+            key={userInfo._id}
+            userId={userInfo._id}
+            userImage={userInfo.image || ''}
+            userName={userInfo.fullName}
+            userFollowers={userInfo.followers}
+            isSearchData={isSearchData}
+          />
+        ))}
       {loading && <Loading />}
     </S.ProfileList>
   );
