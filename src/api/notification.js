@@ -28,16 +28,9 @@ export const notification = {
       console.error(e);
     }
   },
-  createNotification: async ({ token, type }) => {
-    // type : {
-    //   type: "COMMENT" | "FOLLOW" | "LIKE",
-    //   typeId: commentId | followId | likeId,
-    //   userId: 알림 받는 사용자,
-    //   postId: if type === "FOLLOW" -> null,
-    // }
-
+  createNotification: async ({ token, data }) => {
     try {
-      const response = await axios.post(`${API}/notifications/create`, type, {
+      const response = await axios.post(`${API}/notifications/create`, data, {
         headers: {
           Authorization: `bearer ${token}`,
         },
