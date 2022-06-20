@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { CommentType } from 'types';
 import {
-  WrapperLink,
   IconBtn,
   MenuItem,
+  WrapperLink,
   Avatar,
+  Time,
   Paragraph,
   Span,
-  Time,
 } from 'components';
 import * as S from './style';
 
@@ -38,8 +38,8 @@ export function CommentThread({ comment, deleteComment }) {
     }, 150);
   };
 
-  const onCommentDeleteBtnClick = () => {
-    deleteComment({
+  const onCommentDeleteBtnClick = async () => {
+    await deleteComment({
       commentId: comment._id,
     });
   };

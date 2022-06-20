@@ -26,7 +26,6 @@ const useComments = ({ rawComments, postId, authorId }) => {
       });
       setComments([createdComment, ...comments]);
       setCommentLimit(commentLimit + 1);
-
       await notification.createNotification({
         token,
         data: {

@@ -1,33 +1,33 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { PostType, AuthorType } from 'types';
 import {
-  WrapperLink,
-  TextLink,
   IconBtn,
+  MenuItem,
+  TextLink,
+  WrapperLink,
   Avatar,
   Time,
   Paragraph,
-  MenuItem,
 } from 'components';
-import { useCookie } from 'hooks';
+
 import * as S from './style';
 
-export function PostHeader({
-  authorId,
-  authorName,
-  authorAvatarUrl,
-  postId,
-  postCreatedAt,
-  deletePost,
-}) {
+export function PostHeader({ post, author, deletePost }) {
   const [isMyPost, setIsMyPost] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const {
     user: { _id: userId },
     isLoggedIn,
   } = useSelector(state => state.user);
-  const { getCookie } = useCookie();
+
+  useEffect(() => {
+    if (isLoggedIn && author._id === userId) {
+      setIsMyPost(true);
+    }
+  }, [isLoggedIn, userId, author]);
 
   const onMoreActsBtnClick = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -40,28 +40,25 @@ export function PostHeader({
   };
 
   const onPostDeleteBtnClick = async () => {
-    const token = getCookie();
-    await deletePost({ postId, token });
+    await deletePost({ postId: post._id });
   };
-
-  useEffect(() => {
-    if (isLoggedIn && authorId === userId) {
-      setIsMyPost(true);
-    }
-  }, [isLoggedIn, userId, authorId]);
 
   return (
     <S.Header>
-      <WrapperLink type="link" to={`/profiles/${authorId}`} borderRadius="50%">
-        <Avatar src={authorAvatarUrl} alt="" />
+      <WrapperLink
+        type="link"
+        to={`/profiles/${author._id}`}
+        borderRadius="50%"
+      >
+        <Avatar src={author.image} alt="" />
       </WrapperLink>
       <S.Flex>
-        <TextLink type="link" to={`/profiles/${authorId}`}>
+        <TextLink type="link" to={`/profiles/${author._id}`}>
           <Paragraph fontSize="small" bold isTruncated lineClamp={1}>
-            {authorName}
+            {author.fullName}
           </Paragraph>
         </TextLink>
-        <Time createdAt={postCreatedAt} />
+        <Time createdAt={post.createdAt} />
       </S.Flex>
       {isMyPost && (
         <IconBtn
@@ -73,7 +70,7 @@ export function PostHeader({
       )}
       {isMyPost && isMenuOpen && (
         <S.StyledMenu>
-          <MenuItem type="link" to={`/posts/${postId}/edit`} isFirst>
+          <MenuItem type="link" to={`/posts/${post._id}/edit`} isFirst>
             수정
           </MenuItem>
           <MenuItem type="button" onClick={onPostDeleteBtnClick} isLast>
@@ -86,14 +83,7 @@ export function PostHeader({
 }
 
 PostHeader.propTypes = {
-  authorId: PropTypes.string.isRequired,
-  authorName: PropTypes.string.isRequired,
-  authorAvatarUrl: PropTypes.string,
-  postId: PropTypes.string.isRequired,
-  postCreatedAt: PropTypes.string.isRequired,
+  post: PostType.isRequired,
+  author: AuthorType.isRequired,
   deletePost: PropTypes.func.isRequired,
-};
-
-PostHeader.defaultProps = {
-  authorAvatarUrl: '',
 };

@@ -9,19 +9,17 @@ export const postApi = {
     return response.data;
   },
 
-  delete: async ({ postId, token }) => {
+  delete: async ({ token, data }) => {
     const response = axios({
       method: 'delete',
       url: `${BASEURL}/posts/delete`,
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
       },
-      data: JSON.stringify({
-        id: postId,
-      }),
+      data: {
+        id: data.postId,
+      },
     });
-
     return response.data;
   },
 };

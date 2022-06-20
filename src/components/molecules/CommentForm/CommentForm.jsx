@@ -11,9 +11,9 @@ export function CommentForm({ author, createComment }) {
     setInputValue(e.target.value);
   };
 
-  const onFormSubmit = e => {
+  const onFormSubmit = async e => {
     e.preventDefault();
-    createComment({ comment: inputValue });
+    await createComment({ comment: inputValue });
     setInputValue('');
   };
 

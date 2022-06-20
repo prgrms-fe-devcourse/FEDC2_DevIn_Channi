@@ -2,7 +2,6 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { PostHeader, PostBody, PostFooter, Comments } from 'components';
 import { PostType } from 'types';
-import { ogData } from './data';
 import * as S from './style';
 
 export function Post({ post, deletePost }) {
@@ -14,18 +13,11 @@ export function Post({ post, deletePost }) {
 
   return (
     <S.Article>
-      <PostHeader
-        postId={post._id}
-        postCreatedAt={post.createdAt}
-        authorId={post.author._id}
-        authorAvatarUrl={post.author.image}
-        authorName={post.author.fullName}
-        deletePost={deletePost}
-      />
-      <PostBody postContent={post.title} og={ogData} />
+      <PostHeader post={post} author={post.author} deletePost={deletePost} />
+      <PostBody postContent={post.title} />
       <PostFooter
-        postId={post._id}
-        authorId={post.author._id}
+        post={post}
+        author={post.author}
         likes={post.likes}
         comments={post.comments}
         toggleComments={toggleComments}
@@ -38,10 +30,6 @@ export function Post({ post, deletePost }) {
 }
 
 Post.propTypes = {
-  post: PostType,
+  post: PostType.isRequired,
   deletePost: PropTypes.func.isRequired,
-};
-
-Post.defaultProps = {
-  post: {},
 };
