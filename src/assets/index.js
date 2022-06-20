@@ -13,3 +13,5 @@ export { User } from 'assets/images/icons/User';
 export { Spinner } from 'assets/images/icons/Spinner';
 
 export { EVENT_DATA } from 'assets/EventData/EventData';
+export { OTHER_EVENT_DATA } from 'assets/OtherEventData/OtherEventData';
+export { MEETING_DATA } from 'assets/MeetingData/MeetingData';
