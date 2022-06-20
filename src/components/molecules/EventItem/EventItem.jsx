@@ -12,7 +12,7 @@ export function EventItem({ event, eventType }) {
           <Tag key={nanoid()} text={t} />
         ))}
       </Span>
-      <TextLink to={link} type="anchor">
+      <TextLink href={link} type="anchor">
         {title}
       </TextLink>
       {eventType !== 'meeting' && (
