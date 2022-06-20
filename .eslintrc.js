@@ -26,6 +26,7 @@ module.exports = {
     ],
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
+    'react/forbid-prop-types': 'off',
   },
   settings: {
     'import/resolver': {
