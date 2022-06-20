@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useCookie } from 'hooks';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAuthValidation } from 'store';
 
@@ -7,8 +6,6 @@ export function useForm({ initialState, authCallback }) {
   const dispatch = useDispatch();
   const error = useSelector(state => state.authValidation.text);
   const [formData, setFormData] = useState({ ...initialState });
-
-  const { getCookie } = useCookie();
 
   const onChange = ({ target }) => {
     const { name, value } = target;

@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Modal from 'react-modal';
-import { ProfileImgUpdate, SuccessModal, Form } from 'components';
+import { ProfileImgUpdate, Form, SuccessModal } from 'components';
 import { setAuthValidation, setUser } from 'store';
 import { useForm, useCookie } from 'hooks';
 import { auth } from 'api';
@@ -67,16 +66,20 @@ const validateName = async ({ dispatch, name, token }) => {
 export function ProfileUpdateForm({ fullName }) {
   const dispatch = useDispatch();
   const { getCookie } = useCookie();
-
-  const [showModal, setShowModal] = useState(false);
-
-  const onShowModal = () => setShowModal(true);
-  const onHideModal = () => setShowModal(false);
+  const navigate = useNavigate();
 
   const initialState = {
     fullName,
     password: '',
     checkPassword: '',
+  };
+
+  const [showModal, setShowModal] = useState(false);
+
+  const onShowModal = () => setShowModal(true);
+  const onHideModal = () => {
+    setShowModal(false);
+    navigate(-1, { replace: true });
   };
 
   const { formData, onChange, onUpdateSubmit } = useForm({
