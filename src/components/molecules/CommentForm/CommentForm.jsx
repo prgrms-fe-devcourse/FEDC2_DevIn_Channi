@@ -1,42 +1,42 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { WrapperLink, RoundInput, Avatar } from 'components';
+import { AuthorType } from 'types';
+import { WrapperLink, Avatar } from 'components';
 import * as S from './style';
 
-export function CommentForm({ author }) {
-  const { _id: authorId, image: avatarUrl } = author;
-  const [commentContent, setCommentContent] = useState('');
+export function CommentForm({ author, createComment }) {
+  const [inputValue, setInputValue] = useState('');
 
-  const onCommentChange = content => {
-    // set commentContent(content)
+  const onInputchange = e => {
+    setInputValue(e.target.value);
   };
 
-  const onCommentSubmit = e => {
+  const onFormSubmit = e => {
     e.preventDefault();
-    // 1. create comment
-    // 2. update comments state -> ui
-    // posts 전체를 업데이트 할 순 없어서 -> 낙관적 업데이트 필요
+    createComment({ comment: inputValue });
+    setInputValue('');
   };
 
   return (
-    <S.Form onSubmit={onCommentSubmit}>
-      <WrapperLink type="link" to={`/profile/${authorId}`} borderRadius="50%">
-        <Avatar src={avatarUrl} alt="" />
+    <S.Form autocomplete="off" onSubmit={onFormSubmit}>
+      <WrapperLink type="link" to={`/profile/${author._id}`} borderRadius="50%">
+        <Avatar src={author.image} alt="" />
       </WrapperLink>
-      <RoundInput
-        name="comment"
-        label="comment"
-        placeholder="댓글을 입력하세요"
-        onChange={onCommentChange}
-      />
+      <S.Label>
+        <span className="visually-hidden">댓글</span>
+        <S.Input
+          type="text"
+          name="comment"
+          placeholder="댓글을 입력하세요"
+          value={inputValue}
+          onChange={onInputchange}
+        />
+      </S.Label>
     </S.Form>
   );
 }
 
 CommentForm.propTypes = {
-  author: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    fullName: PropTypes.string.isRequired,
-    image: PropTypes.string,
-  }).isRequired,
+  author: AuthorType.isRequired,
+  createComment: PropTypes.func.isRequired,
 };

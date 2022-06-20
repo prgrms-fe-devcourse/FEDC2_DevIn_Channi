@@ -15,23 +15,23 @@ export function Post({ post, deletePost }) {
   return (
     <S.Article>
       <PostHeader
+        postId={post._id}
+        postCreatedAt={post.createdAt}
         authorId={post.author._id}
         authorAvatarUrl={post.author.image}
         authorName={post.author.fullName}
-        postCreatedAt={post.createdAt}
-        postId={post._id}
         deletePost={deletePost}
       />
       <PostBody postContent={post.title} og={ogData} />
       <PostFooter
-        authorId={post.author._id}
         postId={post._id}
+        authorId={post.author._id}
         likes={post.likes}
         comments={post.comments}
         toggleComments={toggleComments}
       />
       {isCommentsOpen && (
-        <Comments comments={post.comments} author={post.author} />
+        <Comments post={post} author={post.author} comments={post.comments} />
       )}
     </S.Article>
   );

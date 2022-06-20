@@ -5,3 +5,4 @@ export { notification } from 'api/notification';
 export { follow } from 'api/follow';
 export { postApi } from 'api/postApi';
 export { likeApi } from 'api/likeApi';
+export { commentApi } from 'api/commentApi';
