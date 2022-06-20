@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
-import { ProfileImgUpdate, ProfileForm, Form } from 'components';
+import Modal from 'react-modal';
+import { ProfileImgUpdate, SuccessModal, Form } from 'components';
 import { setAuthValidation, setUser } from 'store';
 import { useForm, useCookie } from 'hooks';
 import { auth } from 'api';
@@ -67,6 +68,11 @@ export function ProfileUpdateForm({ fullName }) {
   const dispatch = useDispatch();
   const { getCookie } = useCookie();
 
+  const [showModal, setShowModal] = useState(false);
+
+  const onShowModal = () => setShowModal(true);
+  const onHideModal = () => setShowModal(false);
+
   const initialState = {
     fullName,
     password: '',
@@ -92,6 +98,7 @@ export function ProfileUpdateForm({ fullName }) {
       });
 
       dispatch(setUser(changedUserInfo));
+      onShowModal();
     },
   });
 
@@ -127,10 +134,15 @@ export function ProfileUpdateForm({ fullName }) {
   };
 
   return (
-    <S.ProfileUpdateForm>
-      <ProfileImgUpdate />
-      <Form info={info} onChange={onChange} onSubmit={onUpdateSubmit} />
-    </S.ProfileUpdateForm>
+    <>
+      <S.ProfileUpdateForm>
+        <ProfileImgUpdate />
+        <Form info={info} onChange={onChange} onSubmit={onUpdateSubmit} />
+      </S.ProfileUpdateForm>
+      {showModal && (
+        <SuccessModal showModal={showModal} onHideModal={onHideModal} />
+      )}
+    </>
   );
 }
 
