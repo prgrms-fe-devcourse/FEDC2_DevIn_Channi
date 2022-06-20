@@ -8,7 +8,7 @@ export const Btn = styled.button`
   height: 2.5rem;
   border: 0;
   border-radius: 50%;
-  color: ${({ theme }) => theme.color.textSecond};
+  color: ${({ theme, color }) => theme.color[color]};
   background-color: ${({ theme }) => theme.color.backMain};
   cursor: pointer;
   transition: color 150ms, background-color 150ms;

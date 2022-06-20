@@ -9,7 +9,7 @@ export const postApi = {
     return response.data;
   },
 
-  delete: async (postId, token) => {
+  delete: async ({ postId, token }) => {
     const response = axios({
       method: 'delete',
       url: `${BASEURL}/posts/delete`,

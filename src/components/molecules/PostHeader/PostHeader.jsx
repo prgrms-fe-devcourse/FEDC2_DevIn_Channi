@@ -41,7 +41,7 @@ export function PostHeader({
 
   const onPostDeleteBtnClick = async () => {
     const token = getCookie();
-    await deletePost(postId, token);
+    await deletePost({ postId, token });
   };
 
   useEffect(() => {

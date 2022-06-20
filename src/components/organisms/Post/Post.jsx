@@ -2,34 +2,36 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { PostHeader, PostBody, PostFooter, Comments } from 'components';
 import { PostType } from 'types';
-import { postData, ogData } from './data';
+import { ogData } from './data';
 import * as S from './style';
 
-export function Post({ post }) {
-  // 초기값 false로
-  const [isCommentsOpen, setIsCommentsOpen] = useState(true);
+export function Post({ post, deletePost }) {
+  const [isCommentsOpen, setIsCommentsOpen] = useState(false);
 
-  const onCommentBtnClick = () => {
+  const toggleComments = () => {
     setIsCommentsOpen(!isCommentsOpen);
   };
 
   return (
     <S.Article>
       <PostHeader
-        authorId={postData.author._id}
-        authorAvatarUrl={postData.author.image}
-        authorName={postData.author.fullName}
-        postCreatedAt={postData.createdAt}
-        postId={postData._id}
+        authorId={post.author._id}
+        authorAvatarUrl={post.author.image}
+        authorName={post.author.fullName}
+        postCreatedAt={post.createdAt}
+        postId={post._id}
+        deletePost={deletePost}
       />
-      <PostBody postContent={postData.title} og={ogData} />
+      <PostBody postContent={post.title} og={ogData} />
       <PostFooter
-        likesCount={postData.likes.length}
-        commentsCount={postData.comments.length}
-        onCommentBtnClick={onCommentBtnClick}
+        authorId={post.author._id}
+        postId={post._id}
+        likes={post.likes}
+        comments={post.comments}
+        toggleComments={toggleComments}
       />
       {isCommentsOpen && (
-        <Comments comments={postData.comments} author={postData.author} />
+        <Comments comments={post.comments} author={post.author} />
       )}
     </S.Article>
   );
@@ -37,6 +39,7 @@ export function Post({ post }) {
 
 Post.propTypes = {
   post: PostType,
+  deletePost: PropTypes.func.isRequired,
 };
 
 Post.defaultProps = {
