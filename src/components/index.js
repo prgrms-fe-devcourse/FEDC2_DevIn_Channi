@@ -21,6 +21,7 @@ export { WrapperLink } from 'components/atoms/WrapperLink/WrapperLink';
 export { TextLink } from 'components/atoms/TextLink/TextLink';
 export { IconBtn } from 'components/atoms/IconBtn/IconBtn';
 export { TextBtn } from 'components/atoms/TextBtn/TextBtn';
+export { RoundBtn } from 'components/atoms/RoundBtn/RoundBtn';
 export { RoundInput } from 'components/atoms/RoundInput/RoundInput';
 export { Menu } from 'components/atoms/Menu/Menu';
 export { MenuItem } from 'components/atoms/MenuItem/MenuItem';
@@ -65,4 +66,7 @@ export { Post } from 'components/organisms/Post/Post';
 export { Comments } from 'components/organisms/Comments/Comments';
 
 // templates
+export { HomePage } from 'components/templates/HomePage/HomePage';
+export { SearchPage } from 'components/templates/SearchPage/SearchPage';
+export { PostFormPage } from 'components/templates/PostFormPage/PostFormPage';
 export { NavTemplate } from 'components/templates/NavTemplate/NavTemplate';
