@@ -3,13 +3,7 @@ import ReactDOM from 'react-dom';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {
-  ProfileImgUpdate,
-  Form,
-  SuccessModal,
-  Loading,
-  LoadingWithBackdrop,
-} from 'components';
+import { ProfileImgUpdate, Form, SuccessModal, Loading } from 'components';
 import { setAuthValidation, setUser } from 'store';
 import { useForm, useCookie, useImage } from 'hooks';
 import { auth } from 'api';
