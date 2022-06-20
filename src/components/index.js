@@ -51,6 +51,7 @@ export { Og } from 'components/molecules/Og/Og';
 export { PostFooter } from 'components/molecules/PostFooter/PostFooter';
 export { CommentForm } from 'components/molecules/CommentForm/CommentForm';
 export { CommentThread } from 'components/molecules/CommentThread/CommentThread';
+export { LoadingWithBackdrop } from 'components/molecules/LoadingWithBackdrop/LoadingWithBackdrop';
 
 // organisms
 export { ProfileList } from 'components/organisms/ProfileList/ProfileList';

@@ -1,8 +1,15 @@
 import { useState } from 'react';
+import ReactDOM from 'react-dom';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { ProfileImgUpdate, Form, SuccessModal } from 'components';
+import {
+  ProfileImgUpdate,
+  Form,
+  SuccessModal,
+  Loading,
+  LoadingWithBackdrop,
+} from 'components';
 import { setAuthValidation, setUser } from 'store';
 import { useForm, useCookie, useImage } from 'hooks';
 import { auth } from 'api';
@@ -63,7 +70,16 @@ const validateName = async ({ dispatch, name, token }) => {
   return response;
 };
 
-export function ProfileUpdateForm({ fullName }) {
+const uploadImage = async ({ token, prevImg, newImg }) => {
+  if (newImg && prevImg !== newImg) {
+    return await auth.uploadAvatar({
+      token,
+      avatar: newImg,
+    });
+  }
+};
+
+export function ProfileUpdateForm({ fullName, image }) {
   const dispatch = useDispatch();
   const { getCookie } = useCookie();
   const { ref, preview, onUpload, onChange: onChangeImg } = useImage();
@@ -74,6 +90,8 @@ export function ProfileUpdateForm({ fullName }) {
     password: '',
     checkPassword: '',
   };
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -86,7 +104,14 @@ export function ProfileUpdateForm({ fullName }) {
   const { formData, onChange, onUpdateSubmit } = useForm({
     initialState,
     authCallback: async () => {
+      setIsLoading(true);
       const { fullName: name, password, checkPassword } = formData;
+
+      await uploadImage({
+        prevImg: image,
+        newImg: preview,
+        token: getCookie(),
+      });
 
       await validatePassword({
         dispatch,
@@ -102,6 +127,7 @@ export function ProfileUpdateForm({ fullName }) {
       });
 
       dispatch(setUser(changedUserInfo));
+      setIsLoading(false);
       onShowModal();
     },
   });
@@ -141,6 +167,7 @@ export function ProfileUpdateForm({ fullName }) {
     <>
       <S.ProfileUpdateForm>
         <ProfileImgUpdate
+          image={image}
           refTarget={ref}
           preview={preview}
           onUpload={onUpload}
@@ -148,6 +175,13 @@ export function ProfileUpdateForm({ fullName }) {
         />
         <Form info={info} onChange={onChange} onSubmit={onUpdateSubmit} />
       </S.ProfileUpdateForm>
+      {isLoading &&
+        ReactDOM.createPortal(
+          <S.LoadingWrapper>
+            <Loading />
+          </S.LoadingWrapper>,
+          document.querySelector('#backdrop'),
+        )}
       {showModal && (
         <SuccessModal showModal={showModal} onHideModal={onHideModal} />
       )}
@@ -157,4 +191,5 @@ export function ProfileUpdateForm({ fullName }) {
 
 ProfileUpdateForm.propTypes = {
   fullName: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };

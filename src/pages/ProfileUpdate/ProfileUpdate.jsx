@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { ProfileUpdateForm, NavTemplate } from 'components';
 
 export function ProfileUpdate() {
-  const { fullName } = useSelector(state => state.user.user);
+  const { fullName, image } = useSelector(state => state.user.user);
 
   const [name, setName] = useState(fullName || null);
 
@@ -18,7 +18,7 @@ export function ProfileUpdate() {
 
   return (
     <NavTemplate>
-      <ProfileUpdateForm fullName={name} />
+      <ProfileUpdateForm fullName={name} image={image || false} />
     </NavTemplate>
   );
 }

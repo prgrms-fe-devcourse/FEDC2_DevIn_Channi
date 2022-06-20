@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Buffer } from 'buffer';
 
 const API = process.env.REACT_APP_API_BASEURL;
 
@@ -83,6 +84,26 @@ export const auth = {
           },
         },
       );
+
+      return response.data;
+    } catch (e) {
+      console.error(e);
+    }
+  },
+  uploadAvatar: async ({ token, avatar }) => {
+    const formData = new FormData();
+    const blobData = new Blob([avatar], { type: 'image/*' });
+
+    formData.append('isCover', false);
+    formData.append('image', blobData);
+
+    try {
+      const response = await axios.post(`${API}/users/upload-photo`, formData, {
+        headers: {
+          Authorization: `bearer ${token}`,
+          ContentType: 'multipart/form-data',
+        },
+      });
 
       return response.data;
     } catch (e) {

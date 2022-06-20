@@ -22,7 +22,6 @@ export function SignUp() {
         navigate('/signin');
         dispatch(setAuthValidation(''));
       } else {
-        console.log('ds');
         dispatch(setAuthValidation(response.message));
       }
 
