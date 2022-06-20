@@ -1,7 +1,14 @@
 import { useState } from 'react';
+import { useCookie } from 'hooks';
+import { useSelector, useDispatch } from 'react-redux';
+import { setAuthValidation } from 'store';
 
 export function useForm({ initialState, authCallback }) {
-  const [formData, setFormData] = useState(initialState);
+  const dispatch = useDispatch();
+  const error = useSelector(state => state.authValidation.text);
+  const [formData, setFormData] = useState({ ...initialState });
+
+  const { getCookie } = useCookie();
 
   const onChange = ({ target }) => {
     const { name, value } = target;
@@ -9,6 +16,8 @@ export function useForm({ initialState, authCallback }) {
       ...formData,
       [name]: value,
     });
+
+    if (error) dispatch(setAuthValidation(''));
   };
 
   const onSubmit = async e => {
@@ -26,5 +35,14 @@ export function useForm({ initialState, authCallback }) {
     }
   };
 
-  return { onChange, onSubmit };
+  const onUpdateSubmit = async e => {
+    e.preventDefault();
+    try {
+      authCallback();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  return { formData, onChange, onSubmit, onUpdateSubmit };
 }

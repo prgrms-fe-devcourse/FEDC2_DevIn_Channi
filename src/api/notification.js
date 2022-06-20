@@ -30,11 +30,10 @@ export const notification = {
   },
   createNotification: async ({ token, type }) => {
     try {
-      const response = await axios.post(`${API}/notifications`, {
+      const response = await axios.post(`${API}/notifications`, type, {
         headers: {
           Authorization: `bearer ${token}`,
         },
-        type,
       });
       return response.data;
     } catch (e) {

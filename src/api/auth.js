@@ -2,8 +2,6 @@ import axios from 'axios';
 
 const API = process.env.REACT_APP_API_BASEURL;
 
-console.log('API=', API);
-
 export const auth = {
   signin: async ({ email, password }) => {
     try {
@@ -51,6 +49,40 @@ export const auth = {
           Authorization: `bearer ${token}`,
         },
       });
+
+      return response.data;
+    } catch (e) {
+      console.error(e);
+    }
+  },
+  changePassword: async ({ token, newPassword }) => {
+    try {
+      const response = await axios.put(
+        `${API}/settings/update-password`,
+        { password: newPassword },
+        {
+          headers: {
+            Authorization: `bearer ${token}`,
+          },
+        },
+      );
+
+      return response.data;
+    } catch (e) {
+      console.error(e);
+    }
+  },
+  changeName: async ({ token, newName }) => {
+    try {
+      const response = await axios.put(
+        `${API}/settings/update-user`,
+        { fullName: newName },
+        {
+          headers: {
+            Authorization: `bearer ${token}`,
+          },
+        },
+      );
 
       return response.data;
     } catch (e) {
