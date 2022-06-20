@@ -28,14 +28,27 @@ export const notification = {
       console.error(e);
     }
   },
-  createNotification: async ({ token, type }) => {
+  create: async ({ token, type, typeId, userId, postId }) => {
+    // type: "COMMENT" | "FOLLOW" | "LIKE"
+    // typeId: commentId | followId | likeId
+    // userId: 알림 받는 사용자
+    // postId: if type === "FOLLOW" -> null
+
     try {
-      const response = await axios.post(`${API}/notifications`, {
-        headers: {
-          Authorization: `bearer ${token}`,
+      const response = await axios.post(
+        `${API}/notifications/create`,
+        {
+          notificationType: type,
+          notificationTypeId: typeId,
+          userId,
+          postId: postId || null,
         },
-        type,
-      });
+        {
+          headers: {
+            Authorization: `bearer ${token}`,
+          },
+        },
+      );
       return response.data;
     } catch (e) {
       console.error(e);
