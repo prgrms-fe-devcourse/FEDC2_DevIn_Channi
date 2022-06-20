@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { ProfileImgUpdate, Form, SuccessModal } from 'components';
 import { setAuthValidation, setUser } from 'store';
-import { useForm, useCookie } from 'hooks';
+import { useForm, useCookie, useImage } from 'hooks';
 import { auth } from 'api';
 import * as S from './style';
 
@@ -66,6 +66,7 @@ const validateName = async ({ dispatch, name, token }) => {
 export function ProfileUpdateForm({ fullName }) {
   const dispatch = useDispatch();
   const { getCookie } = useCookie();
+  const { ref, preview, onUpload, onChange: onChangeImg } = useImage();
   const navigate = useNavigate();
 
   const initialState = {
@@ -139,7 +140,12 @@ export function ProfileUpdateForm({ fullName }) {
   return (
     <>
       <S.ProfileUpdateForm>
-        <ProfileImgUpdate />
+        <ProfileImgUpdate
+          refTarget={ref}
+          preview={preview}
+          onUpload={onUpload}
+          onChange={onChangeImg}
+        />
         <Form info={info} onChange={onChange} onSubmit={onUpdateSubmit} />
       </S.ProfileUpdateForm>
       {showModal && (
