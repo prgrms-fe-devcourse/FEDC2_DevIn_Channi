@@ -63,6 +63,7 @@ export { ProfileUpdateForm } from 'components/organisms/ProfileUpdateForm/Profil
 export { ProfileInfo } from 'components/organisms/ProfileInfo/ProfileInfo';
 export { ProfileArea } from 'components/organisms/ProfileArea/ProfileArea';
 export { Post } from 'components/organisms/Post/Post';
+export { PostList } from 'components/organisms/PostList/PostList';
 export { Comments } from 'components/organisms/Comments/Comments';
 
 // templates

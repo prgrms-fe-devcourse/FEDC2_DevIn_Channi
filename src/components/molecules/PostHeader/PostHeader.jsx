@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import {
   WrapperLink,
   TextLink,
@@ -10,6 +10,7 @@ import {
   Paragraph,
   MenuItem,
 } from 'components';
+import { useCookie } from 'hooks';
 import * as S from './style';
 
 export function PostHeader({
@@ -18,14 +19,15 @@ export function PostHeader({
   authorAvatarUrl,
   postId,
   postCreatedAt,
+  deletePost,
 }) {
-  // 초기값 false로
-  const [isMyPost, setIsMyPost] = useState(true);
+  const [isMyPost, setIsMyPost] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const {
-  //   user: { _id: userId },
-  //   isLoggedIn,
-  // } = useSelector(state => state.user);
+  const {
+    user: { _id: userId },
+    isLoggedIn,
+  } = useSelector(state => state.user);
+  const { getCookie } = useCookie();
 
   const onMoreActsBtnClick = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,21 +36,19 @@ export function PostHeader({
   const onMoreActsBtnBlur = () => {
     setTimeout(() => {
       setIsMenuOpen(false);
-    }, 100);
+    }, 150);
   };
 
-  const onPostDeleteBtnClick = e => {
-    console.log('delete');
-    // axios posts/delete
-    // posts -> filter !post._id
-    // PostList에서 props로 delete post 전달
+  const onPostDeleteBtnClick = async () => {
+    const token = getCookie();
+    await deletePost(postId, token);
   };
 
-  // useEffect(() => {
-  //   if (isLoggedIn && authorId === userId) {
-  //     setIsMyPost(true);
-  //   }
-  // }, [isLoggedIn, authorId, userId]);
+  useEffect(() => {
+    if (isLoggedIn && authorId === userId) {
+      setIsMyPost(true);
+    }
+  }, [isLoggedIn, userId, authorId]);
 
   return (
     <S.Header>
@@ -91,6 +91,7 @@ PostHeader.propTypes = {
   authorAvatarUrl: PropTypes.string,
   postId: PropTypes.string.isRequired,
   postCreatedAt: PropTypes.string.isRequired,
+  deletePost: PropTypes.func.isRequired,
 };
 
 PostHeader.defaultProps = {
