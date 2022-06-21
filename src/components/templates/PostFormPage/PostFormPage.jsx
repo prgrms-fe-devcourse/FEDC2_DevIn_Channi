@@ -1,9 +1,10 @@
-import { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useRef, useEffect } from 'react';
+import { useNavigate, useMatch } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import { PostType } from 'types';
 import { UrlModal, OgPreview, IconBtn, RoundBtn, Paragraph } from 'components';
-import { ogApi } from 'api';
+import { useCookie } from 'hooks';
+import { ogApi, postApi } from 'api';
 import * as S from './style';
 
 const useInput = initialState => {
@@ -13,11 +14,7 @@ const useInput = initialState => {
     setInputValue(e.target.value);
   };
 
-  const resetInput = () => {
-    setInputValue('');
-  };
-
-  return { inputValue, onInputChange, resetInput };
+  return { inputValue, setInputValue, onInputChange };
 };
 
 const useModal = () => {
@@ -77,29 +74,93 @@ const useOg = () => {
     }
   };
 
-  return { og, isOgLoading, isOgError, ogErrorMessage, getOg, resetOg };
+  return { og, isOgLoading, isOgError, ogErrorMessage, getOg, setOg, resetOg };
+};
+
+const usePostApi = () => {
+  const { getCookie } = useCookie();
+
+  const createPost = async ({ content, og }) => {
+    const token = getCookie();
+
+    try {
+      await postApi.create({
+        token,
+        data: {
+          content,
+          og,
+        },
+      });
+    } catch (e) {
+      console.error(e.message);
+    }
+  };
+
+  const updatePost = async ({ content, og, postId }) => {
+    const token = getCookie();
+
+    try {
+      await postApi.update({
+        token,
+        data: {
+          content,
+          og,
+          postId,
+        },
+      });
+    } catch (e) {
+      console.error(e.message);
+    }
+  };
+
+  return { createPost, updatePost };
 };
 
 export function PostFormPage({ post }) {
-  const { inputValue: contentValue, onInputChange: onContentChange } =
-    useInput('');
+  const {
+    inputValue: contentValue,
+    setInputValue: setContentValue,
+    onInputChange: onContentChange,
+  } = useInput('');
+
   const {
     inputValue: urlValue,
+    setInputValue: setUrlValue,
     onInputChange: onUrlChange,
-    resetInput: resetUrlInput,
   } = useInput('');
-  const navigate = useNavigate();
 
   const { isModalOpen, openModal, closeModal } = useModal();
-  const { og, isOgLoading, isOgError, ogErrorMessage, getOg, resetOg } =
+
+  const { og, isOgLoading, isOgError, ogErrorMessage, getOg, setOg, resetOg } =
     useOg();
 
-  const onPostSubmit = e => {
+  const { createPost, updatePost } = usePostApi();
+
+  const navigate = useNavigate();
+  const updateRouteMatch = useMatch('/posts/:postId/update');
+  const [isUpdatePage, setIsUpdatePage] = useState(updateRouteMatch !== null);
+
+  useEffect(() => {
+    if (post == null) return;
+
+    const { content: rawContent, og: rawOg } = JSON.parse(post.title);
+    setContentValue(rawContent);
+    if (rawOg) {
+      setUrlValue(rawOg.url);
+      setOg(rawOg);
+    }
+  }, [post, setContentValue, setOg, setUrlValue]);
+
+  const onPostSubmit = async e => {
     e.preventDefault();
 
-    // Json.stringify(data) -> title
+    if (isUpdatePage) {
+      await updatePost({ content: contentValue, og, postId: post._id });
+    } else {
+      await createPost({ content: contentValue, og });
+    }
 
-    // 라우트에 따라 create 또는 update
+    navigate('/');
   };
 
   const onBackBtnClick = () => {
@@ -107,7 +168,7 @@ export function PostFormPage({ post }) {
   };
 
   const resetUrlAndOg = () => {
-    resetUrlInput();
+    setUrlValue('');
     resetOg();
   };
 
@@ -116,7 +177,9 @@ export function PostFormPage({ post }) {
       <S.PostForm onSubmit={onPostSubmit} autoComplete="off">
         <S.Header>
           <IconBtn type="button" onClick={onBackBtnClick} icon="chevron" />
-          <Paragraph bold>게시물 작성/수정</Paragraph>
+          <Paragraph bold>
+            {isUpdatePage ? '게시물 수정' : '게시물 작성'}
+          </Paragraph>
         </S.Header>
         <S.Textarea
           value={contentValue}

@@ -6,12 +6,12 @@ import { postApi } from 'api';
 export function PostForm() {
   const [post, setPost] = useState(null);
   const navigate = useNavigate();
-  const postEditRouteMatch = useMatch('/posts/:postId/update');
+  const updateRouteMatch = useMatch('/posts/:postId/update');
 
   useEffect(() => {
-    if (postEditRouteMatch == null) return;
+    if (updateRouteMatch == null) return;
 
-    const { postId } = postEditRouteMatch.params;
+    const { postId } = updateRouteMatch.params;
 
     (async () => {
       try {
@@ -19,11 +19,10 @@ export function PostForm() {
         setPost(data);
       } catch (e) {
         console.error(e.message);
-        // :postId가 없어서 데이터를 불러오지 못하면 -> 404로
         navigate('/404');
       }
     })();
-  }, [postEditRouteMatch, navigate]);
+  }, [updateRouteMatch, navigate]);
 
   return <PostFormPage post={post} />;
 }
