@@ -66,6 +66,7 @@ export { ProfileArea } from 'components/organisms/ProfileArea/ProfileArea';
 export { Post } from 'components/organisms/Post/Post';
 export { PostList } from 'components/organisms/PostList/PostList';
 export { Comments } from 'components/organisms/Comments/Comments';
+export { NotFoundArea } from 'components/organisms/NotFoundArea/NotFoundArea';
 
 // templates
 export { PostFormPage } from 'components/templates/PostFormPage/PostFormPage';
