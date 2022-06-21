@@ -66,7 +66,5 @@ export { PostList } from 'components/organisms/PostList/PostList';
 export { Comments } from 'components/organisms/Comments/Comments';
 
 // templates
-export { HomePage } from 'components/templates/HomePage/HomePage';
-export { SearchPage } from 'components/templates/SearchPage/SearchPage';
 export { PostFormPage } from 'components/templates/PostFormPage/PostFormPage';
 export { NavTemplate } from 'components/templates/NavTemplate/NavTemplate';

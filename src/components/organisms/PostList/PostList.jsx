@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { PostsType } from 'types';
 import { Post, Icon } from 'components';
-import { postApi } from 'api';
 import { useCookie } from 'hooks';
+import { postApi } from 'api';
 import * as S from './style';
 
 const usePosts = rawPosts => {
@@ -37,7 +37,12 @@ export function PostList({ posts: rawPosts, isLoading }) {
   useEffect(() => {
     (async () => {
       try {
-        const data = await postApi.getAll();
+        const data = await postApi.getAll({
+          params: {
+            offset: '',
+            limit: '',
+          },
+        });
         setPosts(data);
       } catch (e) {
         console.error(e.message);
