@@ -1,12 +1,19 @@
 import PropTypes from 'prop-types';
 import { WrapperLink, Image, Paragraph } from 'components';
+import { OgType } from 'types';
+import defaultThumbnail from 'assets/images/default-thumbnail.jpg';
 import * as S from './style';
 
-export function Og({ og }) {
+export function OgCard({ className, og }) {
   const { title, description, image: imageUrl, url: siteUrl } = og;
+
+  const onImgError = e => {
+    e.target.src = defaultThumbnail;
+  };
 
   return (
     <WrapperLink
+      className={className}
       type="anchor"
       href={siteUrl}
       target="_blank"
@@ -27,18 +34,21 @@ export function Og({ og }) {
             {description}
           </Paragraph>
         </S.Flex>
-        <Image src={imageUrl} alt="" height="100%" aspectRatio="4 / 3" />
+        <Image
+          src={imageUrl || defaultThumbnail}
+          alt=""
+          height="100%"
+          aspectRatio="4 / 3"
+          onError={onImgError}
+        />
       </S.Article>
     </WrapperLink>
   );
 }
 
-Og.propTypes = {
-  og: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    keywords: PropTypes.string,
-    url: PropTypes.string.isRequired,
-  }).isRequired,
+OgCard.propTypes = {
+  className: PropTypes.string,
+  og: OgType.isRequired,
 };
+
+OgCard.defaultProps = { className: '' };

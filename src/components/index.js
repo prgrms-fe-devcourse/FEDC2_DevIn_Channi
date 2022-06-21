@@ -55,7 +55,8 @@ export { ProfileItem } from 'components/molecules/ProfileItem/ProfileItem';
 export { NotificationList } from 'components/molecules/NotificationList/NotificationList';
 export { PostHeader } from 'components/molecules/PostHeader/PostHeader';
 export { PostBody } from 'components/molecules/PostBody/PostBody';
-export { Og } from 'components/molecules/Og/Og';
+export { OgCard } from 'components/molecules/OgCard/OgCard';
+export { OgPreview } from 'components/molecules/OgPreview/OgPreview';
 export { PostFooter } from 'components/molecules/PostFooter/PostFooter';
 export { CommentForm } from 'components/molecules/CommentForm/CommentForm';
 export { CommentThread } from 'components/molecules/CommentThread/CommentThread';
@@ -75,6 +76,7 @@ export { PostList } from 'components/organisms/PostList/PostList';
 export { Comments } from 'components/organisms/Comments/Comments';
 export { NotFoundArea } from 'components/organisms/NotFoundArea/NotFoundArea';
 export { ProfileFollow } from 'components/organisms/ProfileFollow/ProfileFollow';
+export { UrlModal } from 'components/organisms/UrlModal/UrlModal';
 
 // templates
 export { PostFormPage } from 'components/templates/PostFormPage/PostFormPage';

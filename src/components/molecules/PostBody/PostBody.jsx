@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Og, TextBtn, Paragraph, Span } from 'components';
+import { OgCard, TextBtn, Paragraph, Span } from 'components';
 // 포스트 생성 완료 후 삭제(임시 데이터)
 import { ogData } from './data';
 import * as S from './style';
@@ -24,7 +24,7 @@ export function PostBody({ postContent }) {
           </TextBtn>
         )}
       </S.Content>
-      <Og og={ogData} />
+      <OgCard og={ogData} />
     </S.Body>
   );
 }
