@@ -6,6 +6,7 @@ export const Container = styled.div`
 
   h1 {
     padding-left: 1rem;
+    padding-top: 1rem;
     color: ${({ theme }) => theme.color.textPrime};
     font-weight: 700;
     font-size: 1.4rem;

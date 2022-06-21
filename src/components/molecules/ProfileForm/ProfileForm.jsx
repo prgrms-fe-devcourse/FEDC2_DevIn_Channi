@@ -5,7 +5,6 @@ import * as S from './style';
 export function ProfileForm({ info }) {
   const { title, inputs, isAuth } = info;
   const onClick = () => console.log('클릭');
-
   return (
     <S.Container>
       {isAuth &&

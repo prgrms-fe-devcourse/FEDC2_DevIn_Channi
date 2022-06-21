@@ -28,13 +28,12 @@ export const notification = {
       console.error(e);
     }
   },
-  createNotification: async ({ token, type }) => {
+  createNotification: async ({ token, data }) => {
     try {
-      const response = await axios.post(`${API}/notifications`, {
+      const response = await axios.post(`${API}/notifications/create`, data, {
         headers: {
           Authorization: `bearer ${token}`,
         },
-        type,
       });
       return response.data;
     } catch (e) {

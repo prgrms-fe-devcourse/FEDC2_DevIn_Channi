@@ -14,12 +14,16 @@ export { ItemNumber } from 'components/atoms/ItemNumber/ItemNumber';
 export { ItemText } from 'components/atoms/ItemText/ItemText';
 export { Logo } from 'components/atoms/Logo/Logo';
 export { Divider } from 'components/atoms/Divider/Divider';
-export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
+export { CreatePostInput } from 'components/atoms/CreatePostInput/CreatePostInput';
+export { UserImgUpdateIcon } from 'components/atoms/UserImgUpdateIcon/UserImgUpdateIcon';
+export { ProfileUpdateBtn } from 'components/atoms/ProfileUpdateBtn/ProfileUpdateBtn';
+
 export { StyledLink } from 'components/atoms/StyledLink/StyledLink';
 export { WrapperLink } from 'components/atoms/WrapperLink/WrapperLink';
 export { TextLink } from 'components/atoms/TextLink/TextLink';
 export { IconBtn } from 'components/atoms/IconBtn/IconBtn';
 export { TextBtn } from 'components/atoms/TextBtn/TextBtn';
+export { RoundBtn } from 'components/atoms/RoundBtn/RoundBtn';
 export { RoundInput } from 'components/atoms/RoundInput/RoundInput';
 export { Menu } from 'components/atoms/Menu/Menu';
 export { MenuItem } from 'components/atoms/MenuItem/MenuItem';
@@ -37,9 +41,11 @@ export { Profile } from 'components/molecules/Profile/Profile';
 export { HeaderButtons } from 'components/molecules/HeaderButtons/HeaderButtons';
 export { HeaderTexts } from 'components/molecules/HeaderTexts/HeaderTexts';
 export { FooterButtons } from 'components/molecules/FooterButtons/FooterButtons';
-export { SamplePostList } from 'components/molecules/SamplePostList/SamplePostList';
+export { CreatePost } from 'components/molecules/CreatePost/CreatePost';
+export { ProfileImgUpdate } from 'components/molecules/ProfileImgUpdate/ProfileImgUpdate';
+export { ProfileForm } from 'components/molecules/ProfileForm/ProfileForm';
+export { ProfileItem } from 'components/molecules/ProfileItem/ProfileItem';
 export { NotificationList } from 'components/molecules/NotificationList/NotificationList';
-
 export { PostHeader } from 'components/molecules/PostHeader/PostHeader';
 export { PostBody } from 'components/molecules/PostBody/PostBody';
 export { Og } from 'components/molecules/Og/Og';
@@ -54,9 +60,12 @@ export { SearchArea } from 'components/organisms/SearchArea/SearchArea';
 export { NotificationArea } from 'components/organisms/NotificationArea/NotificationArea';
 export { Header } from 'components/organisms/Header/Header';
 export { Footer } from 'components/organisms/Footer/Footer';
-
+export { ProfileUpdateForm } from 'components/organisms/ProfileUpdateForm/ProfileUpdateForm';
+export { ProfileInfo } from 'components/organisms/ProfileInfo/ProfileInfo';
+export { ProfileArea } from 'components/organisms/ProfileArea/ProfileArea';
 export { Post } from 'components/organisms/Post/Post';
 export { Comments } from 'components/organisms/Comments/Comments';
 
 // templates
+export { PostFormPage } from 'components/templates/PostFormPage/PostFormPage';
 export { NavTemplate } from 'components/templates/NavTemplate/NavTemplate';
