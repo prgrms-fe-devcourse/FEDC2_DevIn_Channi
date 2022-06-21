@@ -8,7 +8,6 @@ import { addFollowing, removeFollowing } from 'store';
 import * as S from './style';
 
 export function FollowBtn({ userId, isFollow, followId }) {
-  console.log(isFollow);
   const [isFollowing, setIsFollowing] = useState(isFollow);
   const [newFollowId, setNewFollowId] = useState(followId);
   const [isDisable, setIsDisable] = useState(false);
@@ -16,7 +15,6 @@ export function FollowBtn({ userId, isFollow, followId }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
-  const following = useSelector(state => state.follow.following);
 
   const { getCookie } = useCookie();
 
@@ -24,18 +22,11 @@ export function FollowBtn({ userId, isFollow, followId }) {
     setIsFollowing(isFollow);
   }, [isFollow]);
 
-  // useEffect(() => {
-  //   following.map(({ user, _id }) => {
-  //     console.log(user, _id, userId);
-  //     return user === userId
-  //       ? (setNewFollowId(_id), setIsFollowing(true))
-  //       : false;
-  //   });
-  // }, [following, userId]);
-
   useEffect(() => {
-    setNewFollowId(followId);
-  }, [followId]);
+    if(followId && !newFollowId) {
+      setNewFollowId(followId);
+    }
+  }, [followId, newFollowId]);
 
   const onFollow = () => {
     setIsDisable(true);
@@ -49,7 +40,7 @@ export function FollowBtn({ userId, isFollow, followId }) {
           data: {
             notificationType: 'FOLLOW',
             notificationTypeId: followInfo._id,
-            userId: followInfo.folower,
+            userId,
             postId: null,
           },
         });
@@ -66,13 +57,13 @@ export function FollowBtn({ userId, isFollow, followId }) {
 
   const onUnFollow = () => {
     setIsDisable(true);
-    console.log(isLoggedIn, isFollowing, newFollowId);
     if (isLoggedIn && isFollowing && newFollowId) {
       setIsFollowing(false);
       const token = getCookie();
       const unfollowApi = async () => {
         const unFollowInfo = await follow.unfollow({ token, id: newFollowId });
         if (unFollowInfo) dispatch(removeFollowing(unFollowInfo._id));
+        setNewFollowId('');
         setIsDisable(false);
         return unFollowInfo;
       };
