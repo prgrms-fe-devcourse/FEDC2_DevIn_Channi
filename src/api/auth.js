@@ -81,6 +81,7 @@ export const auth = {
         {
           headers: {
             Authorization: `bearer ${token}`,
+            ContentType: 'application/json',
           },
         },
       );
