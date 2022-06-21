@@ -70,7 +70,7 @@ export function PostHeader({ post, author, deletePost }) {
       )}
       {isMyPost && isMenuOpen && (
         <S.StyledMenu>
-          <MenuItem type="link" to={`/posts/${post._id}/edit`} isFirst>
+          <MenuItem type="link" to={`/posts/${post._id}/update`} isFirst>
             수정
           </MenuItem>
           <MenuItem type="button" onClick={onPostDeleteBtnClick} isLast>

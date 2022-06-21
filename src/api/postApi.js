@@ -17,7 +17,7 @@ export const postApi = {
   },
 
   get: async postId => {
-    const response = await axios.get(`${BASEURL}/posts/${postId}`);
+    const response = await axios.get(`${API}/posts/${postId}`);
     return response.data;
   },
 
@@ -30,27 +30,50 @@ export const postApi = {
   },
 
   create: async ({ token, data }) => {
+    const json = JSON.stringify({
+      content: data.content,
+      og: data.og,
+    });
+
+    const formData = new FormData();
+
+    formData.append('title', json);
+    formData.append('image', null);
+    formData.append('channelId', CHANNEL_ID);
+
     const response = axios({
       method: 'post',
-      url: `${BASEURL}/posts/create`,
+      url: `${API}/posts/create`,
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'multipart/form-data',
       },
-      data,
+      data: formData,
     });
     return response.data;
   },
 
   update: async ({ token, data }) => {
+    const json = JSON.stringify({
+      content: data.content,
+      og: data.og,
+    });
+
+    const formData = new FormData();
+
+    formData.append('postId', data.postId);
+    formData.append('title', json);
+    formData.append('image', null);
+    formData.append('channelId', CHANNEL_ID);
+
     const response = axios({
       method: 'put',
-      url: `${BASEURL}/posts/update`,
+      url: `${API}/posts/update`,
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'multipart/form-data',
       },
-      data,
+      data: formData,
     });
     return response.data;
   },

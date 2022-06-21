@@ -41,3 +41,8 @@ export const OgType = PropTypes.shape({
   keywords: PropTypes.string,
   url: PropTypes.string.isRequired,
 });
+
+export const PostBodyType = PropTypes.shape({
+  content: PropTypes.string.isRequired,
+  og: OgType,
+});

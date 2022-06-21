@@ -14,7 +14,7 @@ export function Post({ post, deletePost }) {
   return (
     <S.Article>
       <PostHeader post={post} author={post.author} deletePost={deletePost} />
-      <PostBody postContent={post.title} />
+      <PostBody postBody={post.title} />
       <PostFooter
         post={post}
         author={post.author}
