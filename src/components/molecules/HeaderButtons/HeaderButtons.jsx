@@ -1,9 +1,13 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Icon, IconBtn, MenuItem, WrapperLink } from 'components';
 import * as S from './style';
 
+
 export function HeaderButtons() {
   const [isOpen, setIsOpen] = useState(false);
+  const authUser = useSelector(state => state.user.user);
+
   const onClickBarBtn = () => {
     setIsOpen(!isOpen);
   };
@@ -12,6 +16,7 @@ export function HeaderButtons() {
       setIsOpen(false);
     }, 100);
   };
+
   return (
     <S.HeaderButtons>
       <WrapperLink to="/notification" type="link">
@@ -25,7 +30,7 @@ export function HeaderButtons() {
       />
       {isOpen && (
         <S.StyledMenu>
-          <MenuItem type="link" to="/profiles/:id" isFirst>
+          <MenuItem type="link" to={`/profiles/${authUser._id}`} isFirst>
             내 프로필
           </MenuItem>
           <MenuItem type="link" to="/profiles/update">
