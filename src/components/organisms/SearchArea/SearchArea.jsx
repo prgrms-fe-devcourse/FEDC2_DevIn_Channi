@@ -12,13 +12,9 @@ export function SearchArea() {
     setContent(tabname);
   };
 
-
   const selectContent = {
     profile: <ProfileList />,
-    post: <S.Container>
-      {/* {console.log(searchPostsResult)} */}
-      Post
-    </S.Container>,
+    post: <S.Container>Post</S.Container>,
   };
 
   return (

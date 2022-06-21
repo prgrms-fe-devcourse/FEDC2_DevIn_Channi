@@ -6,3 +6,4 @@ export { SignIn } from 'pages/SignIn/SiginIn';
 export { SignUp } from 'pages/SignUp/SignUp';
 export { Profile } from 'pages/Profile/Profile';
 export { ProfileUpdate } from 'pages/ProfileUpdate/ProfileUpdate';
+export { PostForm } from 'pages/PostForm/PostForm';

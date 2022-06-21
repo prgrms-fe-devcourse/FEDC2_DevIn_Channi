@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.span`
   cursor: pointer;
-  margin: 1rem 0 1rem 0;
+  padding: 0.5rem 0 0.5rem 0;
 
   width: 100%;
   height: fit-content;
@@ -26,7 +26,11 @@ export const Content = styled.article`
 
   margin: 0 1rem 0 1rem;
 
+  & > :first-child {
+    margin-right: 0.5rem;
+  }
+
   span {
-    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    font-size: clamp(0.68rem, 1.6vw, 1rem);
   }
 `;

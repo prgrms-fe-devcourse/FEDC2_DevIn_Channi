@@ -1,7 +1,9 @@
-import * as S from './style'; 
+import * as S from './style';
 
 export function UserImgUpdateIcon() {
-    return <S.UserImgUpdateIcon>
-        <S.CustomIcon icon="camera"/>
+  return (
+    <S.UserImgUpdateIcon>
+      <S.CustomIcon icon="camera" />
     </S.UserImgUpdateIcon>
+  );
 }

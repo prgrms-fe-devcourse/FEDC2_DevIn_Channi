@@ -4,7 +4,7 @@ import { Icon } from 'components';
 export const UserImgUpdateIcon = styled.div`
   width: 2.5rem;
   height: 2.5rem;
-  right: 0;
+  right: 0.5rem;
   bottom: 0;
   border: 2px solid ${({ theme }) => theme.color.backMain};
   border-radius: 50%;
@@ -15,4 +15,4 @@ export const UserImgUpdateIcon = styled.div`
 export const CustomIcon = styled(Icon)`
   padding: 0.33rem;
   color: ${({ theme }) => theme.color.textSecond};
-`
+`;

@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+<<<<<<< HEAD
 import {
   FollowBtn,
   TextLink,
@@ -8,6 +9,9 @@ import {
   Paragraph,
   ProfileUpdateBtn,
 } from 'components';
+=======
+import { FollowBtn, Avatar, Paragraph, ProfileUpdateBtn } from 'components';
+>>>>>>> develop
 import * as S from './style';
 
 export function Profile({
