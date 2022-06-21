@@ -10,9 +10,7 @@ export function ProfileArea({ userId }) {
     if (userId) {
       const getUserApi = async () => {
         const getUser = await users.getUser({ userId });
-        console.log(getUser);
         setUser(getUser);
-        return getUser;
       };
       getUserApi();
     }
@@ -22,11 +20,12 @@ export function ProfileArea({ userId }) {
     <div>
       {user && (
         <>
-          <Profile userName={user.fullName} userId={userId} />
+          <Profile userImage={user.image} userName={user.fullName} userId={userId} />
           <ProfileInfo
-            posts={user.posts.length}
-            followers={user.followers.length}
-            following={user.following.length}
+            userId={userId}
+            posts={user.posts}
+            followers={user.followers}
+            following={user.following}
           />
         </>
       )}
