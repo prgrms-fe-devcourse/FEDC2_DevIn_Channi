@@ -10,5 +10,5 @@ export const store = configureStore({
     authValidation,
     search: searchReducer,
     follow: followReducer,
-  }
+  },
 });

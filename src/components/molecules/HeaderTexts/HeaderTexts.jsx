@@ -1,11 +1,15 @@
-import { Link } from 'react-router-dom';
+import { WrapperLink } from 'components';
 import * as S from './style';
 
 export function HeaderTexts() {
   return (
     <S.HeaderTexts>
-      <Link to="/signin">로그인</Link>
-      <Link to="/signup">회원가입</Link>
+      <WrapperLink to="/signin" type="link">
+        로그인
+      </WrapperLink>
+      <WrapperLink to="/signup" type="link">
+        회원가입
+      </WrapperLink>
     </S.HeaderTexts>
   );
 }

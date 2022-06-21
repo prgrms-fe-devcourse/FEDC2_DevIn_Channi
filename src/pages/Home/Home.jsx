@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
-import { NavTemplate, PostList } from 'components';
+import { useSelector } from 'react-redux';
+import { NavTemplate, CreatePost, PostList } from 'components';
 import { postApi } from 'api';
+import * as S from './style';
 
 export function Home() {
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
   const [posts, setPosts] = useState([]);
-
+  
   useEffect(() => {
     (async () => {
       try {
@@ -21,9 +24,17 @@ export function Home() {
     })();
   }, [setPosts]);
 
+  
   return (
     <NavTemplate>
-      <PostList posts={posts} isLoading={false} />
+      {isLoggedIn && (
+        <S.FixedItem>
+          <CreatePost />
+        </S.FixedItem>
+      )}
+      <S.Container isLoggedIn={isLoggedIn}>
+
+      </S.Container>
     </NavTemplate>
   );
 }

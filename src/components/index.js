@@ -14,8 +14,10 @@ export { ItemNumber } from 'components/atoms/ItemNumber/ItemNumber';
 export { ItemText } from 'components/atoms/ItemText/ItemText';
 export { Logo } from 'components/atoms/Logo/Logo';
 export { Divider } from 'components/atoms/Divider/Divider';
+export { CreatePostInput } from 'components/atoms/CreatePostInput/CreatePostInput';
 export { UserImgUpdateIcon } from 'components/atoms/UserImgUpdateIcon/UserImgUpdateIcon';
 export { ProfileUpdateBtn } from 'components/atoms/ProfileUpdateBtn/ProfileUpdateBtn';
+
 export { StyledLink } from 'components/atoms/StyledLink/StyledLink';
 export { WrapperLink } from 'components/atoms/WrapperLink/WrapperLink';
 export { TextLink } from 'components/atoms/TextLink/TextLink';
@@ -29,7 +31,6 @@ export { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 export { Time } from 'components/atoms/Time/Time';
 export { Avatar } from 'components/atoms/Avatar/Avatar';
 export { Image } from 'components/atoms/Image/Image';
-export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
 
 // molecules
 export { Form } from 'components/molecules/Form/Form';
@@ -39,7 +40,7 @@ export { Profile } from 'components/molecules/Profile/Profile';
 export { HeaderButtons } from 'components/molecules/HeaderButtons/HeaderButtons';
 export { HeaderTexts } from 'components/molecules/HeaderTexts/HeaderTexts';
 export { FooterButtons } from 'components/molecules/FooterButtons/FooterButtons';
-export { SamplePostList } from 'components/molecules/SamplePostList/SamplePostList';
+export { CreatePost } from 'components/molecules/CreatePost/CreatePost';
 export { ProfileImgUpdate } from 'components/molecules/ProfileImgUpdate/ProfileImgUpdate';
 export { ProfileForm } from 'components/molecules/ProfileForm/ProfileForm';
 export { ProfileItem } from 'components/molecules/ProfileItem/ProfileItem';
