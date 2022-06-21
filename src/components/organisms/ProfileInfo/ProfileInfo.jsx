@@ -14,7 +14,7 @@ export function ProfileInfo({ userId, posts, followers, following }) {
     setIsModalShow(false);
   }, [userId])
 
-  const follwerModal = followerData => {
+  const followerModal = followerData => {
     setIsModalShow(true);
     setFollowInfo(followerData);
     setIsFollower(true);
@@ -61,7 +61,7 @@ export function ProfileInfo({ userId, posts, followers, following }) {
               tabIndex={0}
                onClick={() =>
                 itemName === '팔로워'
-                  ? follwerModal(followers)
+                  ? followerModal(followers)
                   : followingModal(following)
               }
             >
