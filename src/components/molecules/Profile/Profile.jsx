@@ -1,7 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-<<<<<<< HEAD
 import {
   FollowBtn,
   TextLink,
@@ -9,9 +8,6 @@ import {
   Paragraph,
   ProfileUpdateBtn,
 } from 'components';
-=======
-import { FollowBtn, Avatar, Paragraph, ProfileUpdateBtn } from 'components';
->>>>>>> develop
 import * as S from './style';
 
 export function Profile({
@@ -25,9 +21,11 @@ export function Profile({
 }) {
   const [isFollow, setIsFollow] = useState(false);
   const [followId, setFollowId] = useState('');
+  const [userFollower, setUserFollower] = useState(userFollowers);
   const following = useSelector(state => state.follow.following);
-  const profileRef = useRef();
   const authUser = useSelector(state => state.user.user);
+  const profileRef = useRef();
+
   useEffect(() => {
     if (profileRef.current && idx % 10 === 0) {
       const observer = new IntersectionObserver(
@@ -46,17 +44,34 @@ export function Profile({
       }
     }
   });
+
   useEffect(() => {
-    const followCheck = () => {
+    console.log('following:', following, 'userFollowers:', userFollowers);
+    if (typeof userFollowers[0] === 'object') {
+      const follower = [];
+      userFollowers.map(({ _id }) => {
+        follower.push(_id);
+        return follower;
+      });
+      setUserFollower(follower);
+    }
+    if (userFollower.length > 0) {
       following.map(({ _id }) => {
-        return userFollowers.includes(_id)
+        // userFollowers에 id만 들어있지않음
+        return userFollower.includes(_id)
           ? (setFollowId(_id), setIsFollow(true))
           : null;
       });
-    };
-    followCheck();
-  }, [following, userFollowers]);
-  
+    } else {
+      following.map(({ user }) => {
+        console.log(user, userId);
+        return user === userId
+          ? (setFollowId(user), setIsFollow(true))
+          : null;
+      });
+    }
+  }, [userId, following, userFollower, userFollowers]);
+
   return (
     <S.Profile ref={profileRef}>
       <S.Wrapper>
