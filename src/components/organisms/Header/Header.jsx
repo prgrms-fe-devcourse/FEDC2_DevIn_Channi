@@ -5,7 +5,7 @@ import * as S from './style';
 
 export function Header() {
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
-
+  console.log('Header');
   return (
     <S.Header>
       <S.LogoImage>

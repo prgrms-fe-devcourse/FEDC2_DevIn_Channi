@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Icon, IconBtn, MenuItem, WrapperLink } from 'components';
+import { useCookie } from 'hooks';
 import * as S from './style';
 
 export function HeaderButtons() {
   const [isOpen, setIsOpen] = useState(false);
+  const { removeCookie } = useCookie();
   const onClickBarBtn = () => {
     setIsOpen(!isOpen);
   };
@@ -11,6 +13,9 @@ export function HeaderButtons() {
     setTimeout(() => {
       setIsOpen(false);
     }, 100);
+  };
+  const handleLogOut = () => {
+    removeCookie();
   };
   return (
     <S.HeaderButtons>
@@ -31,7 +36,7 @@ export function HeaderButtons() {
           <MenuItem type="link" to="/profile/update">
             내 정보 수정
           </MenuItem>
-          <MenuItem type="link" to="/logout" isLast>
+          <MenuItem type="button" onClick={handleLogOut} isLast>
             로그아웃
           </MenuItem>
         </S.StyledMenu>
