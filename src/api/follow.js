@@ -10,23 +10,26 @@ export const follow = {
         { userId },
         { headers: { Authorization: `Bearer ${token}` } },
       );
-
       return response.data;
     } catch (e) {
       console.error(e);
     }
   },
   unfollow: async ({ token, id }) => {
-    try {
-      const response = await axios.delete(
-        `${API}/follow/delete`,
-        { id },
-        { headers: { Authorization: `Bearer ${token}` } },
-      );
-
-      return response.data;
-    } catch (e) {
-      console.error(e);
+    if (token && id) {
+      try {
+        const response = await axios.delete(`${API}/follow/delete`, {
+          headers: { Authorization: `Bearer ${token}` },
+          data: {
+            id,
+          },
+        });
+        return response.data;
+      } catch (e) {
+        console.error(e);
+      }
+    } else {
+      console.error("token = ", token, "id = ", id, 'Error!');
     }
   },
 };

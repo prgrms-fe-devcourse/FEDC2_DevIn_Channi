@@ -10,8 +10,14 @@ export const follow = createSlice({
     setFollowing: (state, action) => {
       state.following = action.payload;
     },
+    addFollowing: (state, action) => {
+      state.following.push(action.payload); 
+    },
+    removeFollowing: (state, action) => {
+      state.following.filter(({_id}) => _id !== action.payload); 
+    },
   },
 });
 
-export const { setFollowers, setFollowing } = follow.actions;
+export const { setFollowers, setFollowing, addFollowing, removeFollowing } = follow.actions;
 export default follow.reducer;

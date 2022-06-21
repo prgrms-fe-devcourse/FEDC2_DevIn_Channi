@@ -14,14 +14,16 @@ export { ItemNumber } from 'components/atoms/ItemNumber/ItemNumber';
 export { ItemText } from 'components/atoms/ItemText/ItemText';
 export { Logo } from 'components/atoms/Logo/Logo';
 export { Divider } from 'components/atoms/Divider/Divider';
+export { CreatePostInput } from 'components/atoms/CreatePostInput/CreatePostInput';
 export { UserImgUpdateIcon } from 'components/atoms/UserImgUpdateIcon/UserImgUpdateIcon';
 export { ProfileUpdateBtn } from 'components/atoms/ProfileUpdateBtn/ProfileUpdateBtn';
+
 export { StyledLink } from 'components/atoms/StyledLink/StyledLink';
 export { WrapperLink } from 'components/atoms/WrapperLink/WrapperLink';
 export { TextLink } from 'components/atoms/TextLink/TextLink';
 export { IconBtn } from 'components/atoms/IconBtn/IconBtn';
 export { TextBtn } from 'components/atoms/TextBtn/TextBtn';
-export { RoundInput } from 'components/atoms/RoundInput/RoundInput';
+export { RoundBtn } from 'components/atoms/RoundBtn/RoundBtn';
 export { Menu } from 'components/atoms/Menu/Menu';
 export { MenuItem } from 'components/atoms/MenuItem/MenuItem';
 export { Span } from 'components/atoms/Span/Span';
@@ -29,7 +31,6 @@ export { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 export { Time } from 'components/atoms/Time/Time';
 export { Avatar } from 'components/atoms/Avatar/Avatar';
 export { Image } from 'components/atoms/Image/Image';
-export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
 export { SuccessModal } from 'components/atoms/SuccessModal/SuccessModal';
 
 // molecules
@@ -40,7 +41,7 @@ export { Profile } from 'components/molecules/Profile/Profile';
 export { HeaderButtons } from 'components/molecules/HeaderButtons/HeaderButtons';
 export { HeaderTexts } from 'components/molecules/HeaderTexts/HeaderTexts';
 export { FooterButtons } from 'components/molecules/FooterButtons/FooterButtons';
-export { SamplePostList } from 'components/molecules/SamplePostList/SamplePostList';
+export { CreatePost } from 'components/molecules/CreatePost/CreatePost';
 export { ProfileImgUpdate } from 'components/molecules/ProfileImgUpdate/ProfileImgUpdate';
 export { ProfileForm } from 'components/molecules/ProfileForm/ProfileForm';
 export { ProfileItem } from 'components/molecules/ProfileItem/ProfileItem';
@@ -63,7 +64,9 @@ export { ProfileUpdateForm } from 'components/organisms/ProfileUpdateForm/Profil
 export { ProfileInfo } from 'components/organisms/ProfileInfo/ProfileInfo';
 export { ProfileArea } from 'components/organisms/ProfileArea/ProfileArea';
 export { Post } from 'components/organisms/Post/Post';
+export { PostList } from 'components/organisms/PostList/PostList';
 export { Comments } from 'components/organisms/Comments/Comments';
 
 // templates
+export { PostFormPage } from 'components/templates/PostFormPage/PostFormPage';
 export { NavTemplate } from 'components/templates/NavTemplate/NavTemplate';

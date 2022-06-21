@@ -1,49 +1,58 @@
-/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { follow } from 'api';
 import { useCookie } from 'hooks';
-import { setFollowing } from 'store';
+import { addFollowing, removeFollowing } from 'store';
 import * as S from './style';
 
 export function FollowBtn({ userId, isFollow, followId }) {
   const [isFollowing, setIsFollowing] = useState(isFollow);
-  const [followingInfo, setFollowingInfo] = useState([]);
+  const [newFollowId, setNewFollowId] = useState(followId);
+  const [isDisable, setIsDisable] = useState(false);
+
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
-  const { getCookie } = useCookie();
 
-  // useEffect(() => {
-  //   dispatch(setFollowing(followingInfo));
-  // }, [dispatch, followingInfo]);
+  const { getCookie } = useCookie();
 
   useEffect(() => {
     setIsFollowing(isFollow);
   }, [isFollow]);
 
+  useEffect(() => {
+    setNewFollowId(followId);
+  }, [followId]);
+
   const onFollow = () => {
-    if (isLoggedIn && !isFollowing) {
+    setIsDisable(true);
+    if (isLoggedIn && !isFollowing && !newFollowId) {
+      setIsFollowing(true);
       const token = getCookie();
       const followApi = async () => {
         const followInfo = await follow.follow({ token, userId });
-        setFollowingInfo(followInfo);
-        setIsFollowing(true);
+        if (followInfo) dispatch(addFollowing(followInfo));
+        setNewFollowId(followInfo._id);
+        setIsDisable(false);
         return followInfo;
       };
       followApi();
     } else {
-      window.location.href = '/signin';
+      navigate('/signin');
     }
   };
 
   const onUnFollow = () => {
-    if (isLoggedIn && isFollowing) {
+    setIsDisable(true);
+    if (isLoggedIn && isFollowing && newFollowId) {
+      setIsFollowing(false);
       const token = getCookie();
       const unfollowApi = async () => {
-        const unFollowInfo = await follow.unfollow({ token, id: followId });
-        setFollowingInfo(unFollowInfo);
-        setIsFollowing(false);
+        const unFollowInfo = await follow.unfollow({ token, id: newFollowId });
+        if (unFollowInfo) dispatch(removeFollowing(unFollowInfo._id));
+        setIsDisable(false);
         return unFollowInfo;
       };
       unfollowApi();
@@ -51,17 +60,14 @@ export function FollowBtn({ userId, isFollow, followId }) {
   };
 
   return (
-    <div>
-      {isFollowing ? (
-        <S.unFollowBtn type="button" onClick={onUnFollow}>
-          팔로잉
-        </S.unFollowBtn>
-      ) : (
-        <S.FollowBtn type="button" onClick={onFollow}>
-          팔로우
-        </S.FollowBtn>
-      )}
-    </div>
+    <S.FollowBtn
+      type="button"
+      onClick={isFollowing ? onUnFollow : onFollow}
+      disabled={isDisable}
+      isFollowing={isFollowing}
+    >
+      {isFollowing ? '팔로잉' : '팔로우'}
+    </S.FollowBtn>
   );
 }
 

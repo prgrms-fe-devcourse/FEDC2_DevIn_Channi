@@ -8,6 +8,7 @@ export function IconBtn({
   onClick,
   onBlur,
   icon,
+  color,
   hoverColor,
 }) {
   return (
@@ -16,6 +17,7 @@ export function IconBtn({
       type={type}
       onClick={onClick}
       onBlur={onBlur}
+      color={color}
       hoverColor={hoverColor}
     >
       <Icon icon={icon} />
@@ -29,6 +31,7 @@ IconBtn.propTypes = {
   onClick: PropTypes.func.isRequired,
   onBlur: PropTypes.func,
   icon: PropTypes.string.isRequired,
+  color: PropTypes.string,
   hoverColor: PropTypes.oneOf([
     'textPrime',
     'textSecond',
@@ -43,5 +46,6 @@ IconBtn.propTypes = {
 IconBtn.defaultProps = {
   className: '',
   onBlur: null,
+  color: 'textSecond',
   hoverColor: '',
 };

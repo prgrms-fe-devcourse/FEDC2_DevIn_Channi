@@ -10,12 +10,14 @@ const style = css`
   ${({ isFirst }) =>
     isFirst &&
     css`
-      border-radius: 0.5rem 0.5rem 0 0;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
     `}
   ${({ isLast }) =>
     isLast &&
     css`
-      border-radius: 0 0 0.5rem 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
     `}
   background-color: ${({ theme }) => theme.color.backMain};
   transition: background-color 150ms;

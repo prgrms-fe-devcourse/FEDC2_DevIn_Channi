@@ -2,16 +2,15 @@ import styled from 'styled-components';
 
 export const Divider = styled.hr`
   border: none;
-  background-color: #aaa;
-  margin: ${props =>
-    props.type === 'vertical' ? `0 ${props.size}px` : `${props.size}px 0`};
+  background-color: ${({ theme }) => theme.color.backSub};
+  margin: 0;
 
   &.vertical {
     position: relative;
-    top: -1;
+    top: -1px;
     display: inline-block;
     width: 1px;
-    height: 13px;
+    height: 14px;
     vertical-align: middle;
   }
 
