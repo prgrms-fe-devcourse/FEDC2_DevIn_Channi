@@ -1,58 +1,123 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
-import { CommentForm, CommentThread, TextBtn, Span } from 'components';
+import { useSelector } from 'react-redux';
+import { PostType, AuthorType, CommentsType } from 'types';
+import { CommentForm, CommentThread, Span } from 'components';
+import { useCookie } from 'hooks';
+import { commentApi, notification } from 'api';
 import * as S from './style';
 
-export function Comments({ comments, author }) {
-  const [commentLimit, setCommnentLimit] = useState(3);
+const useComments = ({ rawComments, postId, authorId }) => {
+  const [comments, setComments] = useState(() => {
+    return [...rawComments].reverse();
+  });
+  const [commentLimit, setCommentLimit] = useState(3);
+
+  const { getCookie } = useCookie();
+
+  const createComment = async ({ comment }) => {
+    const token = getCookie();
+    try {
+      const createdComment = await commentApi.create({
+        token,
+        data: {
+          comment,
+          postId,
+        },
+      });
+      setComments([createdComment, ...comments]);
+      setCommentLimit(commentLimit + 1);
+      await notification.createNotification({
+        token,
+        data: {
+          notificationType: 'COMMENT',
+          notificationTypeId: createdComment._id,
+          userId: authorId,
+          postId,
+        },
+      });
+    } catch (e) {
+      console.error(e.message);
+    }
+  };
+
+  const deleteComment = async ({ commentId }) => {
+    const token = getCookie();
+    try {
+      const deletedComment = await commentApi.delete({
+        token,
+        data: {
+          commentId,
+        },
+      });
+      setComments(
+        comments.filter(comment => comment._id !== deletedComment._id),
+      );
+      setCommentLimit(commentLimit - 1);
+    } catch (e) {
+      console.error(e.massage);
+    }
+  };
+
+  const viewAllComments = () => {
+    setCommentLimit(comments.length);
+  };
+
+  return {
+    comments,
+    commentLimit,
+    createComment,
+    deleteComment,
+    viewAllComments,
+  };
+};
+
+export function Comments({ post, comments: rawComments, author }) {
+  const { isLoggedIn } = useSelector(state => state.user);
+  const {
+    comments,
+    commentLimit,
+    createComment,
+    deleteComment,
+    viewAllComments,
+  } = useComments({ rawComments, postId: post._id, authorId: author._id });
+
   const onViewMoreBtnClick = () => {
-    // 처음에 댓글 3개만 -> 버튼 누르면 다 보기
-    // 1. set CommentLimit(comments.length)
-    // 2-1. 더보기 버튼 없애거나
-    // 2-2. 작성하기 버튼으로 변경 -> 댓글 input focus
+    viewAllComments();
   };
 
   return (
     <S.Section>
-      <CommentForm author={author} />
+      {isLoggedIn && (
+        <CommentForm author={author} createComment={createComment} />
+      )}
       {comments.length > 0 && (
         <ul>
           {comments.map(
             (comment, idx) =>
               idx < commentLimit && (
                 <S.Li key={comment._id}>
-                  <CommentThread comment={comment} />
+                  <CommentThread
+                    comment={comment}
+                    deleteComment={deleteComment}
+                  />
                 </S.Li>
               ),
           )}
         </ul>
       )}
-
-      <TextBtn type="button" onClick={onViewMoreBtnClick}>
-        <Span fontSize="small" color="textSecond">
-          댓글 더 보기
-        </Span>
-      </TextBtn>
+      {comments.length > commentLimit && (
+        <S.StyledTextBtn type="button" onClick={onViewMoreBtnClick}>
+          <Span fontSize="small" color="textSecond">
+            댓글 더 보기
+          </Span>
+        </S.StyledTextBtn>
+      )}
     </S.Section>
   );
 }
 
 Comments.propTypes = {
-  comments: PropTypes.arrayOf(
-    PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-      comment: PropTypes.string.isRequired,
-      createdAt: PropTypes.string.isRequired,
-      author: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        fullName: PropTypes.string.isRequired,
-        image: PropTypes.string,
-      }).isRequired,
-    }),
-  ).isRequired,
-  author: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    fullName: PropTypes.string.isRequired,
-    image: PropTypes.string,
-  }).isRequired,
+  post: PostType.isRequired,
+  author: AuthorType.isRequired,
+  comments: CommentsType.isRequired,
 };
