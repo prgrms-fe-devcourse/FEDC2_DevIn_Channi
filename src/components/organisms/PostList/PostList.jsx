@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { PostsType } from 'types';
 import { Post, Icon } from 'components';
@@ -34,29 +34,24 @@ export function PostList({ posts: rawPosts, isLoading }) {
 
   // 페이지에서 rawPosts 받고 삭제
   // usePosts의 setPosts도 삭제
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await postApi.getAll({
-          params: {
-            offset: '',
-            limit: '',
-          },
-        });
-        setPosts(data);
-      } catch (e) {
-        console.error(e.message);
-      }
-    })();
-  }, [setPosts]);
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const data = await postApi.getAll({
+  //         params: {
+  //           offset: '',
+  //           limit: '',
+  //         },
+  //       });
+  //       setPosts(data);
+  //     } catch (e) {
+  //       console.error(e.message);
+  //     }
+  //   })();
+  // }, [setPosts]);
 
   return (
     <div>
-      {isLoading && (
-        <S.Flex>
-          <Icon icon="spinner" />
-        </S.Flex>
-      )}
       {!isLoading && posts.length > 0 && (
         <ul>
           {posts.map(post => (
@@ -66,6 +61,11 @@ export function PostList({ posts: rawPosts, isLoading }) {
             </li>
           ))}
         </ul>
+      )}
+      {isLoading && (
+        <S.Flex>
+          <Icon icon="spinner" />
+        </S.Flex>
       )}
     </div>
   );
