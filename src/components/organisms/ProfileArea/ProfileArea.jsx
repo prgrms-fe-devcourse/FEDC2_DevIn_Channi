@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Profile, ProfileInfo } from 'components';
-import { users } from 'api';
+import { Profile, ProfileInfo, PostList } from 'components';
+import { postApi, users } from 'api';
 
 export function ProfileArea({ userId }) {
+  const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState('');
+  const [post, setPost] = useState([]);
 
   useEffect(() => {
     if (userId) {
@@ -12,7 +14,14 @@ export function ProfileArea({ userId }) {
         const getUser = await users.getUser({ userId });
         setUser(getUser);
       };
+      const getUserPostApi = async () => {
+        setIsLoading(true);
+        const getPost = await postApi.getUserPost({ id: userId });
+        setPost(getPost);
+        setIsLoading(false);
+      };
       getUserApi();
+      getUserPostApi();
     }
   }, [userId]);
 
@@ -20,7 +29,11 @@ export function ProfileArea({ userId }) {
     <div>
       {user && (
         <>
-          <Profile userImage={user.image} userName={user.fullName} userId={userId} />
+          <Profile
+            userImage={user.image}
+            userName={user.fullName}
+            userId={userId}
+          />
           <ProfileInfo
             userId={userId}
             posts={user.posts}
@@ -29,6 +42,7 @@ export function ProfileArea({ userId }) {
           />
         </>
       )}
+      {post.length > 0 ? <PostList posts={post} isLoading={isLoading} /> : null}
     </div>
   );
 }

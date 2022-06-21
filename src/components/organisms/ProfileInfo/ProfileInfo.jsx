@@ -5,7 +5,6 @@ import { ProfileItem, ProfileFollow } from 'components';
 import * as S from './style';
 
 export function ProfileInfo({ userId, posts, followers, following }) {
-  console.log(posts, followers, following);
   const [isModalShow, setIsModalShow] = useState(false);
   const [followInfo, setFollowInfo] = useState('');
   const [isFollower, setIsFollower] = useState('');
