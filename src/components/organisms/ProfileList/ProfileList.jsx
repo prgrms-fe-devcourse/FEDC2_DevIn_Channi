@@ -53,8 +53,6 @@ export function ProfileList({ FollowUserList }) {
     }
   }, [count, dispatch, isSearchData, searchUsersResult, FollowUserList]);
 
-  console.log(user);
-
   return (
     <S.ProfileList>
       {!loading && !isUserExsist && <SearchNone />}

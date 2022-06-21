@@ -19,12 +19,20 @@ export function Profile({
   userFollowers,
   isSearchData,
 }) {
-  const [isFollow, setIsFollow] = useState(false);
-  const [followId, setFollowId] = useState('');
-  const [userFollower, setUserFollower] = useState(userFollowers);
   const following = useSelector(state => state.follow.following);
   const authUser = useSelector(state => state.user.user);
   const profileRef = useRef();
+
+  const [isFollow, setIsFollow] = useState('');
+  const [followId, setFollowId] = useState('');
+  const [followingData, setFollowingData] = useState(following);
+  const [userFollower, setUserFollower] = useState(userFollowers);
+
+  useEffect(() => {
+    if (following.length > 0) {
+      setFollowingData(following);
+    }
+  }, [following]);
 
   useEffect(() => {
     if (profileRef.current && idx % 10 === 0) {
@@ -46,31 +54,30 @@ export function Profile({
   });
 
   useEffect(() => {
-    console.log('following:', following, 'userFollowers:', userFollowers);
-    if (typeof userFollowers[0] === 'object') {
-      const follower = [];
-      userFollowers.map(({ _id }) => {
-        follower.push(_id);
-        return follower;
-      });
-      setUserFollower(follower);
+    if (followingData.length > 0) {
+      if (typeof userFollowers[0] === 'object') {
+        const follower = [];
+        userFollowers.map(({ _id }) => {
+          follower.push(_id);
+          return follower;
+        });
+        setUserFollower(follower);
+      }
+      if (userFollower.length > 0) {
+        followingData.map(({ _id }) => {
+          return userFollower.includes(_id)
+            ? (setFollowId(_id), setIsFollow(true))
+            : null;
+        });
+      } else {
+        followingData.map(({ user }) => {
+          return user === userId
+            ? (setFollowId(user), setIsFollow(true))
+            : null;
+        });
+      }
     }
-    if (userFollower.length > 0) {
-      following.map(({ _id }) => {
-        // userFollowers에 id만 들어있지않음
-        return userFollower.includes(_id)
-          ? (setFollowId(_id), setIsFollow(true))
-          : null;
-      });
-    } else {
-      following.map(({ user }) => {
-        console.log(user, userId);
-        return user === userId
-          ? (setFollowId(user), setIsFollow(true))
-          : null;
-      });
-    }
-  }, [userId, following, userFollower, userFollowers]);
+  }, [userId, followingData, userFollower, userFollowers]);
 
   return (
     <S.Profile ref={profileRef}>

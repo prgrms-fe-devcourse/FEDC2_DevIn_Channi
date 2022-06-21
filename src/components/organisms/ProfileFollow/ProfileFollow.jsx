@@ -15,10 +15,8 @@ export function ProfileFollow({
   useEffect(() => {
     const followlist = [];
     followInfo.map(({ user, follower }) => {
-      console.log(isFollower, user, follower);
       const userId = isFollower ? follower : user;
       const getUserApi = async () => {
-        console.log(userId);
         const getFollower = await users.getUser({ userId });
         followlist.push(getFollower);
         if (followlist.length === followInfo.length)
