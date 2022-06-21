@@ -10,5 +10,8 @@ export const EventItem = styled.div`
 
   a {
     height: 0.75rem;
+    max-width: 40rem;
+    width: 100%;
+    text-overflow: ellipsis;
   }
 `;

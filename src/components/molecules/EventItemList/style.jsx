@@ -5,5 +5,5 @@ export const EventItemList = styled.div`
   overflow: scroll;
   flex-grow: 1;
   width: 100%;
-  height: calc(100vh - 11.5rem);
+  height: calc(100vh - 10.5rem);
 `;
