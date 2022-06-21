@@ -18,6 +18,7 @@ export { CreatePostInput } from 'components/atoms/CreatePostInput/CreatePostInpu
 export { Tag } from 'components/atoms/Tag/Tag';
 export { UserImgUpdateIcon } from 'components/atoms/UserImgUpdateIcon/UserImgUpdateIcon';
 export { ProfileUpdateBtn } from 'components/atoms/ProfileUpdateBtn/ProfileUpdateBtn';
+export { FilterSelectBox } from 'components/atoms/FilterSelectBox/FilterSelectBox';
 
 export { StyledLink } from 'components/atoms/StyledLink/StyledLink';
 export { WrapperLink } from 'components/atoms/WrapperLink/WrapperLink';

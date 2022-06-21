@@ -1,22 +1,22 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { setFilterItem } from 'store';
-import { EventHeaderNav } from 'components';
+import { useState } from 'react';
+import { EventHeaderNav, Icon, Span, FilterSelectBox } from 'components';
 import * as S from './style';
 
 export function EventHeader() {
-  const dispatch = useDispatch();
-
-  const getFilterItem = useSelector(state => state.filterItem.filterItem);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleFilterBtnClick = () => {
-    !getFilterItem.includes('온라인') && dispatch(setFilterItem('온라인'));
+    setIsOpen(!isOpen);
   };
+
   return (
     <S.EventHeader>
       <EventHeaderNav />
-      <button type="button" onClick={handleFilterBtnClick}>
-        필터
-      </button>
+      <S.FilterButton onClick={handleFilterBtnClick}>
+        <Icon icon="filter" />
+        <Span>Filter</Span>
+      </S.FilterButton>
+      {isOpen && <FilterSelectBox />}
     </S.EventHeader>
   );
 }

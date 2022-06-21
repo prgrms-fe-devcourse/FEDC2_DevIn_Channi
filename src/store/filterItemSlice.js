@@ -5,7 +5,15 @@ export const filterItem = createSlice({
   initialState: { filterItem: [] },
   reducers: {
     setFilterItem: (state, action) => {
-      state.filterItem = [...state.filterItem, action.payload];
+      console.log('action.payload', action.payload);
+
+      state.filterItem = [
+        ...state.filterItem.filter(item => {
+          item !== action.payload;
+        }),
+        action.payload,
+      ];
+      console.log('change State', state.filterItem);
     },
   },
 });

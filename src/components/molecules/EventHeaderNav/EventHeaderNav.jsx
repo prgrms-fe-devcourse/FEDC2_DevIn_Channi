@@ -7,15 +7,12 @@ export function EventHeaderNav() {
   const dispatch = useDispatch();
 
   const handleClickEventTab = () => {
-    console.log('click event tab');
     dispatch(setEventType('event'));
   };
   const handleClickOtherEventTab = () => {
-    console.log('click other event tab');
     dispatch(setEventType('etc'));
   };
   const handleClickMeetingTab = () => {
-    console.log('click meeting tab');
     dispatch(setEventType('meeting'));
   };
 

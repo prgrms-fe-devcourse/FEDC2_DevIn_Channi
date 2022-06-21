@@ -11,7 +11,8 @@ export { Menus } from 'assets/images/icons/Menus';
 export { Search } from 'assets/images/icons/Search';
 export { User } from 'assets/images/icons/User';
 export { Spinner } from 'assets/images/icons/Spinner';
-
-export { EVENT_DATA } from 'assets/EventData/EventData';
 export { Filter } from 'assets/images/icons/Filter';
 export { X } from 'assets/images/icons/X';
+
+export { EVENT_DATA } from 'assets/EventData/EventData';
+export { FILTER_ITEM } from 'assets/FilterItem/FilterItem';
