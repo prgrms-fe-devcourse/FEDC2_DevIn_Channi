@@ -33,3 +33,11 @@ export const PostType = PropTypes.shape({
 });
 
 export const PostsType = PropTypes.arrayOf(PostType);
+
+export const OgType = PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  keywords: PropTypes.string,
+  url: PropTypes.string.isRequired,
+});

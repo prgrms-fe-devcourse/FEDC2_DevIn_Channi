@@ -16,6 +16,37 @@ export const postApi = {
     return response.data;
   },
 
+  get: async postId => {
+    const response = await axios.get(`${BASEURL}/posts/${postId}`);
+    return response.data;
+  },
+
+  create: async ({ token, data }) => {
+    const response = axios({
+      method: 'post',
+      url: `${BASEURL}/posts/create`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
+      },
+      data,
+    });
+    return response.data;
+  },
+
+  update: async ({ token, data }) => {
+    const response = axios({
+      method: 'put',
+      url: `${BASEURL}/posts/update`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
+      },
+      data,
+    });
+    return response.data;
+  },
+
   delete: async ({ token, data }) => {
     const response = axios({
       method: 'delete',
