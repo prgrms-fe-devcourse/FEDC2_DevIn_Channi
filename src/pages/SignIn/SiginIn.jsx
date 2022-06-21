@@ -10,7 +10,11 @@ export function SignIn() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { setCookie } = useCookie();
-  const { onChange, onSubmit } = useForm({
+  const {
+    formData: { email, password },
+    onChange,
+    onSubmit,
+  } = useForm({
     initialState: {
       email: '',
       password: '',
@@ -38,6 +42,7 @@ export function SignIn() {
         type: 'email',
         title: '이메일',
         name: 'email',
+        value: email,
         placeholder: '이메일을 입력해주세요',
       },
       {
@@ -45,6 +50,7 @@ export function SignIn() {
         type: 'password',
         title: '비밀번호',
         name: 'password',
+        value: password,
         placeholder: '비밀번호를 입력해주세요',
       },
     ],

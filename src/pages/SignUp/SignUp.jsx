@@ -9,7 +9,11 @@ import * as S from './style';
 export function SignUp() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { onChange, onSubmit } = useForm({
+  const {
+    formData: { fullName, email, password },
+    onChange,
+    onSubmit,
+  } = useForm({
     initialState: {
       fullName: '',
       email: '',
@@ -37,6 +41,7 @@ export function SignUp() {
         type: 'text',
         title: '이름',
         name: 'fullName',
+        value: fullName,
         placeholder: '프로필 이름',
       },
       {
@@ -44,6 +49,7 @@ export function SignUp() {
         type: 'email',
         title: '이메일',
         name: 'email',
+        value: email,
         placeholder: '이메일을 입력해주세요',
       },
       {
@@ -51,6 +57,7 @@ export function SignUp() {
         type: 'password',
         title: '비밀번호',
         name: 'password',
+        value: password,
         placeholder: '비밀번호를 입력해주세요',
       },
     ],
