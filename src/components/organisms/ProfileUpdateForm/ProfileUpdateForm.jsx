@@ -98,31 +98,37 @@ export function ProfileUpdateForm({ fullName, image }) {
   const { formData, onChange, onUpdateSubmit } = useForm({
     initialState,
     authCallback: async () => {
-      setIsLoading(true);
-      const { fullName: name, password, checkPassword } = formData;
+      try {
+        setIsLoading(true);
+        const { fullName: name, password, checkPassword } = formData;
 
-      await uploadImage({
-        prevImg: image,
-        newImg: preview,
-        token: getCookie(),
-      });
+        await uploadImage({
+          prevImg: image,
+          newImg: preview,
+          token: getCookie(),
+        });
 
-      await validatePassword({
-        dispatch,
-        password,
-        checkPassword,
-        token: getCookie(),
-      });
+        await validatePassword({
+          dispatch,
+          password,
+          checkPassword,
+          token: getCookie(),
+        });
 
-      const changedUserInfo = await validateName({
-        dispatch,
-        name,
-        token: getCookie(),
-      });
+        const changedUserInfo = await validateName({
+          dispatch,
+          name,
+          token: getCookie(),
+        });
 
-      dispatch(setUser(changedUserInfo));
-      setIsLoading(false);
-      onShowModal();
+        if (changedUserInfo) dispatch(setUser(changedUserInfo));
+
+        onShowModal();
+      } catch (e) {
+        console.error(e.message);
+      } finally {
+        setIsLoading(false);
+      }
     },
   });
 
