@@ -13,12 +13,7 @@ export function Form({ info, onChange, onSubmit }) {
     setError(text);
   }, [text, setError]);
 
-  const {
-    title,
-    inputs,
-    isAuth,
-    link: { introText, linkText, linkPath },
-  } = info;
+  const { title, inputs, isAuth } = info;
   return (
     <S.Container onSubmit={onSubmit}>
       {isAuth && <S.Title>{title}</S.Title>}
@@ -30,9 +25,9 @@ export function Form({ info, onChange, onSubmit }) {
       <FormBtn text={title} />
       {isAuth && (
         <FormLink
-          introText={introText}
-          linkText={linkText}
-          linkPath={linkPath}
+          introText={info.link.introText}
+          linkText={info.link.linkText}
+          linkPath={info.link.linkPath}
         />
       )}
     </S.Container>

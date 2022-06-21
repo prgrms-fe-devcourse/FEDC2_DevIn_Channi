@@ -2,20 +2,14 @@ import PropTypes from 'prop-types';
 import { FormInput, FormBtn } from 'components';
 import * as S from './style';
 
-export function ProfileForm({ info }) {
+export function ProfileForm({ info, onChange }) {
   const { title, inputs, isAuth } = info;
   const onClick = () => console.log('클릭');
-
   return (
     <S.Container>
       {isAuth &&
         inputs.map(input => (
-          <FormInput
-            key={input.id}
-            type={input.type}
-            name={input.name}
-            placeholder={input.placeholder}
-          />
+          <FormInput key={input.id} input={input} onChange={onChange} />
         ))}
       <FormBtn onClick={onClick} text={title} />
     </S.Container>
@@ -35,4 +29,5 @@ ProfileForm.propTypes = {
     ).isRequired,
     isAuth: PropTypes.bool.isRequired,
   }).isRequired,
+  onChange: PropTypes.func.isRequired,
 };

@@ -11,7 +11,10 @@ export function NotificationArea() {
   return (
     <S.Container>
       <h1>알림</h1>
-      <NotificationList userName="Yeummy-sk" comment={commentList['COMMENT']} />
+      <NotificationList
+        userName="Yeummy-skkkk"
+        comment={commentList['COMMENT']}
+      />
       <NotificationList userName="염상권" comment={commentList['FOLLOW']} />
       <NotificationList userName="박인화" comment={commentList['LIKE']} />
       <NotificationList userName="김가연" comment={commentList['COMMENT']} />

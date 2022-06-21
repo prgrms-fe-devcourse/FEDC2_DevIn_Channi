@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IconBtn } from 'components';
+import { IconBtn, Icon } from 'components';
 
 export const Footer = styled.footer`
   display: flex;
@@ -14,4 +14,14 @@ export const Flex = styled.div`
 
 export const StyledIconBtn = styled(IconBtn)`
   margin: -0.5rem 0.25rem -0.5rem 0;
+`;
+
+export const StyledIcon = styled(Icon)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: -0.5rem 0.25rem -0.5rem 0;
+  color: ${({ theme }) => theme.color.textSecond};
 `;

@@ -10,6 +10,6 @@ export const Container = styled.div`
 
 export const Content = styled.section`
   width: 100%;
-  height: 95%;
+  flex: 1;
   overflow-y: auto;
 `;

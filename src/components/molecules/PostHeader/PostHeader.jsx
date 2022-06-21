@@ -1,31 +1,33 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { PostType, AuthorType } from 'types';
 import {
-  WrapperLink,
-  TextLink,
   IconBtn,
+  MenuItem,
+  TextLink,
+  WrapperLink,
   Avatar,
   Time,
   Paragraph,
-  MenuItem,
 } from 'components';
+
 import * as S from './style';
 
-export function PostHeader({
-  authorId,
-  authorName,
-  authorAvatarUrl,
-  postId,
-  postCreatedAt,
-}) {
-  // 초기값 false로
-  const [isMyPost, setIsMyPost] = useState(true);
+export function PostHeader({ post, author, deletePost }) {
+  const [isMyPost, setIsMyPost] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const {
-  //   user: { _id: userId },
-  //   isLoggedIn,
-  // } = useSelector(state => state.user);
+
+  const {
+    user: { _id: userId },
+    isLoggedIn,
+  } = useSelector(state => state.user);
+
+  useEffect(() => {
+    if (isLoggedIn && author._id === userId) {
+      setIsMyPost(true);
+    }
+  }, [isLoggedIn, userId, author]);
 
   const onMoreActsBtnClick = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,34 +36,29 @@ export function PostHeader({
   const onMoreActsBtnBlur = () => {
     setTimeout(() => {
       setIsMenuOpen(false);
-    }, 100);
+    }, 150);
   };
 
-  const onPostDeleteBtnClick = e => {
-    console.log('delete');
-    // axios posts/delete
-    // posts -> filter !post._id
-    // PostList에서 props로 delete post 전달
+  const onPostDeleteBtnClick = async () => {
+    await deletePost({ postId: post._id });
   };
-
-  // useEffect(() => {
-  //   if (isLoggedIn && authorId === userId) {
-  //     setIsMyPost(true);
-  //   }
-  // }, [isLoggedIn, authorId, userId]);
 
   return (
     <S.Header>
-      <WrapperLink type="link" to={`/profiles/${authorId}`} borderRadius="50%">
-        <Avatar src={authorAvatarUrl} alt="" />
+      <WrapperLink
+        type="link"
+        to={`/profiles/${author._id}`}
+        borderRadius="50%"
+      >
+        <Avatar src={author.image} alt="" />
       </WrapperLink>
       <S.Flex>
-        <TextLink type="link" to={`/profiles/${authorId}`}>
+        <TextLink type="link" to={`/profiles/${author._id}`}>
           <Paragraph fontSize="small" bold isTruncated lineClamp={1}>
-            {authorName}
+            {author.fullName}
           </Paragraph>
         </TextLink>
-        <Time createdAt={postCreatedAt} />
+        <Time createdAt={post.createdAt} />
       </S.Flex>
       {isMyPost && (
         <IconBtn
@@ -73,7 +70,7 @@ export function PostHeader({
       )}
       {isMyPost && isMenuOpen && (
         <S.StyledMenu>
-          <MenuItem type="link" to={`/posts/${postId}/edit`} isFirst>
+          <MenuItem type="link" to={`/posts/${post._id}/edit`} isFirst>
             수정
           </MenuItem>
           <MenuItem type="button" onClick={onPostDeleteBtnClick} isLast>
@@ -86,13 +83,7 @@ export function PostHeader({
 }
 
 PostHeader.propTypes = {
-  authorId: PropTypes.string.isRequired,
-  authorName: PropTypes.string.isRequired,
-  authorAvatarUrl: PropTypes.string,
-  postId: PropTypes.string.isRequired,
-  postCreatedAt: PropTypes.string.isRequired,
-};
-
-PostHeader.defaultProps = {
-  authorAvatarUrl: '',
+  post: PostType.isRequired,
+  author: AuthorType.isRequired,
+  deletePost: PropTypes.func.isRequired,
 };

@@ -30,10 +30,10 @@ export function HeaderButtons() {
       />
       {isOpen && (
         <S.StyledMenu>
-          <MenuItem type="link" to="/profile/:user-id" isFirst>
+          <MenuItem type="link" to="/profiles/:id" isFirst>
             내 프로필
           </MenuItem>
-          <MenuItem type="link" to="/profile/update">
+          <MenuItem type="link" to="/profiles/update">
             내 정보 수정
           </MenuItem>
           <MenuItem type="button" onClick={handleLogOut} isLast>
