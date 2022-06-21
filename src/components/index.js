@@ -29,6 +29,7 @@ export { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 export { Time } from 'components/atoms/Time/Time';
 export { Avatar } from 'components/atoms/Avatar/Avatar';
 export { Image } from 'components/atoms/Image/Image';
+export { FollowModal } from 'components/atoms/FollowModal/FollowModal';
 export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
 
 // molecules
@@ -36,6 +37,7 @@ export { Form } from 'components/molecules/Form/Form';
 export { SearchBar } from 'components/molecules/SearchBar/SearchBar';
 export { SearchResultItem } from 'components/molecules/SearchResultItem/SearchResultItem';
 export { Profile } from 'components/molecules/Profile/Profile';
+export { AuthProfile } from 'components/molecules/AuthProfile/AuthProfile';
 export { HeaderButtons } from 'components/molecules/HeaderButtons/HeaderButtons';
 export { HeaderTexts } from 'components/molecules/HeaderTexts/HeaderTexts';
 export { FooterButtons } from 'components/molecules/FooterButtons/FooterButtons';
@@ -63,6 +65,7 @@ export { ProfileInfo } from 'components/organisms/ProfileInfo/ProfileInfo';
 export { ProfileArea } from 'components/organisms/ProfileArea/ProfileArea';
 export { Post } from 'components/organisms/Post/Post';
 export { Comments } from 'components/organisms/Comments/Comments';
+export { ProfileFollow } from 'components/organisms/ProfileFollow/ProfileFollow';
 
 // templates
 export { NavTemplate } from 'components/templates/NavTemplate/NavTemplate';

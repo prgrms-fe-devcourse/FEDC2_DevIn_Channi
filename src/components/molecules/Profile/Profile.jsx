@@ -52,6 +52,7 @@ export function Profile({
     };
     followCheck();
   }, [following, userFollowers]);
+  
   return (
     <S.Profile ref={profileRef}>
       <S.Wrapper>
@@ -76,7 +77,15 @@ Profile.propTypes = {
   userId: PropTypes.string.isRequired,
   userImage: PropTypes.string,
   userName: PropTypes.string.isRequired,
-  userFollowers: PropTypes.arrayOf(PropTypes.string),
+  userFollowers: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      user: PropTypes.string.isRequired,
+      follower: PropTypes.string.isRequired,
+      createdAt: PropTypes.string,
+      updateAt: PropTypes.string,
+    }),
+  ),
   isSearchData: PropTypes.bool,
 };
 Profile.defaultProps = {
