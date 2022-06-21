@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 import { ProfileItem, ProfileFollow } from 'components';
 import * as S from './style';
 
-export function ProfileInfo({ posts, followers, following }) {
+export function ProfileInfo({ userId, posts, followers, following }) {
   console.log(posts, followers, following);
   const [isModalShow, setIsModalShow] = useState(false);
   const [followInfo, setFollowInfo] = useState('');
   const [isFollower, setIsFollower] = useState('');
+
+  useEffect(() => {
+    setIsModalShow(false);
+  }, [userId])
 
   const follwerModal = followerData => {
     setIsModalShow(true);
@@ -81,6 +85,7 @@ export function ProfileInfo({ posts, followers, following }) {
 }
 
 ProfileInfo.propTypes = {
+  userId: PropTypes.string.isRequired,
   posts: PropTypes.arrayOf(PropTypes.string).isRequired,
   followers: PropTypes.arrayOf(
     PropTypes.objectOf({
