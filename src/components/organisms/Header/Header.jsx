@@ -1,14 +1,19 @@
-import { Divider, HeaderTexts, Logo } from 'components';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Logo, HeaderTexts, HeaderButtons, CreatePost } from 'components';
 import * as S from './style';
 
 export function Header() {
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
+
   return (
     <S.Header>
       <S.LogoImage>
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
       </S.LogoImage>
-      <HeaderTexts />
-      <Divider />
+      {isLoggedIn ? <HeaderButtons /> : <HeaderTexts />}
     </S.Header>
   );
 }
