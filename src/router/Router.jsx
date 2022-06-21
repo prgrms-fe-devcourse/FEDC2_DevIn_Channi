@@ -16,8 +16,7 @@ import { auth } from 'api';
 import { useCookie } from 'hooks';
 import PrivateRoute from 'router/PrivateRoute';
 import { setIsLoggedIn, setUser, setFollowing } from 'store';
-import { Post, PostList } from 'components';
-
+import { PostList } from 'components';
 
 export default function Router() {
   const dispatch = useDispatch();
@@ -32,6 +31,7 @@ export default function Router() {
       dispatch(setUser(user));
       dispatch(setIsLoggedIn(true));
       dispatch(setFollowing(user.following));
+      
     } else {
       dispatch(setIsLoggedIn(false));
     }
