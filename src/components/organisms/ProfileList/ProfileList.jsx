@@ -62,6 +62,7 @@ export function ProfileList({ FollowUserList }) {
         user.map((userInfo, idx) =>
           authUser._id === userInfo._id ? (
             <AuthProfile
+              key={userInfo._id}
               userId={userInfo._id}
               userImage={userInfo.image || ''}
               userName={userInfo.fullName}
