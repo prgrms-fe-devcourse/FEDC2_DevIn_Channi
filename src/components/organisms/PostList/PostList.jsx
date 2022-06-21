@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { PostsType } from 'types';
 import { Post, Icon } from 'components';
@@ -8,6 +8,10 @@ import * as S from './style';
 
 const usePosts = rawPosts => {
   const [posts, setPosts] = useState(rawPosts);
+
+  useEffect(() => {
+    setPosts(rawPosts);
+  }, [rawPosts]);
 
   const { getCookie } = useCookie();
 
@@ -26,57 +30,42 @@ const usePosts = rawPosts => {
     }
   };
 
-  return { posts, deletePost, setPosts };
+  return { posts, deletePost };
 };
 
-export function PostList({ posts: rawPosts, isLoading }) {
-  const { posts, deletePost, setPosts } = usePosts(rawPosts);
-
-  // 페이지에서 rawPosts 받고 삭제
-  // usePosts의 setPosts도 삭제
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await postApi.getAll({
-          params: {
-            offset: '',
-            limit: '',
-          },
-        });
-        setPosts(data);
-      } catch (e) {
-        console.error(e.message);
-      }
-    })();
-  }, [setPosts]);
+export function PostList({ posts: rawPosts, isLoading, setTarget }) {
+  const { posts, deletePost } = usePosts(rawPosts);
 
   return (
     <div>
-      {isLoading && (
-        <S.Flex>
-          <Icon icon="spinner" />
-        </S.Flex>
-      )}
-      {!isLoading && posts.length > 0 && (
-        <ul>
-          {posts.map(post => (
-            <li key={post._id}>
-              <S.Box />
-              <Post post={post} deletePost={deletePost} />
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul>
+        {posts.map(post => (
+          <li key={post._id}>
+            <S.Box />
+            <Post post={post} deletePost={deletePost} />
+          </li>
+        ))}
+      </ul>
+
+      <div ref={setTarget} id="target">
+        {isLoading && (
+          <S.Flex>
+            <Icon icon="spinner" />
+          </S.Flex>
+        )}
+      </div>
     </div>
   );
 }
 
 PostList.propTypes = {
-  // 페이지에서 rawPosts 받고 isRequired
   posts: PostsType,
-  isLoading: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool,
+  setTarget: PropTypes.func,
 };
 
 PostList.defaultProps = {
   posts: [],
+  isLoading: true,
+  setTarget: null,
 };
