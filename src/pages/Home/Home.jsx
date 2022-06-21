@@ -7,7 +7,7 @@ import * as S from './style';
 export function Home() {
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
   const [posts, setPosts] = useState([]);
-  
+
   useEffect(() => {
     (async () => {
       try {
@@ -24,7 +24,6 @@ export function Home() {
     })();
   }, [setPosts]);
 
-  
   return (
     <NavTemplate>
       {isLoggedIn && (
@@ -33,7 +32,7 @@ export function Home() {
         </S.FixedItem>
       )}
       <S.Container isLoggedIn={isLoggedIn}>
-
+        <PostList posts={posts} isLoading={false} />
       </S.Container>
     </NavTemplate>
   );
