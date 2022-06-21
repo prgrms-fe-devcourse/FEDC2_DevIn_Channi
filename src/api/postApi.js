@@ -16,7 +16,8 @@ export const postApi = {
     return response.data;
   },
 
-  get: async postId => {
+  get: async ({ postId }) => {
+    console.log(postId);
     const response = await axios.get(`${API}/posts/${postId}`);
     return response.data;
   },

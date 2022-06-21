@@ -13,23 +13,40 @@ export function Post({ post, deletePost }) {
 
   return (
     <S.Article>
-      <PostHeader post={post} author={post.author} deletePost={deletePost} />
-      <PostBody postBody={post.title} />
-      <PostFooter
-        post={post}
-        author={post.author}
-        likes={post.likes}
-        comments={post.comments}
-        toggleComments={toggleComments}
-      />
-      {isCommentsOpen && (
-        <Comments post={post} author={post.author} comments={post.comments} />
+      {post && (
+        <>
+          <PostHeader
+            post={post}
+            author={post.author}
+            deletePost={deletePost}
+          />
+          <PostBody postBody={post.title} />
+          <PostFooter
+            post={post}
+            author={post.author}
+            likes={post.likes}
+            comments={post.comments}
+            toggleComments={toggleComments}
+          />
+          {isCommentsOpen && (
+            <Comments
+              post={post}
+              author={post.author}
+              comments={post.comments}
+            />
+          )}
+        </>
       )}
     </S.Article>
   );
 }
 
 Post.propTypes = {
-  post: PostType.isRequired,
-  deletePost: PropTypes.func.isRequired,
+  post: PostType,
+  deletePost: PropTypes.func,
+};
+
+Post.defaultProps = {
+  post: null,
+  deletePost: null,
 };

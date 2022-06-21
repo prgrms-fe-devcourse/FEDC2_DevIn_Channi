@@ -10,6 +10,7 @@ import {
   SignUp,
   ProfileUpdate,
   PostForm,
+  PostDetail,
 } from 'pages';
 import { auth } from 'api';
 import { useCookie } from 'hooks';
@@ -51,7 +52,8 @@ export default function Router() {
         <Route path="/profiles/update" element={<ProfileUpdate />} />
         <Route path="/posts" element={<PostList />} />
         <Route path="/posts/create" element={<PostForm />} />
-        <Route path="/posts/:postid/update" element={<PostForm />} />
+        <Route path="/posts/:postId" element={<PostDetail />} />
+        <Route path="/posts/:postId/update" element={<PostForm />} />
       </Routes>
     </BrowserRouter>
   );
