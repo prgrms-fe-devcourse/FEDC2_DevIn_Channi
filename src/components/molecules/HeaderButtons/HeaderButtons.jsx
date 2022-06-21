@@ -28,7 +28,7 @@ export function HeaderButtons() {
           <MenuItem type="link" to="/profiles/:id" isFirst>
             내 프로필
           </MenuItem>
-          <MenuItem type="link" to="/profiles/update">
+          <MenuItem type="link" to="/profiles/update" isFirst>
             내 정보 수정
           </MenuItem>
           <MenuItem type="link" to="/logout" isLast>

@@ -1,4 +1,3 @@
-import { Logo } from 'components';
 import * as S from './style';
 
 export function NotFoundArea() {

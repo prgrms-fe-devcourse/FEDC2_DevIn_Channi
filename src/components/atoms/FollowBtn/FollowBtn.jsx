@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { follow } from 'api';
+import { follow, notification } from 'api';
 import { useCookie } from 'hooks';
 import { addFollowing, removeFollowing } from 'store';
 import * as S from './style';
@@ -34,6 +34,15 @@ export function FollowBtn({ userId, isFollow, followId }) {
       const followApi = async () => {
         const followInfo = await follow.follow({ token, userId });
         if (followInfo) dispatch(addFollowing(followInfo));
+        await notification.createNotification({
+          token,
+          data: {
+            notificationType: 'FOLLOW',
+            notificationTypeId: followInfo._id,
+            userId,
+            postId: null,
+          },
+        });
         setNewFollowId(followInfo._id);
         setIsDisable(false);
         return followInfo;
