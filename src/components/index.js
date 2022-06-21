@@ -16,7 +16,6 @@ export { Logo } from 'components/atoms/Logo/Logo';
 export { Divider } from 'components/atoms/Divider/Divider';
 export { CreatePostInput } from 'components/atoms/CreatePostInput/CreatePostInput';
 
-export { SamplePost } from 'components/atoms/SamplePost/SamplePost';
 export { StyledLink } from 'components/atoms/StyledLink/StyledLink';
 export { WrapperLink } from 'components/atoms/WrapperLink/WrapperLink';
 export { TextLink } from 'components/atoms/TextLink/TextLink';
@@ -41,7 +40,6 @@ export { HeaderTexts } from 'components/molecules/HeaderTexts/HeaderTexts';
 export { FooterButtons } from 'components/molecules/FooterButtons/FooterButtons';
 export { CreatePost } from 'components/molecules/CreatePost/CreatePost';
 
-export { SamplePostList } from 'components/molecules/SamplePostList/SamplePostList';
 export { NotificationList } from 'components/molecules/NotificationList/NotificationList';
 
 export { PostHeader } from 'components/molecules/PostHeader/PostHeader';
