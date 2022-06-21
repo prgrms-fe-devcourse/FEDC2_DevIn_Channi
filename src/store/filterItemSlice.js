@@ -5,15 +5,13 @@ export const filterItem = createSlice({
   initialState: { filterItem: [] },
   reducers: {
     setFilterItem: (state, action) => {
-      console.log('action.payload', action.payload);
-
-      state.filterItem = [
-        ...state.filterItem.filter(item => {
-          item !== action.payload;
-        }),
-        action.payload,
-      ];
-      console.log('change State', state.filterItem);
+      if (state.filterItem.includes(action.payload)) {
+        state.filterItem = [
+          ...state.filterItem.filter(item => item !== action.payload),
+        ];
+      } else {
+        state.filterItem = [...state.filterItem, action.payload];
+      }
     },
   },
 });
