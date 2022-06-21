@@ -7,4 +7,5 @@ export const UserImage = styled.img`
   border-radius: 50%;
   overflow: hidden;
   background-color: ${({ theme }) => theme.color.line};
+  object-fit: cover;
 `;

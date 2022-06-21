@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import {
   Home,
   Event,
@@ -15,7 +15,6 @@ import { auth } from 'api';
 import { useCookie } from 'hooks';
 import PrivateRoute from 'router/PrivateRoute';
 import { setIsLoggedIn, setUser, setFollowing } from 'store';
-// 임시 추가
 import { PostList } from 'components';
 
 export default function Router() {
@@ -50,7 +49,6 @@ export default function Router() {
         <Route path="/signin" element={<PrivateRoute Children={SignIn} />} />
         <Route path="/signup" element={<PrivateRoute Children={SignUp} />} />
         <Route path="/profiles/update" element={<ProfileUpdate />} />
-        {/* 임시 추가 */}
         <Route path="/posts" element={<PostList />} />
         <Route path="/posts/create" element={<PostForm />} />
         <Route path="/posts/:postid/update" element={<PostForm />} />

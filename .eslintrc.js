@@ -14,6 +14,7 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'no-param-reassign': 'off',
     'dot-notation': 'off',
+    'react/jsx-boolean-value': 'off',
     'jsx-a11y/label-has-associated-control': [
       'error',
       {

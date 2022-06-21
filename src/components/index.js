@@ -31,6 +31,7 @@ export { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 export { Time } from 'components/atoms/Time/Time';
 export { Avatar } from 'components/atoms/Avatar/Avatar';
 export { Image } from 'components/atoms/Image/Image';
+export { SuccessModal } from 'components/atoms/SuccessModal/SuccessModal';
 
 // molecules
 export { Form } from 'components/molecules/Form/Form';
