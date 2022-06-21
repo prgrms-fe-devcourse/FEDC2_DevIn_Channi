@@ -15,6 +15,7 @@ export function ProfileList() {
   const dispatch = useDispatch();
 
   const searchUsersResult = useSelector(state => state.search.user);
+  const authUser = useSelector(state => state.user.user);
 
   const getCount = setcount => {
     if (count <= setcount) {
