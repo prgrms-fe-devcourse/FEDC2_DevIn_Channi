@@ -53,7 +53,7 @@ export default function Router() {
         {/* 임시 추가 */}
         <Route path="/posts" element={<PostList />} />
         <Route path="/posts/create" element={<PostForm />} />
-        <Route path="/posts/:postid/update" element={<PostForm />} />
+        <Route path="/posts/:postid/edit" element={<PostForm />} />
       </Routes>
     </BrowserRouter>
   );

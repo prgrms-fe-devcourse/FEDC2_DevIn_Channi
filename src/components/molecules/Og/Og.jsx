@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
 import { WrapperLink, Image, Paragraph } from 'components';
+import { OgType } from 'types';
 import * as S from './style';
 
-export function Og({ og }) {
+export function Og({ className, og }) {
   const { title, description, image: imageUrl, url: siteUrl } = og;
 
   return (
     <WrapperLink
+      className={className}
       type="anchor"
       href={siteUrl}
       target="_blank"
@@ -34,11 +36,8 @@ export function Og({ og }) {
 }
 
 Og.propTypes = {
-  og: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    keywords: PropTypes.string,
-    url: PropTypes.string.isRequired,
-  }).isRequired,
+  className: PropTypes.string,
+  og: OgType.isRequired,
 };
+
+Og.defaultProps = { className: '' };

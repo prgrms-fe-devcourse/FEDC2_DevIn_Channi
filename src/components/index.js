@@ -64,9 +64,8 @@ export { ProfileArea } from 'components/organisms/ProfileArea/ProfileArea';
 export { Post } from 'components/organisms/Post/Post';
 export { PostList } from 'components/organisms/PostList/PostList';
 export { Comments } from 'components/organisms/Comments/Comments';
+export { UrlModal } from 'components/organisms/UrlModal/UrlModal';
 
 // templates
-export { HomePage } from 'components/templates/HomePage/HomePage';
-export { SearchPage } from 'components/templates/SearchPage/SearchPage';
 export { PostFormPage } from 'components/templates/PostFormPage/PostFormPage';
 export { NavTemplate } from 'components/templates/NavTemplate/NavTemplate';
