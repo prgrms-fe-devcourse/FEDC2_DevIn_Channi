@@ -6,7 +6,7 @@ import { FILTER_ITEM } from 'assets';
 import { useState } from 'react';
 import * as S from './style';
 
-export function FilterSelectBox({ isOpen }) {
+export function FilterSelectBox({ isOpen, setIsOpen }) {
   const filterItems = FILTER_ITEM;
   const dispatch = useDispatch();
   const [, reRendering] = useState();
@@ -19,6 +19,11 @@ export function FilterSelectBox({ isOpen }) {
     dispatch(setInitFilterItem());
     reRendering({});
   };
+
+  const handleClickClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <S.FilterSelectBox isOpen={isOpen}>
       {filterItems.map(item => (
@@ -35,10 +40,14 @@ export function FilterSelectBox({ isOpen }) {
       <button type="button" onClick={handleClickInit}>
         초기화
       </button>
+      <button type="button" onClick={handleClickClose}>
+        완료
+      </button>
     </S.FilterSelectBox>
   );
 }
 
 FilterSelectBox.propTypes = {
   isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
 };

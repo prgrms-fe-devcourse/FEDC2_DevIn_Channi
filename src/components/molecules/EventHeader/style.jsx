@@ -14,16 +14,24 @@ export const FilterButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 1.5rem;
   gap: 0.25rem;
-  border-radius: 0.75rem;
-  padding: 1rem 1rem;
-
+  height: 2rem;
+  padding: 0 1rem;
+  border-radius: 1rem;
   border: 1px solid ${({ theme }) => theme.color.line};
+  color: ${({ theme }) => theme.color.textSecond};
   cursor: pointer;
-  i {
-    color: ${({ theme }) => theme.color.textSecond};
+
+  svg {
+    width: 0.75rem;
+    height: 0.75rem;
+
+    i {
+      width: 100%;
+      height: 100%;
+    }
   }
+
   &:hover {
     background-color: ${({ theme }) => theme.color.backSub};
   }

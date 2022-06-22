@@ -32,6 +32,7 @@ export function CommentForm({ createComment }) {
           placeholder="댓글을 입력하세요"
           value={inputValue}
           onChange={onInputchange}
+          autocomplete="off"
         />
       </S.Label>
     </S.Form>

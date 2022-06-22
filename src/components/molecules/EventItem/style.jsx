@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Paragraph } from 'components';
 
 export const EventItem = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ export const EventItem = styled.div`
   color: ${({ theme }) => theme.color.textSecond};
 
   &:last-child {
-    border-bottom: 0;
+    /* border-bottom: 0; */
   }
 
   a {
@@ -19,4 +20,8 @@ export const EventItem = styled.div`
     width: 100%;
     color: ${({ theme }) => theme.color.textPrime};
   }
+`;
+
+export const StyledParagraph = styled(Paragraph)`
+  margin-top: 0.25rem;
 `;
