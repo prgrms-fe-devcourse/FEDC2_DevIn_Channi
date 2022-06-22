@@ -1,7 +1,11 @@
 # [DevIn](https://zingy-donut-e91f0f.netlify.app/)
 기술 블로그 & 이벤트 일정 공유 서비스
 
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7ce6df7f-32a7-482b-9312-4b41bd76116a/deploy-status)](https://app.netlify.com/sites/zingy-donut-e91f0f/deploys)
+
 :point_right: [DevIn 바로가기](https://zingy-donut-e91f0f.netlify.app/)
+
 
 ![썸네일](https://user-images.githubusercontent.com/73787590/175005381-8728fe74-d41e-4be5-8414-9777f5de1a6a.jpg)
 
