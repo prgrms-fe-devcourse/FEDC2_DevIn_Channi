@@ -12,6 +12,7 @@ import {
   ProfileUpdate,
   PostForm,
   NotFound,
+  PostDetail,
 } from 'pages';
 import { auth } from 'api';
 import { useCookie } from 'hooks';
@@ -32,7 +33,6 @@ export default function Router() {
       dispatch(setUser(user));
       dispatch(setIsLoggedIn(true));
       dispatch(setFollowing(user.following));
-      
     } else {
       dispatch(setIsLoggedIn(false));
     }
@@ -55,7 +55,8 @@ export default function Router() {
         <Route path="/profiles/update" element={<ProfileUpdate />} />
         <Route path="/posts" element={<PostList />} />
         <Route path="/posts/create" element={<PostForm />} />
-        <Route path="/posts/:postid/update" element={<PostForm />} />
+        <Route path="/posts/:postId" element={<PostDetail />} />
+        <Route path="/posts/:postId/update" element={<PostForm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

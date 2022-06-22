@@ -3,6 +3,7 @@ import * as S from './style';
 
 export function RoundBtn({
   children,
+  className,
   type,
   onClick,
   height,
@@ -13,6 +14,7 @@ export function RoundBtn({
   return (
     <S.Btn
       type={type}
+      className={className}
       onClick={onClick}
       height={height}
       width={width}
@@ -26,6 +28,7 @@ export function RoundBtn({
 
 RoundBtn.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   type: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   height: PropTypes.oneOf(['1.5rem', '2.5rem', '3rem']),
@@ -35,6 +38,7 @@ RoundBtn.propTypes = {
 };
 
 RoundBtn.defaultProps = {
+  className: '',
   onClick: null,
   height: '2.5rem',
   width: '',

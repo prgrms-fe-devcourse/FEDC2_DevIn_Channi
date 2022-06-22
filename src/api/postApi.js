@@ -15,6 +15,13 @@ export const postApi = {
     });
     return response.data;
   },
+
+  get: async ({ postId }) => {
+    console.log(postId);
+    const response = await axios.get(`${API}/posts/${postId}`);
+    return response.data;
+  },
+
   getUserPost: async ({ id }) => {
     const response = await axios({
       method: 'get',
@@ -22,6 +29,56 @@ export const postApi = {
     });
     return response.data;
   },
+
+  create: async ({ token, data }) => {
+    const json = JSON.stringify({
+      content: data.content,
+      og: data.og,
+    });
+
+    const formData = new FormData();
+
+    formData.append('title', json);
+    formData.append('image', null);
+    formData.append('channelId', CHANNEL_ID);
+
+    const response = axios({
+      method: 'post',
+      url: `${API}/posts/create`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
+      },
+      data: formData,
+    });
+    return response.data;
+  },
+
+  update: async ({ token, data }) => {
+    const json = JSON.stringify({
+      content: data.content,
+      og: data.og,
+    });
+
+    const formData = new FormData();
+
+    formData.append('postId', data.postId);
+    formData.append('title', json);
+    formData.append('image', null);
+    formData.append('channelId', CHANNEL_ID);
+
+    const response = axios({
+      method: 'put',
+      url: `${API}/posts/update`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
+      },
+      data: formData,
+    });
+    return response.data;
+  },
+
   delete: async ({ token, data }) => {
     const response = axios({
       method: 'delete',

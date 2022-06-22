@@ -1,11 +1,28 @@
+import { useState, useEffect } from 'react';
+import { useNavigate, useMatch } from 'react-router-dom';
 import { PostFormPage } from 'components';
+import { postApi } from 'api';
 
 export function PostForm() {
-  // 라우트에 따라서 데이터 전달 O/X
-  // posts/create
-  // posts/:postId/update
+  const [post, setPost] = useState(null);
+  const navigate = useNavigate();
+  const updateRouteMatch = useMatch('/posts/:postId/update');
 
-  // :postId가 없어서 데이터를 불러오지 못하면 -> 404로
+  useEffect(() => {
+    if (updateRouteMatch == null) return;
 
-  return <PostFormPage />;
+    const { postId } = updateRouteMatch.params;
+
+    (async () => {
+      try {
+        const data = await postApi.get(postId);
+        setPost(data);
+      } catch (e) {
+        console.error(e.message);
+        navigate('/404');
+      }
+    })();
+  }, [updateRouteMatch, navigate]);
+
+  return <PostFormPage post={post} />;
 }
