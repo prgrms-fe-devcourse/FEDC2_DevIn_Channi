@@ -1,4 +1,4 @@
-import { Divider, Span, TextLink, Tag, Paragraph } from 'components';
+import { Span, TextLink, Tag, Paragraph } from 'components';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import * as S from './style';

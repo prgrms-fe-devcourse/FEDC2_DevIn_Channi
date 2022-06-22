@@ -524,7 +524,7 @@ export const EVENT_DATA = {
     {
       title: '게임 서버 개발자 모임',
       preset: '모임',
-      tag: ['게임?'],
+      tag: ['교육','모바일'],
       link: 'https://www.facebook.com/groups/207844736374114/',
     },
     {
@@ -542,7 +542,7 @@ export const EVENT_DATA = {
     {
       title: '한국 리눅스 사용자 그룹',
       preset: '모임',
-      tag: [''],
+      tag: ['교육'],
       link: 'https://www.facebook.com/groups/korelnxuser/',
     },
     {
@@ -578,25 +578,25 @@ export const EVENT_DATA = {
     {
       title: 'Girls In Tech Korea',
       preset: '모임',
-      tag: [''],
+      tag: ['교육'],
       link: 'https://korea.girlsintech.org/',
     },
     {
       title: 'OKKY (Java,Spring)',
       preset: '모임',
-      tag: [''],
+      tag: ['프레임워크'],
       link: 'https://okky.kr/',
     },
     {
       title: '남궁성의 코드초보 스터디(Java,C)',
       preset: '모임',
-      tag: [''],
+      tag: ['교육'],
       link: 'https://cafe.naver.com/javachobostudy',
     },
     {
       title: '우분투 한국 커뮤니티',
       preset: '모임',
-      tag: [''],
+      tag: ['교육'],
       link: 'https://ubuntu-kr.org/',
     },
     {

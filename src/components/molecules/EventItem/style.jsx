@@ -7,11 +7,12 @@ export const EventItem = styled.div`
   height: 7rem;
   padding: 1rem 1rem;
   border: 1px solid ${({ theme }) => theme.color.line};
+  color: ${({ theme }) => theme.color.textSecond};
 
   a {
     height: 0.75rem;
     max-width: 40rem;
     width: 100%;
-    text-overflow: ellipsis;
+    color: ${({ theme }) => theme.color.textPrime};
   }
 `;

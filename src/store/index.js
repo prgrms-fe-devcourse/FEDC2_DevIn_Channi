@@ -3,7 +3,7 @@ export { setAllUsers, setUsersInfo, setPostsInfo } from 'store/searchSlice';
 export { setUser, setIsLoggedIn } from 'store/userSlice';
 export { setAuthValidation } from 'store/authValidationSlice';
 export { setEventType } from 'store/eventTypeSlice';
-export { setFilterItem } from 'store/filterItemSlice';
+export { setFilterItem, setInitFilterItem } from 'store/filterItemSlice';
 export { setFilteredEvent } from 'store/filteredEventSlice';
 export {
   setFollowers,

@@ -11,12 +11,17 @@ export function EventHeader() {
 
   return (
     <S.EventHeader>
-      <EventHeaderNav />
+      {console.log('open??', isOpen)}
+      <EventHeaderNav
+        onTabChange={change => {
+          setIsOpen(change);
+        }}
+      />
       <S.FilterButton onClick={handleFilterBtnClick}>
         <Icon icon="filter" />
         <Span>Filter</Span>
       </S.FilterButton>
-      {isOpen && <FilterSelectBox />}
+      <FilterSelectBox isOpen={isOpen} />
     </S.EventHeader>
   );
 }

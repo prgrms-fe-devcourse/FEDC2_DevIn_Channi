@@ -13,8 +13,11 @@ export const filterItem = createSlice({
         state.filterItem = [...state.filterItem, action.payload];
       }
     },
+    setInitFilterItem: state => {
+      state.filterItem = [];
+    },
   },
 });
 
-export const { setFilterItem } = filterItem.actions;
+export const { setFilterItem, setInitFilterItem } = filterItem.actions;
 export default filterItem.reducer;
