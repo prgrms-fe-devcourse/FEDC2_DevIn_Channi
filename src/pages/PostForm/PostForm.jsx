@@ -15,7 +15,7 @@ export function PostForm() {
 
     (async () => {
       try {
-        const data = await postApi.get(postId);
+        const data = await postApi.get({ postId });
         setPost(data);
       } catch (e) {
         console.error(e.message);
