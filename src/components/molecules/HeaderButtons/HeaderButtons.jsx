@@ -6,7 +6,6 @@ import { Icon, IconBtn, MenuItem, WrapperLink } from 'components';
 import { setIsLoggedIn } from 'store';
 import * as S from './style';
 
-
 export function HeaderButtons() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,7 +35,7 @@ export function HeaderButtons() {
   return (
     <S.HeaderButtons>
       <WrapperLink to="/notification" type="link">
-        {user.notifications.length > 0 && <S.Badge />}
+        {user && user.notifications.length > 0 && <S.Badge />}
         <Icon icon="bell" />
       </WrapperLink>
       <IconBtn
