@@ -10,10 +10,8 @@ export function SearchResultTab({ getTabContent, allPostNum }) {
   const allUsers = useSelector(state => state.search.alluser) || [];
   const searchUsersResult = useSelector(state => state.search.user);
   const searchPostsResult = useSelector(state => state.search.post);
-  console.log(searchPostsResult);
 
   const getTabItem = itemname => {
-    console.log(itemname);
     setContent(itemname);
   };
 
