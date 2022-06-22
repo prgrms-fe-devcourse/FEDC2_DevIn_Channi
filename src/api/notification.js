@@ -18,11 +18,15 @@ export const notification = {
   },
   setNotificationAsRead: async ({ token }) => {
     try {
-      await axios.put(`${API}/notifications/seen`, {
-        headers: {
-          Authorization: `bearer ${token}`,
+      await axios.put(
+        `${API}/notifications/seen`,
+        {},
+        {
+          headers: {
+            Authorization: `bearer ${token}`,
+          },
         },
-      });
+      );
     } catch (e) {
       console.error(e);
     }

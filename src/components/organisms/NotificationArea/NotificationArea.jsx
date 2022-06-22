@@ -55,7 +55,7 @@ export function NotificationArea({ notifications }) {
           );
         })
       ) : (
-        <div>새로운 소식이 없습니다.</div>
+        <S.Paragraph>새로운 소식이 없습니다</S.Paragraph>
       )}
     </S.Container>
   );
