@@ -325,12 +325,10 @@ export const EVENT_DATA = {
       period: '06. 26(일) 14:00 ~ 17:00',
       link: 'https://festa.io/events/2361',
     },
-  ],
-  etc: [
     {
       title: '메타버스엑스포 2022',
       preset: '이벤트',
-      tag: ['오프라인', '메타버스'],
+      tag: ['기타'],
       host: '(주)메쎼이상',
       date: '06. 15(수) ~ 06. 17(금)',
       period: null,
@@ -339,7 +337,7 @@ export const EVENT_DATA = {
     {
       title: '넥스트 라이즈 2022 서울',
       preset: '이벤트',
-      tag: ['온라인', '오프라인', '기술'],
+      tag: ['기타'],
       host: '넥스트라이즈',
       date: '06. 15(수) ~ 06. 17(금)',
       period: null,
@@ -348,7 +346,7 @@ export const EVENT_DATA = {
     {
       title: '하시코프 사용자 모임 2022년 6월 서울 밋업',
       preset: '이벤트',
-      tag: ['오프라인', '하시코프'],
+      tag: ['기타'],
       host: 'HashiCorp 한국사용자모임',
       date: '06. 22(수) 20:00 ~ 22:00',
       period: null,
@@ -357,7 +355,7 @@ export const EVENT_DATA = {
     {
       title: '2022년 현대모비스 알고리즘 경진대회',
       preset: '이벤트',
-      tag: ['경진대회', '알고리즘'],
+      tag: ['기타'],
       host: '현대모비스',
       date: '05. 20(금) ~ 06. 24(금)',
       period: null,
@@ -366,20 +364,11 @@ export const EVENT_DATA = {
     {
       title: '2022 메타버스 개발자 경진대회',
       preset: '이벤트',
-      tag: ['메타버스'],
+      tag: ['기타'],
       host: '과학기술정보통신부',
       date: '05. 31(화) ~ 06. 28(화)',
       period: null,
       link: 'https://metaversedev.kr/info/',
-    },
-    {
-      title: 'DND 7기 모집',
-      preset: '이벤트',
-      tag: ['모임'],
-      host: 'DND',
-      date: null,
-      period: '06. 01(수) ~ 06. 24(금)',
-      link: 'https://dnd.ac/',
     },
   ],
   meeting: [
@@ -524,7 +513,7 @@ export const EVENT_DATA = {
     {
       title: '게임 서버 개발자 모임',
       preset: '모임',
-      tag: ['교육','모바일'],
+      tag: ['교육', '모바일'],
       link: 'https://www.facebook.com/groups/207844736374114/',
     },
     {
