@@ -11,7 +11,6 @@ export function EventHeader() {
 
   return (
     <S.EventHeader>
-      {console.log('open??', isOpen)}
       <EventHeaderNav
         onTabChange={change => {
           setIsOpen(change);

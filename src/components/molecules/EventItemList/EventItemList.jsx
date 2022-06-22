@@ -13,7 +13,6 @@ export function EventItemList() {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    console.log('useEffect');
     const newData = eventDatas
       .map(event => {
         let isSelected = true;
@@ -27,7 +26,6 @@ export function EventItemList() {
         }
       })
       .filter(i => i !== undefined);
-    console.log('newData', newData, typeof newData);
     setList([...newData]);
   }, [filterItem, eventType]);
 

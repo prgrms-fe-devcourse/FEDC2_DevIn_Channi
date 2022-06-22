@@ -7,7 +7,6 @@ import { useState } from 'react';
 import * as S from './style';
 
 export function FilterSelectBox({ isOpen }) {
-  console.log('box!!!');
   const filterItems = FILTER_ITEM;
   const dispatch = useDispatch();
   const [, reRendering] = useState();

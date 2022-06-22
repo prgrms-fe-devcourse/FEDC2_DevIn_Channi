@@ -5,7 +5,6 @@ export const filteredEvent = createSlice({
   initialState: { filteredEvent: [] },
   reducers: {
     setFilteredEvent: (state, action) => {
-      console.log('reducers', action.payload);
       state.filteredEvent = [...action.payload];
     },
   },
