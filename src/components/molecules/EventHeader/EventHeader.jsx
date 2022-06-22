@@ -18,9 +18,11 @@ export function EventHeader() {
       />
       <S.FilterButton onClick={handleFilterBtnClick}>
         <Icon icon="filter" />
-        <Span>Filter</Span>
+        <Span fontSize="small" color="textSecond">
+          Filter
+        </Span>
       </S.FilterButton>
-      <FilterSelectBox isOpen={isOpen} />
+      <FilterSelectBox isOpen={isOpen} setIsOpen={setIsOpen} />
     </S.EventHeader>
   );
 }

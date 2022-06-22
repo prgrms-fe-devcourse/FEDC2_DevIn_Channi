@@ -1,12 +1,11 @@
-import { NavTemplate, EventHeader, EventItemList } from 'components';
+import { NavTemplate, EventArea } from 'components';
 import * as S from './style';
 
 export function Event() {
   return (
     <NavTemplate>
       <S.Container>
-        <EventHeader />
-        <EventItemList />
+        <EventArea />
       </S.Container>
     </NavTemplate>
   );

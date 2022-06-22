@@ -14,11 +14,6 @@ export function EventHeaderNav({ onTabChange }) {
     setCurrentType('event');
     onTabChange(false);
   };
-  const handleClickOtherEventTab = () => {
-    dispatch(setEventType('etc'));
-    setCurrentType('etc');
-    onTabChange(false);
-  };
   const handleClickMeetingTab = () => {
     dispatch(setEventType('meeting'));
     setCurrentType('meeting');
@@ -29,10 +24,6 @@ export function EventHeaderNav({ onTabChange }) {
     <S.EventHeaderNav currentType={currentType}>
       <span name="event" onClick={handleClickEventTab}>
         이벤트
-      </span>
-      <Divider type="vertical" />
-      <span name="etc" onClick={handleClickOtherEventTab}>
-        기타
       </span>
       <Divider type="vertical" />
       <span name="meeting" onClick={handleClickMeetingTab}>

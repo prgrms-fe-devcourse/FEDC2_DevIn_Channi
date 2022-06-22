@@ -78,6 +78,7 @@ export { Comments } from 'components/organisms/Comments/Comments';
 export { NotFoundArea } from 'components/organisms/NotFoundArea/NotFoundArea';
 export { ProfileFollow } from 'components/organisms/ProfileFollow/ProfileFollow';
 export { UrlModal } from 'components/organisms/UrlModal/UrlModal';
+export { EventArea } from 'components/organisms/EventArea/EventArea';
 
 // templates
 export { PostFormPage } from 'components/templates/PostFormPage/PostFormPage';

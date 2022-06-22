@@ -16,4 +16,5 @@ export const FILTER_ITEM = [
   '오픈소스',
   '모바일',
   '프레임워크',
+  '기타',
 ];
