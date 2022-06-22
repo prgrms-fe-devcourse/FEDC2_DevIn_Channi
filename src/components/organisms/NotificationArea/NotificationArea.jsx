@@ -9,9 +9,9 @@ import { notification, auth } from 'api';
 import * as S from './style';
 
 const commentList = {
-  COMMENT: '님이 회원님의 개시물에 댓글을 달았어요.',
+  COMMENT: '님이 회원님의 게시물에 댓글을 달았어요.',
   FOLLOW: '님이 회원님을 팔로우하셨어요.',
-  LIKE: '님이 회원님의 개시물에 좋아요를 눌렀어요.',
+  LIKE: '님이 회원님의 게시물에 좋아요를 눌렀어요.',
 };
 
 export function NotificationArea({ notifications }) {
@@ -66,7 +66,8 @@ export function NotificationArea({ notifications }) {
       {notifications.length ? (
         notifications.map(noti => {
           const {
-            author: { fullName, _id },
+            post: postId,
+            author: { fullName, _id: authorId },
           } = noti;
 
           const type = checkType(noti);
@@ -74,7 +75,9 @@ export function NotificationArea({ notifications }) {
             <NotificationList
               userName={fullName}
               comment={commentList[type]}
-              onClick={() => onClick({ type, id: _id })}
+              onClick={() =>
+                onClick({ type, id: type === 'FOLLOW' ? authorId : postId })
+              }
             />
           );
         })

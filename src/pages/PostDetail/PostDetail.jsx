@@ -8,14 +8,14 @@ export function PostDetail() {
   const [post, setPost] = useState(null);
   const { postId } = useParams();
   const navigate = useNavigate();
-  console.log(postId);
 
   useEffect(() => {
     (async () => {
       try {
+        console.log(postId);
         const rawPost = await postApi.get({ postId });
-
         setPost(rawPost);
+        console.log(rawPost);
       } catch (e) {
         console.error(e.message);
         navigate('/');
