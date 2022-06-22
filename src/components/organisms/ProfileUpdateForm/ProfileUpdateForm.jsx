@@ -115,13 +115,15 @@ export function ProfileUpdateForm({ fullName, image }) {
           token: getCookie(),
         });
 
-        const changedUserInfo = await validateName({
+        await validateName({
           dispatch,
           name,
           token: getCookie(),
         });
 
-        if (changedUserInfo) dispatch(setUser(changedUserInfo));
+        const newUser = await auth.getUser({ token: getCookie() });
+
+        dispatch(setUser(newUser));
 
         onShowModal();
       } catch (e) {

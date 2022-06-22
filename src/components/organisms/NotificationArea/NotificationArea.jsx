@@ -32,7 +32,7 @@ export function NotificationArea({ notifications }) {
 
   const onClick = async ({ type, id }) => {
     if (type === 'COMMENT' || type === 'LIKE') {
-      console.log('comment');
+      navigate(`/posts/${id}`);
     }
 
     if (type === 'FOLLOW') {
