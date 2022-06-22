@@ -3,6 +3,9 @@
 
 :point_right: [DevIn 바로가기](https://zingy-donut-e91f0f.netlify.app/)
 
+![썸네일](https://user-images.githubusercontent.com/73787590/175005381-8728fe74-d41e-4be5-8414-9777f5de1a6a.jpg)
+
+
 ## 프로젝트 소개
 좋은 포스트의 내용들을 한 곳에서 모아볼 수 있고 개발관련 다양한 이벤트들을 한눈에 볼 수 있는 SNS.
 - DevIn은 개발자들에게 블로그 컨텐츠를 자유롭게 공유할 수 있고 개발 관련 이벤트와 모임을 쉽게 확인할 수 있는 서비스입니다.
@@ -46,41 +49,58 @@ REACT_APP_API_CHANNEL_ID // POST CHANNEL ID
 REACT_APP_OG_API_BASEURL // 블로그 링크 이미지, 내용 관련 OG API
 ```
 
-## 컴포넌트
+#### 라우트
+
+| 이름  | 경로 |
+| :-- | :-- |
+| 홈 | / |
+| 로그인 | /signin |
+| 회원가입 | /signup |
+| 포스트 작성 | /posts/create |
+| 포스트 상세 | /posts/:postId |
+| 포스트 수정 | /posts/:postId/update |
+| 이벤트/모임 | /events |
+| 검색 | /search |
+| 사용자 프로필 | /profiles/:userId |
+| 사용자 정보 수정 | /profiles/edit |
+| 알림 | /notification |
+| 404 |  |
+
+## 중요 컴포넌트
 ![Group 53](https://user-images.githubusercontent.com/65644486/174992470-2e5d3aa9-56b0-4d59-99cd-34d049b96077.png)
 
 **Page**
 
-`Home` - 메인 홈 컴포넌트
+`Home` - 메인 홈 페이지
 
-`Event` - 이벤트 정보 컴포넌트
+`Event` - 이벤트 정보 페이지
 
-`Search` - 검색 컴포넌트
+`Search` - 검색 페이지
 
 **Organisms**
 
-`PostList` - 포스트 목록 컴포넌트
+`PostList` - 포스트 목록
 
-`Post` - 포스트 객체 컴포넌트
+`Post` - 포스트 컴포넌트
 
-`SearchArea` - 검색 입력창과 탭 컴포넌트
+`SearchArea` - 검색 입력창과 탭
 
-`ProfileList` - 사용자 목록 컴포넌트
+`ProfileList` - 사용자 목록
 
-`EventArea` - 이벤트 필터와 목록 컴포넌트
+`EventArea` - 이벤트 목록과 필터
 
 **Molecules**
 
-`PostHeader` - 포스트를 작성한 사용자 프로필과 포스트 수정 삭제 기능 컴포넌트
+`PostHeader` - 포스트 작성자 프로필과 포스트 수정/삭제 기능
 
-`PostBody` - 포스트의 내용과 블로그 OG 태그 컴포넌트
+`PostBody` - 포스트의 내용과 url 미리보기
 
-`PostFooter` - 포스트의 댓글과 관련된 컴포넌트
+`PostFooter` - 포스트의 좋아요/댓글 기능
 
-`SearchBar` - 검색 입력창 컴포넌트
+`SearchBar` - 검색 입력창
 
-`SearchResultItem` - 사용자 프로필과 포스트 검색 결과 항목 컴포넌트 
+`SearchResultItem` - 사용자 프로필과 포스트 검색 결과 항목 
 
-`EventHeader` - 이벤트 필터 컴포넌트
+`EventHeader` - 이벤트 필터
 
-`EventItemList` - 이벤트 목록 컴포넌트
+`EventItemList` - 이벤트 목록
