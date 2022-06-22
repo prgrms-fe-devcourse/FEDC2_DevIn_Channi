@@ -45,6 +45,15 @@ export function FollowBtn({ userId, isFollow, followId }) {
           },
         });
         if (followInfo) dispatch(addFollowing(followInfo));
+        await notification.createNotification({
+          token,
+          data: {
+            notificationType: 'FOLLOW',
+            notificationTypeId: followInfo._id,
+            userId,
+            postId: null,
+          },
+        });
         setNewFollowId(followInfo._id);
         setIsDisable(false);
         return followInfo;

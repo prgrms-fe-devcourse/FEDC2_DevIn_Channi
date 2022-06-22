@@ -11,6 +11,7 @@ import {
   Profile,
   ProfileUpdate,
   PostForm,
+  NotFound,
 } from 'pages';
 import { auth } from 'api';
 import { useCookie } from 'hooks';
@@ -55,6 +56,7 @@ export default function Router() {
         <Route path="/posts" element={<PostList />} />
         <Route path="/posts/create" element={<PostForm />} />
         <Route path="/posts/:postid/update" element={<PostForm />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

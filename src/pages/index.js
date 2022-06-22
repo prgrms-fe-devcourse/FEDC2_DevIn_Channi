@@ -1,4 +1,5 @@
 export { Event } from 'pages/Event/Event';
+export { NotFound } from 'pages/NotFound/NotFound';
 export { Home } from 'pages/Home/Home';
 export { Notification } from 'pages/Notification/Notification';
 export { Search } from 'pages/Search/Search';

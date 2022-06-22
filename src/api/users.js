@@ -28,4 +28,13 @@ export const users = {
       console.error(e);
     }
   },
+  getUser: async id => {
+    try {
+      const response = await axios.get(`${API}/users/${id}`);
+
+      return response.data;
+    } catch (e) {
+      console.error(e.message);
+    }
+  },
 };

@@ -7,9 +7,9 @@ import {
 } from 'components';
 import * as S from './style';
 
-export function NotificationList({ userName, comment }) {
+export function NotificationList({ userName, comment, onClick }) {
   return (
-    <S.Container>
+    <S.Container onClick={onClick}>
       <S.Content>
         <Avatar size="2.2rem" />
         <Paragraph fontSize="small" bold isTruncated={true} lineClamp={1}>
@@ -24,4 +24,5 @@ export function NotificationList({ userName, comment }) {
 NotificationList.propTypes = {
   userName: PropTypes.string.isRequired,
   comment: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };

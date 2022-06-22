@@ -77,7 +77,10 @@ export const auth = {
     try {
       const response = await axios.put(
         `${API}/settings/update-user`,
-        { fullName: newName },
+        {
+          fullName: newName,
+          username: newName,
+        },
         {
           headers: {
             Authorization: `bearer ${token}`,
