@@ -1,8 +1,11 @@
+import { useEffect, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+import { setUser } from 'store';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { NotificationList } from 'components';
 import { useCookie } from 'hooks';
-import { notification } from 'api';
+import { notification, auth } from 'api';
 import * as S from './style';
 
 const commentList = {
@@ -15,6 +18,10 @@ export function NotificationArea({ notifications }) {
   const navigate = useNavigate();
   const { getCookie } = useCookie();
 
+  const token = getCookie();
+
+  const dispatch = useDispatch();
+
   const checkType = noti => {
     const { post, comment, like } = noti;
 
@@ -24,8 +31,6 @@ export function NotificationArea({ notifications }) {
   };
 
   const onClick = async ({ type, id }) => {
-    await notification.setNotificationAsRead({ token: getCookie() });
-
     if (type === 'COMMENT' || type === 'LIKE') {
       console.log('comment');
     }
@@ -34,6 +39,25 @@ export function NotificationArea({ notifications }) {
       navigate(`/profiles/${id}`);
     }
   };
+
+  const makeNotiToRead = useCallback(async () => {
+    await notification.setNotificationAsRead({ token });
+  }, [token]);
+
+  const updateUserNoti = useCallback(async () => {
+    const user = await auth.getUser({ token });
+
+    dispatch(setUser(user));
+  }, [dispatch, token]);
+
+  useEffect(() => {
+    makeNotiToRead();
+
+    // unmouunt 될 때 최신 사용자 데이터 업데이트
+    return () => {
+      updateUserNoti();
+    };
+  }, [makeNotiToRead, updateUserNoti]);
 
   return (
     <S.Container>
