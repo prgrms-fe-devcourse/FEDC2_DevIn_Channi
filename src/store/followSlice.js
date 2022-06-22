@@ -14,7 +14,8 @@ export const follow = createSlice({
       state.following.push(action.payload); 
     },
     removeFollowing: (state, action) => {
-      state.following.filter(({_id}) => _id !== action.payload); 
+      const id = action.payload
+      state.following = state.following.filter(({_id}) => _id !== id); 
     },
   },
 });

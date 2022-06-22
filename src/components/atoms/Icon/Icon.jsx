@@ -13,6 +13,8 @@ import {
   Search,
   User,
   Spinner,
+  Filter,
+  X,
 } from 'assets';
 import * as S from './style';
 
@@ -30,7 +32,9 @@ export function Icon({ className, icon }) {
     menus: <Menus />,
     search: <Search />,
     user: <User />,
-    spinner: <Spinner/>,
+    spinner: <Spinner />,
+    filter: <Filter />,
+    x: <X />,
   };
 
   return <S.I className={className}>{iconList[icon]}</S.I>;

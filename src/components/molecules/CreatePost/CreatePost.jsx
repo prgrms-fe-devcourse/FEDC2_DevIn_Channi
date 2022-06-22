@@ -1,12 +1,13 @@
-import { ProfileUserImage, CreatePostInput, WrapperLink } from 'components';
-
+import { useSelector } from 'react-redux';
+import { Avatar, CreatePostInput, WrapperLink } from 'components';
 import * as S from './style';
 
 export function CreatePost() {
+  const { user } = useSelector(state => state.user);
   return (
     <WrapperLink to="/posts/create" type="link">
       <S.CreatePost>
-        <ProfileUserImage size={2.5} />
+        <Avatar alt="" src={user.image} />
         <CreatePostInput />
       </S.CreatePost>
     </WrapperLink>

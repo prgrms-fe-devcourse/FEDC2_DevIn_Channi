@@ -6,11 +6,14 @@ import * as S from './style';
 
 export function Home() {
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
+
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
       try {
+        setIsLoading(true);
         const data = await postApi.getAll({
           params: {
             offset: '',
@@ -18,6 +21,7 @@ export function Home() {
           },
         });
         setPosts(data);
+        setIsLoading(false);
       } catch (e) {
         console.error(e.message);
       }
@@ -32,7 +36,7 @@ export function Home() {
         </S.FixedItem>
       )}
       <S.Container isLoggedIn={isLoggedIn}>
-        <PostList posts={posts} isLoading={false} />
+        <PostList posts={posts} isLoading={isLoading} />
       </S.Container>
     </NavTemplate>
   );

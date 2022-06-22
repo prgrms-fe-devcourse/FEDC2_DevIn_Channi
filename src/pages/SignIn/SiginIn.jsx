@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setIsLoggedIn, setAuthValidation, setUser } from 'store';
+import { setIsLoggedIn, setAuthValidation, setUser, setFollowing } from 'store';
 import { Form } from 'components';
 import { auth } from 'api';
 import { useForm, useCookie } from 'hooks';
@@ -27,6 +27,7 @@ export function SignIn() {
 
         dispatch(setUser(response.user));
         dispatch(setIsLoggedIn(true));
+        dispatch(setFollowing(response.user.following));
         navigate('/');
       } else {
         dispatch(setAuthValidation(response.message));

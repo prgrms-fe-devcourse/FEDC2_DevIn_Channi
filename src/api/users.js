@@ -9,6 +9,14 @@ function wait(ms) {
 }
 
 export const users = {
+  getUser: async ({ userId }) => {
+      try {
+        const response = await axios.get(`${API}/users/${userId}`);
+        return response.data;
+      } catch (e) {
+        console.error(e);
+      }
+  },
   getUsers: async ({ offset, limit }) => {
     try {
       const response = await axios.get(`${API}/users/get-users`, {

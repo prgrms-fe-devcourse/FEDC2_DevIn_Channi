@@ -7,7 +7,7 @@ export const Profile = styled.div`
   justify-content: space-between;
 `;
 
-export const Wrapper = styled.span`
+export const Wrapper = styled.div`
   display: flex;
   align-items: center;
 

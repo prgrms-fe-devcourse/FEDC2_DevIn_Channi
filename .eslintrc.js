@@ -26,6 +26,12 @@ module.exports = {
         depth: 25,
       },
     ],
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'react/forbid-prop-types': 'off',
+    'no-unused-expressions': 'off',
+    'array-callback-return': 'off',
+    'react-hooks/exhaustive-deps': 'off',
   },
   settings: {
     'import/resolver': {

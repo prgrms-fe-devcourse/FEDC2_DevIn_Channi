@@ -23,8 +23,10 @@ export function FollowBtn({ userId, isFollow, followId }) {
   }, [isFollow]);
 
   useEffect(() => {
-    setNewFollowId(followId);
-  }, [followId]);
+    if(followId && !newFollowId) {
+      setNewFollowId(followId);
+    }
+  }, [followId, newFollowId]);
 
   const onFollow = () => {
     setIsDisable(true);
@@ -33,6 +35,15 @@ export function FollowBtn({ userId, isFollow, followId }) {
       const token = getCookie();
       const followApi = async () => {
         const followInfo = await follow.follow({ token, userId });
+        await notification.createNotification({
+          token,
+          data: {
+            notificationType: 'FOLLOW',
+            notificationTypeId: followInfo._id,
+            userId,
+            postId: null,
+          },
+        });
         if (followInfo) dispatch(addFollowing(followInfo));
         await notification.createNotification({
           token,
@@ -61,6 +72,7 @@ export function FollowBtn({ userId, isFollow, followId }) {
       const unfollowApi = async () => {
         const unFollowInfo = await follow.unfollow({ token, id: newFollowId });
         if (unFollowInfo) dispatch(removeFollowing(unFollowInfo._id));
+        setNewFollowId('');
         setIsDisable(false);
         return unFollowInfo;
       };
