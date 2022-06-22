@@ -32,8 +32,9 @@ DevIn은 개발자들에게 블로그 컨텐츠를 자유롭게 공유할 수 �
 <img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=black">
 </div>
 
-### 실행
-<img src="https://img.shields.io/badge/nodejs->=16-D6F49B?&logoColor=white">
+## 실행
+#### 노드 버전
+<img src="https://img.shields.io/badge/node.js->=16-D6F49B?&logoColor=white">
 
 #### 환경변수
 프로젝트를 실행시키려면 .env 파일의 다음과 같은 환경변수가 필요합니다.
