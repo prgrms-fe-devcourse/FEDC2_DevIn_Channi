@@ -67,12 +67,12 @@ export function SearchArea() {
   };
 
   return (
-    <>
+    <S.Container>
       <S.SearchArea>
         <SearchBar />
         <SearchResultTab getTabContent={getTabContent} allPostNum={postsNum} />
       </S.SearchArea>
       {content && <div>{selectContent[content]}</div>}
-    </>
+    </S.Container>
   );
 }

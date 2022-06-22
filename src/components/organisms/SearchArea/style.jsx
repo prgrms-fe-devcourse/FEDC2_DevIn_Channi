@@ -7,5 +7,6 @@ export const SearchArea = styled.div`
 `;
 
 export const Container = styled.div`
-  margin-top: 11rem;
+  height: calc(100vh - 7rem);
+  overflow: auto;
 `;
