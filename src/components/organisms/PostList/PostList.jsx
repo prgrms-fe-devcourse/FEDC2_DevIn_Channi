@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { PostsType } from 'types';
 import { Post, Icon } from 'components';
-import { useCookie } from 'hooks';
-import { postApi } from 'api';
+
 import * as S from './style';
 
 const usePosts = rawPosts => {
@@ -13,28 +12,15 @@ const usePosts = rawPosts => {
     setPosts(rawPosts);
   }, [rawPosts]);
 
-  const { getCookie } = useCookie();
-
-  const deletePost = async ({ postId }) => {
-    const token = getCookie();
-    try {
-      await postApi.delete({
-        token,
-        data: {
-          postId,
-        },
-      });
-      setPosts(posts.filter(post => post._id !== postId));
-    } catch (e) {
-      console.error(e.message);
-    }
+  const onDelete = postId => {
+    setPosts(posts.filter(post => post._id !== postId));
   };
 
-  return { posts, deletePost };
+  return { posts, onDelete };
 };
 
 export function PostList({ posts: rawPosts, isLoading, setTarget }) {
-  const { posts, deletePost } = usePosts(rawPosts);
+  const { posts, onDelete } = usePosts(rawPosts);
 
   return (
     <div>
@@ -42,10 +28,11 @@ export function PostList({ posts: rawPosts, isLoading, setTarget }) {
         {posts.map(post => (
           <li key={post._id}>
             <S.Box />
-            <Post post={post} deletePost={deletePost} />
+            <Post post={post} onDelete={onDelete} />
           </li>
         ))}
       </ul>
+      <S.Box />
 
       <div ref={setTarget} id="target">
         {isLoading && (

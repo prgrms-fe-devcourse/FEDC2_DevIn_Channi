@@ -21,10 +21,10 @@ export const postApi = {
     return response.data;
   },
 
-  getUserPost: async ({ id }) => {
+  getUserPosts: async ({ userId }) => {
     const response = await axios({
       method: 'get',
-      url: `${API}/posts/author/${id}`,
+      url: `${API}/posts/author/${userId}`,
     });
     return response.data;
   },

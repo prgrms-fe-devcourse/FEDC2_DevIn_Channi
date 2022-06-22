@@ -20,6 +20,7 @@ export function SearchArea() {
 
   useEffect(() => {
     if (searchPostsResult) {
+      console.log(searchPostsResult);
       if (searchPostsResult.length === 0) {
         setContent('none');
         setPosts(searchPostsResult);
@@ -47,6 +48,7 @@ export function SearchArea() {
             },
           });
           setPosts(data);
+          // console.log(data);
           setPostsNum(data.length);
           setIsLoading(false);
         } catch (e) {

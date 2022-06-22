@@ -29,6 +29,7 @@ export { Menu } from 'components/atoms/Menu/Menu';
 export { MenuItem } from 'components/atoms/MenuItem/MenuItem';
 export { Span } from 'components/atoms/Span/Span';
 export { Paragraph } from 'components/atoms/Paragraph/Paragraph';
+export { ParagraphForward } from 'components/atoms/ParagraphForward/ParagraphForward';
 export { Time } from 'components/atoms/Time/Time';
 export { Avatar } from 'components/atoms/Avatar/Avatar';
 export { Image } from 'components/atoms/Image/Image';

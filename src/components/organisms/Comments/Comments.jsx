@@ -87,9 +87,7 @@ export function Comments({ post, comments: rawComments, author }) {
 
   return (
     <S.Section>
-      {isLoggedIn && (
-        <CommentForm author={author} createComment={createComment} />
-      )}
+      {isLoggedIn && <CommentForm createComment={createComment} />}
       {comments.length > 0 && (
         <ul>
           {comments.map(

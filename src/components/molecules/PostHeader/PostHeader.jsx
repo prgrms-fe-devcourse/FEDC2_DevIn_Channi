@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { PostType, AuthorType } from 'types';
@@ -11,10 +12,14 @@ import {
   Time,
   Paragraph,
 } from 'components';
-
+import { useCookie } from 'hooks';
+import { postApi } from 'api';
 import * as S from './style';
 
-export function PostHeader({ post, author, deletePost }) {
+export function PostHeader({ post, author, onDelete }) {
+  const navigate = useNavigate();
+  const { getCookie } = useCookie();
+
   const [isMyPost, setIsMyPost] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -40,7 +45,21 @@ export function PostHeader({ post, author, deletePost }) {
   };
 
   const onPostDeleteBtnClick = async () => {
-    await deletePost({ postId: post._id });
+    try {
+      await postApi.delete({
+        token: getCookie(),
+        data: {
+          postId: post._id,
+        },
+      });
+      if (onDelete) {
+        onDelete(post._id);
+      } else {
+        navigate('/');
+      }
+    } catch (e) {
+      console.error(e.message);
+    }
   };
 
   return (
@@ -85,5 +104,9 @@ export function PostHeader({ post, author, deletePost }) {
 PostHeader.propTypes = {
   post: PostType.isRequired,
   author: AuthorType.isRequired,
-  deletePost: PropTypes.func.isRequired,
+  onDelete: PropTypes.func,
+};
+
+PostHeader.defaultProps = {
+  onDelete: null,
 };

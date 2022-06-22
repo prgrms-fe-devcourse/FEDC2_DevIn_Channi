@@ -6,22 +6,23 @@ import { postApi, users } from 'api';
 export function ProfileArea({ userId }) {
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState('');
-  const [post, setPost] = useState([]);
+  const [userPosts, setUserPosts] = useState([]);
 
   useEffect(() => {
     if (userId) {
       const getUserApi = async () => {
         const getUser = await users.getUser({ userId });
         setUser(getUser);
+        console.log(user);
       };
-      const getUserPostApi = async () => {
+      const getUserPostsApi = async () => {
         setIsLoading(true);
-        const getPost = await postApi.getUserPost({ id: userId });
-        setPost(getPost);
+        const getPost = await postApi.getUserPosts({ userId });
+        setUserPosts(getPost);
         setIsLoading(false);
       };
       getUserApi();
-      getUserPostApi();
+      getUserPostsApi();
     }
   }, [userId]);
 
@@ -42,7 +43,9 @@ export function ProfileArea({ userId }) {
           />
         </>
       )}
-      {post.length > 0 ? <PostList posts={post} isLoading={isLoading} /> : null}
+      {userPosts.length > 0 ? (
+        <PostList posts={userPosts} isLoading={isLoading} />
+      ) : null}
     </div>
   );
 }

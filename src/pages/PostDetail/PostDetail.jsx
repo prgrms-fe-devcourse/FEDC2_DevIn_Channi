@@ -5,17 +5,22 @@ import { NavTemplate, Post } from 'components';
 import { postApi } from 'api';
 
 export function PostDetail() {
-  const [post, setPost] = useState(null);
+  const [post, setPost] = useState({
+    _id: '',
+    title: '',
+    createdAt: '',
+    author: '',
+    likes: [],
+    comments: [],
+  });
   const { postId } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
       try {
-        console.log(postId);
         const rawPost = await postApi.get({ postId });
         setPost(rawPost);
-        console.log(rawPost);
       } catch (e) {
         console.error(e.message);
         navigate('/');

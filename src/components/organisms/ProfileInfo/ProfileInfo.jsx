@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { PostsType } from 'types';
 import { ProfileItem, ProfileFollow } from 'components';
 import * as S from './style';
 
@@ -11,7 +12,7 @@ export function ProfileInfo({ userId, posts, followers, following }) {
 
   useEffect(() => {
     setIsModalShow(false);
-  }, [userId])
+  }, [userId]);
 
   const followerModal = followerData => {
     setIsModalShow(true);
@@ -58,7 +59,7 @@ export function ProfileInfo({ userId, posts, followers, following }) {
               key={id}
               role="button"
               tabIndex={0}
-               onClick={() =>
+              onClick={() =>
                 itemName === '팔로워'
                   ? followerModal(followers)
                   : followingModal(following)
@@ -85,7 +86,7 @@ export function ProfileInfo({ userId, posts, followers, following }) {
 
 ProfileInfo.propTypes = {
   userId: PropTypes.string.isRequired,
-  posts: PropTypes.arrayOf(PropTypes.string).isRequired,
+  posts: PostsType.isRequired,
   followers: PropTypes.arrayOf(
     PropTypes.objectOf({
       _id: PropTypes.string,
