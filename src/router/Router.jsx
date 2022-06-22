@@ -11,11 +11,8 @@ import {
   Profile,
   ProfileUpdate,
   PostForm,
-<<<<<<< HEAD
   NotFound,
-=======
   PostDetail,
->>>>>>> 36ed92f (feat: 포스트 상세 페이지)
 } from 'pages';
 import { auth } from 'api';
 import { useCookie } from 'hooks';
@@ -36,7 +33,6 @@ export default function Router() {
       dispatch(setUser(user));
       dispatch(setIsLoggedIn(true));
       dispatch(setFollowing(user.following));
-      
     } else {
       dispatch(setIsLoggedIn(false));
     }
@@ -58,7 +54,7 @@ export default function Router() {
         <Route path="/profiles/:id" element={<Profile />} />
         <Route path="/profiles/update" element={<ProfileUpdate />} />
         <Route path="/posts" element={<PostList />} />
-        <Route path="/posts/create" element={<PostForm />} />   
+        <Route path="/posts/create" element={<PostForm />} />
         <Route path="/posts/:postId" element={<PostDetail />} />
         <Route path="/posts/:postId/update" element={<PostForm />} />
         <Route path="*" element={<NotFound />} />
