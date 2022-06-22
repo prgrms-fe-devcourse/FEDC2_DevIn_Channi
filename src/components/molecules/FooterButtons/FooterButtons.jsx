@@ -5,13 +5,13 @@ export function FooterButtons() {
   return (
     <S.FooterButtons>
       <WrapperLink to="/" type="link">
-        <Icon icon="house" type="button" />
+        <Icon icon="house" />
       </WrapperLink>
       <WrapperLink to="/events" type="link">
-        <Icon icon="calendar" type="button" />
+        <Icon icon="calendar" />
       </WrapperLink>
       <WrapperLink to="/search" type="link">
-        <Icon icon="search" type="button" />
+        <Icon icon="search" />
       </WrapperLink>
     </S.FooterButtons>
   );

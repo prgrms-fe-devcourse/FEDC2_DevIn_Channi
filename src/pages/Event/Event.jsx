@@ -1,9 +1,13 @@
+import { NavTemplate, EventHeader, EventItemList } from 'components';
 import * as S from './style';
 
 export function Event() {
   return (
-    <S.Container>
-      <h1>Event</h1>
-    </S.Container>
+    <NavTemplate>
+      <S.Container>
+        <EventHeader />
+        <EventItemList />
+      </S.Container>
+    </NavTemplate>
   );
 }

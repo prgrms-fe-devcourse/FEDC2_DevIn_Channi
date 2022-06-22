@@ -6,6 +6,7 @@ import * as S from './style';
 
 export function Home() {
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
+
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 

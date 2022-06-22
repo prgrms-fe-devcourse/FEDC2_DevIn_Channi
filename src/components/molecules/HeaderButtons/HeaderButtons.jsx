@@ -1,12 +1,20 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useCookie } from 'hooks';
 import { Icon, IconBtn, MenuItem, WrapperLink } from 'components';
+import { setIsLoggedIn } from 'store';
 import * as S from './style';
 
 
 export function HeaderButtons() {
-  const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
   const authUser = useSelector(state => state.user.user);
+  const { user } = useSelector(state => state.user);
+  const [isOpen, setIsOpen] = useState(false);
+  const { removeCookie } = useCookie();
 
   const onClickBarBtn = () => {
     setIsOpen(!isOpen);
@@ -17,10 +25,19 @@ export function HeaderButtons() {
     }, 100);
   };
 
+  const handleLogOut = () => {
+    if (isLoggedIn) {
+      removeCookie();
+      dispatch(setIsLoggedIn(false));
+      navigate('/');
+    }
+  };
+
   return (
     <S.HeaderButtons>
       <WrapperLink to="/notification" type="link">
-        <Icon icon="bell" type="button" />
+        {user.notifications.length > 0 && <S.Badge />}
+        <Icon icon="bell" />
       </WrapperLink>
       <IconBtn
         icon="bars"
@@ -36,7 +53,7 @@ export function HeaderButtons() {
           <MenuItem type="link" to="/profiles/update">
             내 정보 수정
           </MenuItem>
-          <MenuItem type="link" to="/logout" isLast>
+          <MenuItem type="button" onClick={handleLogOut} isLast>
             로그아웃
           </MenuItem>
         </S.StyledMenu>
