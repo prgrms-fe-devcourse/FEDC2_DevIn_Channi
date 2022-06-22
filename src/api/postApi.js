@@ -15,7 +15,13 @@ export const postApi = {
     });
     return response.data;
   },
-
+  getUserPost: async ({ id }) => {
+    const response = await axios({
+      method: 'get',
+      url: `${API}/posts/author/${id}`,
+    });
+    return response.data;
+  },
   delete: async ({ token, data }) => {
     const response = axios({
       method: 'delete',

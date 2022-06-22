@@ -19,7 +19,6 @@ export { Tag } from 'components/atoms/Tag/Tag';
 export { UserImgUpdateIcon } from 'components/atoms/UserImgUpdateIcon/UserImgUpdateIcon';
 export { ProfileUpdateBtn } from 'components/atoms/ProfileUpdateBtn/ProfileUpdateBtn';
 export { FilterSelectBox } from 'components/atoms/FilterSelectBox/FilterSelectBox';
-
 export { StyledLink } from 'components/atoms/StyledLink/StyledLink';
 export { WrapperLink } from 'components/atoms/WrapperLink/WrapperLink';
 export { TextLink } from 'components/atoms/TextLink/TextLink';
@@ -33,6 +32,7 @@ export { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 export { Time } from 'components/atoms/Time/Time';
 export { Avatar } from 'components/atoms/Avatar/Avatar';
 export { Image } from 'components/atoms/Image/Image';
+export { FollowModal } from 'components/atoms/FollowModal/FollowModal';
 export { SuccessModal } from 'components/atoms/SuccessModal/SuccessModal';
 
 // molecules
@@ -40,6 +40,7 @@ export { Form } from 'components/molecules/Form/Form';
 export { SearchBar } from 'components/molecules/SearchBar/SearchBar';
 export { SearchResultItem } from 'components/molecules/SearchResultItem/SearchResultItem';
 export { Profile } from 'components/molecules/Profile/Profile';
+export { AuthProfile } from 'components/molecules/AuthProfile/AuthProfile';
 export { HeaderButtons } from 'components/molecules/HeaderButtons/HeaderButtons';
 export { HeaderTexts } from 'components/molecules/HeaderTexts/HeaderTexts';
 export { FooterButtons } from 'components/molecules/FooterButtons/FooterButtons';
@@ -72,6 +73,7 @@ export { ProfileArea } from 'components/organisms/ProfileArea/ProfileArea';
 export { Post } from 'components/organisms/Post/Post';
 export { PostList } from 'components/organisms/PostList/PostList';
 export { Comments } from 'components/organisms/Comments/Comments';
+export { ProfileFollow } from 'components/organisms/ProfileFollow/ProfileFollow';
 
 // templates
 export { PostFormPage } from 'components/templates/PostFormPage/PostFormPage';

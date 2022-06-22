@@ -5,10 +5,10 @@ import { setUsersInfo, setPostsInfo } from 'store';
 import * as S from './style';
 
 export function SearchInput() {
-  const [text, setText] = useState(''); 
-  const [keyword, setKeyword] = useState(''); 
-  const [usersResult, setUsersResult] = useState(null); 
-  const [postsResult, setPostsResult] = useState(null); 
+  const [text, setText] = useState('');
+  const [keyword, setKeyword] = useState('');
+  const [usersResult, setUsersResult] = useState(null);
+  const [postsResult, setPostsResult] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -39,8 +39,8 @@ export function SearchInput() {
   }, [keyword, dispatch]);
 
   useEffect(() => {
-    if (usersResult) dispatch(setUsersInfo(usersResult));
-    if (postsResult) dispatch(setPostsInfo(postsResult));
+    dispatch(setUsersInfo(usersResult));
+    dispatch(setPostsInfo(postsResult));
   }, [usersResult, postsResult, dispatch]);
 
   const onChange = e => {

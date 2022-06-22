@@ -6,13 +6,16 @@ import { Icon, IconBtn, MenuItem, WrapperLink } from 'components';
 import { setIsLoggedIn } from 'store';
 import * as S from './style';
 
+
 export function HeaderButtons() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
+  const authUser = useSelector(state => state.user.user);
   const { user } = useSelector(state => state.user);
   const [isOpen, setIsOpen] = useState(false);
   const { removeCookie } = useCookie();
+
   const onClickBarBtn = () => {
     setIsOpen(!isOpen);
   };
@@ -21,6 +24,7 @@ export function HeaderButtons() {
       setIsOpen(false);
     }, 100);
   };
+
   const handleLogOut = () => {
     if (isLoggedIn) {
       removeCookie();
@@ -28,7 +32,7 @@ export function HeaderButtons() {
       navigate('/');
     }
   };
-  console.log('noti', user.notifications.length);
+
   return (
     <S.HeaderButtons>
       <WrapperLink to="/notification" type="link">
@@ -43,7 +47,7 @@ export function HeaderButtons() {
       />
       {isOpen && (
         <S.StyledMenu>
-          <MenuItem type="link" to="/profiles/:id" isFirst>
+          <MenuItem type="link" to={`/profiles/${authUser._id}`} isFirst>
             내 프로필
           </MenuItem>
           <MenuItem type="link" to="/profiles/update">

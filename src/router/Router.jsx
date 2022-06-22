@@ -8,6 +8,7 @@ import {
   Notification,
   SignIn,
   SignUp,
+  Profile,
   ProfileUpdate,
   PostForm,
 } from 'pages';
@@ -30,6 +31,7 @@ export default function Router() {
       dispatch(setUser(user));
       dispatch(setIsLoggedIn(true));
       dispatch(setFollowing(user.following));
+      
     } else {
       dispatch(setIsLoggedIn(false));
     }
@@ -48,6 +50,7 @@ export default function Router() {
         <Route path="/notification" element={<Notification />} />
         <Route path="/signin" element={<PrivateRoute Children={SignIn} />} />
         <Route path="/signup" element={<PrivateRoute Children={SignUp} />} />
+        <Route path="/profiles/:id" element={<Profile />} />
         <Route path="/profiles/update" element={<ProfileUpdate />} />
         <Route path="/posts" element={<PostList />} />
         <Route path="/posts/create" element={<PostForm />} />

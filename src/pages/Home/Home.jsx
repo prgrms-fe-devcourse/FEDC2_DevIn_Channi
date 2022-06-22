@@ -36,7 +36,7 @@ export function Home() {
         </S.FixedItem>
       )}
       <S.Container isLoggedIn={isLoggedIn}>
-        <PostList posts={posts} isLoading={false} />
+        <PostList posts={posts} isLoading={isLoading} />
       </S.Container>
     </NavTemplate>
   );
