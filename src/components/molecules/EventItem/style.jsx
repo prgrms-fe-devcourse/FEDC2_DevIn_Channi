@@ -6,8 +6,12 @@ export const EventItem = styled.div`
   justify-content: space-around;
   height: 7rem;
   padding: 1rem 1rem;
-  border: 1px solid ${({ theme }) => theme.color.line};
+  border-bottom: 1px solid ${({ theme }) => theme.color.line};
   color: ${({ theme }) => theme.color.textSecond};
+
+  &:last-child {
+    border-bottom: 0;
+  }
 
   a {
     height: 0.75rem;
