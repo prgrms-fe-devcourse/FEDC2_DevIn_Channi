@@ -15,8 +15,10 @@ export { ItemText } from 'components/atoms/ItemText/ItemText';
 export { Logo } from 'components/atoms/Logo/Logo';
 export { Divider } from 'components/atoms/Divider/Divider';
 export { CreatePostInput } from 'components/atoms/CreatePostInput/CreatePostInput';
+export { Tag } from 'components/atoms/Tag/Tag';
 export { UserImgUpdateIcon } from 'components/atoms/UserImgUpdateIcon/UserImgUpdateIcon';
 export { ProfileUpdateBtn } from 'components/atoms/ProfileUpdateBtn/ProfileUpdateBtn';
+export { FilterSelectBox } from 'components/atoms/FilterSelectBox/FilterSelectBox';
 
 export { StyledLink } from 'components/atoms/StyledLink/StyledLink';
 export { WrapperLink } from 'components/atoms/WrapperLink/WrapperLink';
@@ -42,6 +44,10 @@ export { HeaderButtons } from 'components/molecules/HeaderButtons/HeaderButtons'
 export { HeaderTexts } from 'components/molecules/HeaderTexts/HeaderTexts';
 export { FooterButtons } from 'components/molecules/FooterButtons/FooterButtons';
 export { CreatePost } from 'components/molecules/CreatePost/CreatePost';
+export { EventHeader } from 'components/molecules/EventHeader/EventHeader';
+export { EventHeaderNav } from 'components/molecules/EventHeaderNav/EventHeaderNav';
+export { EventItemList } from 'components/molecules/EventItemList/EventItemList';
+export { EventItem } from 'components/molecules/EventItem/EventItem';
 export { ProfileImgUpdate } from 'components/molecules/ProfileImgUpdate/ProfileImgUpdate';
 export { ProfileForm } from 'components/molecules/ProfileForm/ProfileForm';
 export { ProfileItem } from 'components/molecules/ProfileItem/ProfileItem';

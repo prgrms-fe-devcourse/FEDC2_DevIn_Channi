@@ -12,6 +12,7 @@ export const Divider = styled.hr`
     width: 1px;
     height: 14px;
     vertical-align: middle;
+    margin: 0 0.25rem;
   }
 
   &.horizontal {

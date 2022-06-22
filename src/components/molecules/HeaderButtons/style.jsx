@@ -21,3 +21,14 @@ export const StyledMenu = styled(Menu)`
   right: 1rem;
   z-index: 1;
 `;
+
+export const Badge = styled.div`
+  position: absolute;
+  top: 0.5rem;
+  right: 3.8rem;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid ${({ theme }) => theme.color.line};
+  border-radius: 0.5rem;
+  background-color: red;
+`;
