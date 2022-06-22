@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding-top: ${props => (props.isLoggedIn ? 4.5 : 0)}rem;
+  margin-top: ${({ isLoggedIn }) => (isLoggedIn ? `4.5rem` : `0`)};
   color: ${({ theme }) => theme.color.highlight};
+  height: ${({ isLoggedIn }) =>
+    `calc(100vh - ${isLoggedIn ? '11.5' : '7'}rem)`};
+  overflow-y: auto;
 `;
 
 export const FixedItem = styled.div`
