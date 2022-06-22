@@ -10,12 +10,12 @@ function wait(ms) {
 
 export const users = {
   getUser: async ({ userId }) => {
-      try {
-        const response = await axios.get(`${API}/users/${userId}`);
-        return response.data;
-      } catch (e) {
-        console.error(e);
-      }
+    try {
+      const response = await axios.get(`${API}/users/${userId}`);
+      return response.data;
+    } catch (e) {
+      console.error(e);
+    }
   },
   getUsers: async ({ offset, limit }) => {
     try {
@@ -26,15 +26,6 @@ export const users = {
       return response.data;
     } catch (e) {
       console.error(e);
-    }
-  },
-  getUser: async id => {
-    try {
-      const response = await axios.get(`${API}/users/${id}`);
-
-      return response.data;
-    } catch (e) {
-      console.error(e.message);
     }
   },
 };
