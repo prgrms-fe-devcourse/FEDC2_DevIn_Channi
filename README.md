@@ -21,7 +21,7 @@
 |[김가연](https://github.com/lexie-kaia) :crown:|게시물 기능|
 |[김민기](https://github.com/93minki)|홈, 이벤트 기능|
 |[박인화](https://github.com/parkinhwa)|사용자 프로필, 검색, 팔로우 기능|
-|[염상권](https://github.com/Yummy-sk)|로그인, 회원가입, 알림, 사용자 정보 변경 기능|
+|[염상권](https://github.com/Yummy-sk)|사용자 인증, 사용자 정보 변경, 알림, Open Graph 서버|
 
 
 ## 개발 환경
